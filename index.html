@@ -1,0 +1,2430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CUBA: CAPITALISMO CAPTURADO — Análisis Geopolítico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS & ESTILOS BASE ──────────────────────────── */
+:root {
+  /* Fondo crema de alta legibilidad, descansado para la vista (WCAG AA) */
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --border: rgba(27, 30, 36, 0.08);
+  --text-primary: #1b1e24; /* Gris oscuro para contraste óptimo >10:1 */
+  --text-muted: #586072;    /* Gris medio para textos auxiliares (>4.5:1) */
+  
+  /* Paleta Tufte para Contraste de Fuentes (Adaptada a fondo claro) */
+  --color-critico: #a63f2b; /* Terracota cálido (Sociedad Civil) */
+  --color-oficial: #435a43; /* Verde oliva seco (Gobierno/Militares) */
+  --color-tecnico: #2e576f; /* Azul acero (Independientes/ONU) */
+  --accent: #b0831c;        /* Oro envejecido para acentos e interactividad */
+  
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+  background-color: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.1vw, 20px); /* Escalado fluido Full HD */
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Restricción de longitud de línea para lectura cómoda en pantallas Full HD */
+p, .timeline-desc, .geo-actor-desc {
+  max-width: 720px;
+}
+
+/* ─── BARRA DE PROGRESO ─────────────────────────────── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-critico), var(--accent));
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.1s;
+}
+
+/* ─── NAVEGACIÓN RECEPTIVA ──────────────────────────── */
+nav {
+  position: fixed;
+  top: 4px; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 5%;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), padding 0.4s var(--ease);
+}
+
+nav.scrolled {
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 5%;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-critico);
+  text-transform: uppercase;
+}
+
+.nav-right-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links {
+  display: none; /* Mobile first: oculto por defecto */
+  gap: 20px;
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { 
+  color: var(--accent); 
+}
+
+/* i18n Language Switcher */
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  background: rgba(27, 30, 36, 0.05);
+  border: 1px solid var(--border);
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.3s var(--ease);
+  border-radius: 2px;
+}
+
+.lang-btn.active {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+
+/* ─── HERO SECTION (Mobile-First) ────────────────────── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 120px 5% 80px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.hero-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--color-critico);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--color-critico);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 8vw, 80px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+
+.hero-title .line-red { color: var(--color-critico); display: block; }
+.hero-title .line-yellow { color: var(--accent); display: block; font-style: italic; }
+.hero-title .line-white { display: block; color: var(--text-primary); }
+
+.hero-subtitle {
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.tesis-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(181, 84, 60, 0.08);
+  border: 1px solid rgba(181, 84, 60, 0.25);
+  padding: 10px 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-critico);
+}
+
+.tesis-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--color-critico);
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(var(--color-critico), transparent);
+  animation: scrollDrop 2s infinite;
+}
+
+@keyframes scrollDrop {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ─── SECCIONES COMUNES ───────────────────────────────── */
+section {
+  padding: clamp(60px, 8vw, 120px) 5%;
+  border-bottom: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.section-label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+
+/* ─── SECCIÓN NARRATIVAS (ESPECTRO) ─────────────────── */
+#tesis {
+  background: var(--surface);
+}
+
+.tesis-spectrum {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tesis-card {
+  display: flex;
+  flex-direction: column; /* Mobile stack */
+  border: 1px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+
+@media (min-width: 768px) {
+  .tesis-card {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+  }
+}
+
+.tesis-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.tesis-card.active {
+  border-color: var(--text-primary);
+  background: var(--surface);
+}
+
+.tesis-number {
+  background: rgba(27, 30, 36, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+  .tesis-number {
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+  }
+}
+
+.tesis-card.hot .tesis-number { color: var(--color-critico); }
+.tesis-card.warm .tesis-number { color: var(--accent); }
+.tesis-card.cool .tesis-number { color: var(--color-tecnico); }
+
+.tesis-content {
+  padding: 20px 24px;
+}
+
+.tesis-intensity {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.tesis-card.hot .tesis-intensity { color: var(--color-critico); }
+.tesis-card.warm .tesis-intensity { color: var(--accent); }
+.tesis-card.cool .tesis-intensity { color: var(--color-tecnico); }
+
+.tesis-statement {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.tesis-detail {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  display: none;
+  margin-top: 10px;
+}
+
+.tesis-card.active .tesis-detail { 
+  display: block; 
+}
+
+/* ─── SECCIÓN DATOS (No Truncamiento) ─────────────────── */
+#datos {
+  background: var(--bg);
+}
+
+.datos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+@media (min-width: 600px) {
+  .datos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .datos-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.dato-card {
+  background: var(--surface);
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto; /* Permite crecimiento natural sin truncamientos */
+  transition: all 0.3s var(--ease);
+}
+
+.dato-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+
+.dato-value-container {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.dato-value {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.dato-value.red { color: var(--color-critico); }
+.dato-value.yellow { color: var(--accent); }
+.dato-value.cyan { color: var(--color-tecnico); }
+
+.dato-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.dato-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.dato-source {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  margin-top: auto; /* Empuja al fondo de la tarjeta */
+}
+
+/* ─── SECCIÓN GAESA (Organigrama Receptivo) ──────────── */
+#gaesa {
+  background: var(--surface);
+}
+
+.org-chart {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.org-node-root {
+  background: var(--color-oficial);
+  color: var(--bg);
+  padding: 14px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 2px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.org-connector-down {
+  width: 1px;
+  height: 30px;
+  background: var(--color-oficial);
+}
+
+.org-level {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  width: 100%;
+  max-width: 800px;
+}
+
+@media (min-width: 600px) {
+  .org-level {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .org-level {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.org-node {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-align: center;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+}
+
+/* Gráfico de Barras */
+.monopoly-chart {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+}
+
+.monopoly-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .monopoly-row {
+    grid-template-columns: 180px 1fr 60px;
+    gap: 16px;
+  }
+}
+
+.monopoly-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.monopoly-bar-track {
+  height: 28px;
+  background: rgba(27, 30, 36, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.monopoly-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #5b755b, var(--color-oficial));
+  width: 0%;
+  transition: width 1.5s var(--ease);
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--bg);
+  white-space: nowrap;
+}
+
+.monopoly-bar-fill.yellow-bar {
+  background: linear-gradient(90deg, #ab893c, var(--accent));
+}
+
+.monopoly-pct {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ─── SECCIÓN GEOPOLÍTICA (Grid Responsivo) ─────────── */
+#geopolitica {
+  background: var(--bg);
+}
+
+.geo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+@media (min-width: 768px) {
+  .geo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.geo-actor {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 4px;
+  height: auto;
+}
+
+.geo-actor-flag {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.geo-actor-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.geo-actor-role {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.geo-actor-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.geo-actor.embargo { border-top: 3px solid var(--color-critico); }
+.geo-actor.regime { border-top: 3px solid var(--color-oficial); }
+.geo-actor.ally { border-top: 3px solid var(--text-primary); }
+.geo-actor.neutral { border-top: 3px solid var(--accent); }
+
+/* ─── SECCIÓN MARCO TEÓRICO (Matriz Receptiva) ───────── */
+#austriaca {
+  background: var(--surface);
+}
+
+.austrian-matrix {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+@media (min-width: 768px) {
+  .austrian-matrix {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+}
+
+.matrix-cell {
+  padding: 20px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.matrix-cell.header {
+  background: rgba(27, 30, 36, 0.03);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.matrix-cell.vs-left { border-left: 4px solid var(--color-tecnico); }
+.matrix-cell.vs-right { border-left: 4px solid var(--color-critico); }
+
+.matrix-concept {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.vs-left .matrix-concept { color: var(--color-tecnico); }
+.vs-right .matrix-concept { color: var(--color-critico); }
+
+.matrix-text {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ─── SECCIÓN HISTORIA LARGA (Colapsable) ────────────── */
+#historia {
+  background: #f4f0e6; /* Tono papel pergamino sutil */
+}
+
+.historia-toggle-btn {
+  background: rgba(176, 131, 28, 0.08);
+  border: 1px solid rgba(176, 131, 28, 0.25);
+  color: var(--accent);
+  padding: 16px 24px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  font-weight: 700;
+}
+
+.historia-toggle-btn:hover {
+  background: rgba(176, 131, 28, 0.15);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.historia-panel {
+  max-height: 0px;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.8s var(--ease), opacity 0.8s var(--ease);
+  margin-top: 30px;
+}
+
+.historia-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .historia-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .historia-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.historia-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.historia-card:hover {
+  border-color: var(--accent);
+}
+
+.historia-header {
+  margin-bottom: 12px;
+}
+
+.historia-epoch {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.historia-title-card {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.historia-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.historia-ddhh {
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-critico);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: auto;
+}
+
+/* ─── SECCIÓN CRONOLOGÍA (TIMELINE) ──────────────────── */
+#timeline {
+  background: var(--surface);
+}
+
+.timeline-container {
+  margin: 40px 0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-event {
+  position: relative;
+  margin-bottom: 36px;
+  padding-left: 20px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -23px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--color-critico);
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.timeline-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ─── SECCIÓN FUENTES ────────────────────────────────── */
+#fuentes {
+  background: var(--bg);
+}
+
+.fuentes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+@media (min-width: 600px) {
+  .fuentes-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .fuentes-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.fuente-card {
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.fuente-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 0 16px 16px 0;
+}
+
+.fuente-card.critical::after { border-color: transparent var(--color-critico) transparent transparent; }
+.fuente-card.regime::after { border-color: transparent var(--color-oficial) transparent transparent; }
+.fuente-card.intl::after { border-color: transparent var(--color-tecnico) transparent transparent; }
+.fuente-card.academic::after { border-color: transparent var(--accent) transparent transparent; }
+
+.fuente-tipo {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.fuente-card.critical .fuente-tipo { color: var(--color-critico); }
+.fuente-card.regime .fuente-tipo { color: var(--color-oficial); }
+.fuente-card.intl .fuente-tipo { color: var(--color-tecnico); }
+.fuente-card.academic .fuente-tipo { color: var(--accent); }
+
+.fuente-nombre {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.fuente-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.fuente-sesgo {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  display: inline-block;
+  color: var(--text-muted);
+  margin-top: auto; /* Empuja al final */
+  width: fit-content;
+}
+
+/* ─── CONCLUSIÓN ─────────────────────────────────────── */
+#conclusion {
+  background: var(--surface);
+}
+
+.conclusion-pullquote {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3.5vw, 36px);
+  font-style: italic;
+  line-height: 1.35;
+  margin: 30px 0;
+  position: relative;
+  padding-left: 30px;
+  border-left: 3px solid var(--color-critico);
+}
+
+.metodologia-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 24px;
+  margin: 30px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .metodologia-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .metodologia-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.meta-item {
+  font-family: var(--font-mono);
+}
+
+.meta-key {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-critico);
+  margin-bottom: 4px;
+}
+
+.meta-val {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+footer {
+  background: var(--bg);
+  padding: 40px 5%;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer-note {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-muted);
+  line-height: 1.1;
+}
+
+/* ─── ACCESIBILIDAD Y ANIMACIONES ───────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Focus states para accesibilidad */
+a:focus, button:focus {
+  outline: 2px dashed var(--accent);
+  outline-offset: 4px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAVEGACIÓN -->
+<nav>
+  <div class="nav-logo" data-i18n="nav_logo">Cuba · Análisis</div>
+  <div class="nav-right-container">
+    <ul class="nav-links">
+      <li><a href="#tesis" data-i18n="nav_narrativas">Narrativas</a></li>
+      <li><a href="#datos" data-i18n="nav_datos">Datos</a></li>
+      <li><a href="#gaesa" data-i18n="nav_gaesa">GAESA</a></li>
+      <li><a href="#geopolitica" data-i18n="nav_geopolitica">Geopolítica</a></li>
+      <li><a href="#austriaca" data-i18n="nav_marco">Marco Teórico</a></li>
+      <li><a href="#historia" data-i18n="nav_historia">Historia Larga</a></li>
+      <li><a href="#timeline" data-i18n="nav_colapso">Colapso</a></li>
+      <li><a href="#fuentes" data-i18n="nav_fuentes">Fuentes</a></li>
+    </ul>
+    
+    <!-- Language Selection Switch -->
+    <div class="lang-switch">
+      <button id="lang-btn-es" class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+      <button id="lang-btn-en" class="lang-btn" onclick="changeLanguage('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════ HERO ═════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-tag" data-i18n="hero_tag">Investigación geopolítica · 2026</div>
+
+  <h1 class="hero-title">
+    <span class="line-white" data-i18n="hero_title_white">Cuba no es</span>
+    <span class="line-red" data-i18n="hero_title_red">socialismo</span>
+    <span class="line-yellow" data-i18n="hero_title_yellow">fallido</span>
+  </h1>
+
+  <p class="hero-subtitle" data-i18n="hero_subtitle">
+    Es capitalismo de monopolio capturado por una élite militar. Un mercado libre existe — pero está secuestrado.
+  </p>
+
+  <div class="tesis-badge">
+    <span class="dot"></span>
+    <span data-i18n="hero_badge">Tesis Provocadora · Escuela Austriaca · Datos ONU 2026</span>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span data-i18n="hero_scroll">Desplázate para explorar</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ NARRATIVAS (TESIS) ═════ -->
+<section id="tesis">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="met_label">Narrativas en Espectro</div>
+    <h2 class="section-title reveal" data-i18n="met_title">Tres lecturas de la realidad cubana</h2>
+    
+    <!-- Cuadro Metodológico -->
+    <div class="metodologia-intro reveal" style="border-left: 2px solid var(--accent); padding-left: 20px; margin: 30px 0 40px;">
+      <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px;" data-i18n="met_intro_label">Metodología de Triangulación de Fuentes</p>
+      <p style="font-size: 15px; color: var(--text-primary); margin-bottom: 20px; max-width:760px;" data-i18n="met_intro_desc">
+        Para analizar la crisis de Cuba sin caer en sesgos ideológicos preexistentes, sometemos cada perspectiva a tres preguntas de rigor científico:
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+        <div style="background: rgba(27,30,36,0.02); padding: 16px; border: 1px solid var(--border); border-radius: 4px;">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--color-critico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="met_q1_title">01. Incentivos</div>
+          <div style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;" data-i18n="met_q1_desc">¿Quién se beneficia políticamente de que esta narrativa sea aceptada como la oficial?</div>
+        </div>
+        <div style="background: rgba(27,30,36,0.02); padding: 16px; border: 1px solid var(--border); border-radius: 4px;">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--color-tecnico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="met_q2_title">02. Contraste</div>
+          <div style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;" data-i18n="met_q2_desc">¿Qué datos sostienen los actores con intereses e incentivos opuestos?</div>
+        </div>
+        <div style="background: rgba(27,30,36,0.02); padding: 16px; border: 1px solid var(--border); border-radius: 4px;">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="met_q3_title">03. Falsación</div>
+          <div style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;" data-i18n="met_q3_desc">¿Qué condiciones empíricas concretas refutarían esta hipótesis cuantitativa?</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:24px;" data-i18n="met_prompt">
+      Las narrativas sobre el desabastecimiento se configuran en un espectro continuo. Haz clic en cada tarjeta para profundizar en su análisis.
+    </p>
+
+    <div class="tesis-spectrum">
+
+      <div class="tesis-card hot" onclick="toggleTesis(this)">
+        <div class="tesis-number">01</div>
+        <div class="tesis-content">
+          <div class="tesis-intensity" data-i18n="card1_intensity">● Narrativa de Ruptura (Disidente)</div>
+          <div class="tesis-statement" data-i18n="card1_stmt">Cuba es un capitalismo corporativo militarizado con marketing socialista</div>
+          <div class="tesis-detail" data-i18n-html="card1_detail">
+            Desde este prisma, GAESA opera como un holding corporativo cerrado que instrumentaliza el discurso revolucionario de soberanía nacional únicamente como una barrera defensiva de relaciones públicas. El "socialismo" en Cuba funciona como una franquicia de marca: se retiene la iconografía histórica del Che Guevara y el antiimperialismo mientras en la práctica se ejecuta una extracción de rentas de corte monopolista tradicional. El incentivo de la cúpula militar gobernante coincide con el de un cartel corporativo del siglo XIX, variando únicamente el uso del uniforme militar en lugar del traje empresarial.
+            <br><br>
+            <em style="color:rgba(27,30,36,0.4)">Límite metodológico: Es difícil aislar experimentalmente la ideología política doctrinaria de la pura supervivencia de la élite y su maximización de poder.</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="tesis-card warm active" onclick="toggleTesis(this)">
+        <div class="tesis-number">02</div>
+        <div class="tesis-content">
+          <div class="tesis-intensity" data-i18n="card2_intensity">◆ Narrativa de Captura (Institucional)</div>
+          <div class="tesis-statement" data-i18n="card2_stmt">Mercado libre capturado: las fuerzas de mercado operan, pero un monopsonio militar extrae el excedente productivo</div>
+          <div class="tesis-detail" data-i18n-html="card2_detail">
+            Desde la perspectiva de la economía de mercado y la imposibilidad del cálculo de planificación central (Mises, Hayek), el colapso cubano no es causado por la inexistencia de mercados (las MIPYMES y el mercado cambiario informal muestran un dinamismo real), sino por la captura sistemática de sus rentas. El productor informal, el campesino y el emprendedor operan en base a señales de precios informales, pero se ven forzados a transferir su excedente a GAESA mediante la entrega obligatoria de divisas al tipo de cambio subvaluado oficial, el control del monopolio importador y la manipulación de insumos.
+            <br><br>
+            <em style="color:rgba(27,30,36,0.4)">Condición de falsación: Si se desmantelara el conglomerado corporativo de GAESA y se mantuviera el mismo nivel de desabastecimiento, esta narrativa institucional quedaría refutada.</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="tesis-card cool" onclick="toggleTesis(this)">
+        <div class="tesis-number">03</div>
+        <div class="tesis-content">
+          <div class="tesis-intensity" data-i18n="card3_intensity">▲ Narrativa Empírica (Falsificable)</div>
+          <div class="tesis-statement" data-i18n="card3_stmt">El desabastecimiento no representa un fallo sistémico de mercado, sino el éxito de incentivos monopólicos en lucrar con la escasez</div>
+          <div class="tesis-detail" data-i18n-html="card3_detail">
+            Tesis testeable empíricamente: si la monopolización de GAESA es el factor causal dominante de la escasez de alimentos esenciales, la evidencia debería confirmar: (1) escasez asimétrica, siendo crítica en sectores controlados por las FAR y menor en los rubros de distribución informal; (2) una correlación directa entre el incremento de importación de insumos de lujo por GAESA y la caída del financiamiento a la agricultura local; y (3) que la apertura a importadoras privadas (MIPYMES post-2021) alivia sustancialmente el abasto en sectores no cartelizados. El embargo de EE. UU. representa una variable externa severa en el acceso al crédito, pero resulta insuficiente para explicar la profunda brecha entre la acumulación de divisas de GAESA y la desnutrición del 96% de la población cubana.
+            <br><br>
+            <em style="color:rgba(27,30,36,0.4)">Esta narrativa es la más resistente al sesgo de confirmación, ya que se ancla a datos de convergencia entre fuentes opuestas.</em>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ DATOS ═══ -->
+<section id="datos">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="datos_label">Encuesta FMP 2024 · ONU 2026</div>
+    <h2 class="section-title reveal" data-i18n="datos_title">Los números que no mienten</h2>
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:24px; font-size:14px;" data-i18n="datos_desc">
+      Encuesta nacional de seguridad alimentaria: 2,703 hogares · Presentada ante el Relator Especial ONU sobre Derecho a la Alimentación · Mayo 2026
+    </p>
+
+    <div class="datos-grid">
+
+      <div class="dato-card reveal">
+        <div class="dato-value-container">
+          <div class="dato-value red" data-target="96">0</div><div class="dato-value red">%</div>
+        </div>
+        <div class="dato-label" data-i18n="card_dato1_label">Pérdida capacidad de compra</div>
+        <div class="dato-desc" data-i18n="card_dato1_desc">El 96% de la población cubana perdió su capacidad de adquisición de alimentos esenciales en los últimos años.</div>
+        <div class="dato-source" data-i18n="card_dato1_source">Fuente: FMP Encuesta Seguridad Alimentaria 2024</div>
+      </div>
+
+      <div class="dato-card reveal">
+        <div class="dato-value-container">
+          <div class="dato-value red" data-target="67">0</div><div class="dato-value red">%</div>
+        </div>
+        <div class="dato-label" data-i18n="card_dato2_label">Caída producción agrícola</div>
+        <div class="dato-desc" data-i18n="card_dato2_desc">La producción agrícola nacional se desplomó 67% en los últimos cinco años mientras GAESA priorizaba exportaciones.</div>
+        <div class="dato-source" data-i18n="card_dato2_source">Fuente: FMP / Infobae, mayo 2026</div>
+      </div>
+
+      <div class="dato-card reveal">
+        <div class="dato-value-container">
+          <div class="dato-value yellow" data-target="80">0</div><div class="dato-value yellow">%</div>
+        </div>
+        <div class="dato-label" data-i18n="card_dato3_label">Alimentos importados</div>
+        <div class="dato-desc" data-i18n="card_dato3_desc">Cuba importa el 80% de los alimentos que consume. Una nación agrícola en dependencia alimentaria total.</div>
+        <div class="dato-source" data-i18n="card_dato3_source">Fuente: FMP / Martí Noticias 2026</div>
+      </div>
+
+      <div class="dato-card reveal">
+        <div class="dato-value-container">
+          <div class="dato-value cyan" data-target="70">0</div><div class="dato-value cyan">%+</div>
+        </div>
+        <div class="dato-label" data-i18n="card_dato4_label">Economía controlada por GAESA</div>
+        <div class="dato-desc" data-i18n="card_dato4_desc">GAESA controla más del 70% de la economía cubana y el 95% de las finanzas nacionales. El Estado civil es decorativo.</div>
+        <div class="dato-source" data-i18n="card_dato4_source">Fuente: Havana Consulting Group, ASCE 2025</div>
+      </div>
+
+      <div class="dato-card reveal">
+        <div class="dato-value-container">
+          <div class="dato-value red" data-target="33">0</div><div class="dato-value red">%</div>
+        </div>
+        <div class="dato-label" data-i18n="card_dato5_label">Hogares con hambre nocturna</div>
+        <div class="dato-desc" data-i18n="card_dato5_desc">El 33.9% de los hogares reporta que al menos un miembro se fue a dormir con hambre por falta de recursos.</div>
+        <div class="dato-source" data-i18n="card_dato5_source">Fuente: FMP 2024, Sergio Ángel Baquero</div>
+      </div>
+
+      <div class="dato-card reveal">
+        <div class="dato-value-container">
+          <div class="dato-value yellow" data-target="29">0</div><div class="dato-value yellow">%</div>
+        </div>
+        <div class="dato-label" data-i18n="card_dato6_label">Logra dos comidas al día</div>
+        <div class="dato-desc" data-i18n="card_dato6_desc">Solo el 29% de la población cubana logra acceder a dos comidas diarias en la crisis actual.</div>
+        <div class="dato-source" data-i18n="card_dato6_source">Fuente: Diario de Cuba / FMP 2026</div>
+      </div>
+
+      <div class="dato-card reveal">
+        <div class="dato-value-container">
+          <div class="dato-value red" data-target="43">0</div><div class="dato-value red">%</div>
+        </div>
+        <div class="dato-label" data-i18n="card_dato7_label">Caída remesas en 2024</div>
+        <div class="dato-desc" data-i18n="card_dato7_desc">Las remesas cayeron un 43% en 2024 respecto al año anterior y 70% vs. 2019. El 92.68% llega por canales informales.</div>
+        <div class="dato-source" data-i18n="card_dato7_source">Fuente: Cuba Siglo 21, febrero 2025</div>
+      </div>
+
+      <div class="dato-card reveal">
+        <div class="dato-value-container">
+          <div class="dato-value cyan" style="font-size: clamp(38px, 5vw, 64px);">3.2×</div>
+        </div>
+        <div class="dato-label" data-i18n="card_dato8_label">Ingresos GAESA vs impuestos estatales</div>
+        <div class="dato-desc" data-i18n="card_dato8_desc">Los ingresos del conglomerado son 3.2 veces mayores que los del presupuesto del Estado vía impuestos. Estado capturado.</div>
+        <div class="dato-source" data-i18n="card_dato8_source">Fuente: elToque, noviembre 2025 (balances filtrados)</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ GAESA ═══ -->
+<section id="gaesa">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="gaesa_label">Anatomía del Monopolio</div>
+    <h2 class="section-title reveal" data-i18n="gaesa_title">GAESA: El Estado dentro del Estado</h2>
+
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:30px;" data-i18n="gaesa_desc">
+      El Grupo de Administración Empresarial S.A. es el brazo financiero de las Fuerzas Armadas Revolucionarias. Opera sin auditoría pública, sin control parlamentario, sin supervisión del Ministerio de Economía. Ni la Contraloría General puede acceder a sus cuentas.
+    </p>
+
+    <!-- Organigrama Adaptable -->
+    <div class="org-chart reveal">
+      <div class="org-node-root" data-i18n="gaesa_node_far">FUERZAS ARMADAS REVOLUCIONARIAS (FAR)</div>
+      <div class="org-connector-down"></div>
+      <div class="org-node-root" style="background: #3c4f3c;" data-i18n="gaesa_node_gaesa">GAESA · Grupo de Administración Empresarial S.A.</div>
+      <div class="org-connector-down"></div>
+      <div class="org-level">
+        <div class="org-node" data-i18n="gaesa_node_bfi">Banco Financiero Internacional</div>
+        <div class="org-node" data-i18n="gaesa_node_cimex">Cimex S.A.</div>
+        <div class="org-node" data-i18n="gaesa_node_trd">TRD Caribe</div>
+        <div class="org-node" data-i18n="gaesa_node_gaviota">Gaviota S.A. (Turismo)</div>
+        <div class="org-node" data-i18n="gaesa_node_flora">Flora y Fauna S.A.</div>
+        <div class="org-node" data-i18n="gaesa_node_caribex">Tiendas Caribex</div>
+        <div class="org-node" data-i18n="gaesa_node_transtur">Transtur</div>
+        <div class="org-node" data-i18n="gaesa_node_universal">Almacenes Universal</div>
+      </div>
+    </div>
+
+    <div class="section-label reveal" style="margin-top:60px;" data-i18n="gaesa_sectorial">Control sectorial estimado</div>
+
+    <!-- Gráfico de barras Tufte -->
+    <div class="monopoly-chart reveal" id="monopoly-chart">
+
+      <div class="monopoly-row">
+        <div class="monopoly-label" data-i18n="gaesa_fn">Finanzas nacionales</div>
+        <div class="monopoly-bar-track">
+          <div class="monopoly-bar-fill" data-width="95">95%</div>
+        </div>
+        <div class="monopoly-pct">95%</div>
+      </div>
+
+      <div class="monopoly-row">
+        <div class="monopoly-label" data-i18n="gaesa_et">Economía total</div>
+        <div class="monopoly-bar-track">
+          <div class="monopoly-bar-fill" data-width="70">70%+</div>
+        </div>
+        <div class="monopoly-pct">70%+</div>
+      </div>
+
+      <div class="monopoly-row">
+        <div class="monopoly-label" data-i18n="gaesa_ia">Importaciones alimentos</div>
+        <div class="monopoly-bar-track">
+          <div class="monopoly-bar-fill" data-width="85">85%</div>
+        </div>
+        <div class="monopoly-pct">~85%</div>
+      </div>
+
+      <div class="monopoly-row">
+        <div class="monopoly-label" data-i18n="gaesa_dv">Divisas (USD/EUR)</div>
+        <div class="monopoly-bar-track">
+          <div class="monopoly-bar-fill yellow-bar" data-width="88">88%</div>
+        </div>
+        <div class="monopoly-pct">~88%</div>
+      </div>
+
+      <div class="monopoly-row">
+        <div class="monopoly-label" data-i18n="gaesa_tr">Turismo receptor</div>
+        <div class="monopoly-bar-track">
+          <div class="monopoly-bar-fill yellow-bar" data-width="60">60%</div>
+        </div>
+        <div class="monopoly-pct">~60%</div>
+      </div>
+
+    </div>
+
+    <p class="reveal" style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted); letter-spacing:0.5px; margin-top:16px;" data-i18n="gaesa_chart_note">
+      * Estimaciones combinadas: Havana Consulting Group (ASCE 2025) + balances GAESA filtrados (elToque, nov 2025) + FMP 2024
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ GEOPOLÍTICA ═ -->
+<section id="geopolitica">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="geo_label">Lente Geopolítico</div>
+    <h2 class="section-title reveal" data-i18n="geo_title">El tablero de actores: intereses opacos</h2>
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:20px;" data-i18n="geo_desc">
+      La triangulación de fuentes requiere identificar los vectores de interés que distorsionan el análisis. Ningún actor es neutral. El ruido informativo es deliberado.
+    </p>
+
+    <div class="geo-grid reveal">
+
+      <div class="geo-actor embargo">
+        <div class="geo-actor-flag">🇺🇸</div>
+        <div class="geo-actor-name" data-i18n="actor1_name">Estados Unidos</div>
+        <div class="geo-actor-role" data-i18n="actor1_role">El Bloqueo como variable de confusión</div>
+        <div class="geo-actor-desc" data-i18n="actor1_desc">
+          64 años de embargo. Trump aplicó 240+ nuevas sanciones. En diciembre de 2025, la Marina de EE. UU. interrumpió temporalmente el flujo de crudo venezolano. Señal de ruido: el bloqueo es real y sumamente perjudicial, pero resulta insuficiente para explicar la asimetría interna de recursos.
+        </div>
+      </div>
+
+      <div class="geo-actor regime">
+        <div class="geo-actor-flag">🇨🇺</div>
+        <div class="geo-actor-name" data-i18n="actor2_name">Régimen cubano / GAESA</div>
+        <div class="geo-actor-role" data-i18n="actor2_role">Narrativa del bloqueo como escudo</div>
+        <div class="geo-actor-desc" data-i18n="actor2_desc">
+          Usa el embargo como coartada para toda ineficiencia interna. No se permite auditoría independiente y los datos oficiales son manipulados. Interés: el régimen busca culpar enteramente a factores externos para eximirse de la captura monopólica.
+        </div>
+      </div>
+
+      <div class="geo-actor ally">
+        <div class="geo-actor-flag">🇻🇪🇷🇺🇨🇳</div>
+        <div class="geo-actor-name" data-i18n="actor3_name">Venezuela / Rusia / China</div>
+        <div class="geo-actor-role" data-i18n="actor3_role">Aliados con agenda propia</div>
+        <div class="geo-actor-desc" data-i18n="actor3_desc">
+          Venezuela proveía petróleo (cortado en dic 2025). China financia infraestructura solar. Rusia mantiene lazos comerciales. Interés: estos actores priorizan la persistencia de Cuba como un bastión geopolítico anti-occidental, ajenos a la crisis de abasto local.
+        </div>
+      </div>
+
+      <div class="geo-actor neutral">
+        <div class="geo-actor-flag">🇺🇳</div>
+        <div class="geo-actor-name" data-i18n="actor4_name">ONU / Relatorías Especiales</div>
+        <div class="geo-actor-role" data-i18n="actor4_role">Doble relatoría contradictoria</div>
+        <div class="geo-actor-desc" data-i18n="actor4_desc">
+          La Relatora sobre sanciones unilaterales (Douhan) exige levantar el embargo. Paralelamente, el Relator de Alimentación recibe el informe FMP contra GAESA. Tensión: ambas denuncias son verdaderas. El bloqueo daña y GAESA extrae rentas; no son excluyentes.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="reveal" style="margin-top:40px; padding:24px; border:1px solid var(--accent); background:rgba(176, 131, 28, 0.03); border-radius: 4px;">
+      <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--accent); margin-bottom:12px; font-weight:700;" data-i18n="geo_triang_title">MÉTODO DE TRIANGULACIÓN DE FUENTES</div>
+      <p style="font-size:14px; line-height:1.6; color:var(--text-primary);" data-i18n="geo_triang_desc">
+        Para filtrar la señal real del ruido geopolítico: buscamos convergencia entre fuentes con intereses opuestos. Cuando FMP (crítico), elToque (técnico independiente) y Havana Consulting (exilio) coinciden en que GAESA controla más del 70% de la economía, el dato supera el umbral de sesgo de fuente única.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ MARCO TEÓRICO ═══ -->
+<section id="austriaca">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="marco_label">Marco Teórico</div>
+    <h2 class="section-title reveal" data-i18n="marco_title">Economía Institucional y Rent-Seeking</h2>
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:30px;" data-i18n="marco_desc">
+      La crítica clásica austriaca a la planificación central se aplica a Cuba con un giro moderno: el problema no es la ausencia de mercados informales, sino el Rent-Seeking (búsqueda de rentas) y la captura institucional ejercida por un monopolista corporativo militar.
+    </p>
+
+    <div class="austrian-matrix reveal">
+
+      <div class="matrix-cell header" data-i18n="matrix_hdr1">Narrativa Oficialista (CEPAL / Régimen)</div>
+      <div class="matrix-cell header" data-i18n="matrix_hdr2">Análisis del Repositorio (Institucional / Austriaco)</div>
+
+      <div class="matrix-cell vs-left">
+        <div class="matrix-concept" data-i18n="matrix_c1_concept">Causa del fracaso</div>
+        <div class="matrix-text" data-i18n="matrix_c1_text">Las sanciones comerciales unilaterales impiden la liquidez financiera y cortan la cadena de suministro internacional. La planificación socialista se encargaría de distribuir equitativamente la escasez.</div>
+      </div>
+      <div class="matrix-cell vs-right">
+        <div class="matrix-concept" data-i18n="matrix_c1_res">El monopolio institucional</div>
+        <div class="matrix-text" data-i18n="matrix_c1_res_text">GAESA monopoliza el cálculo monetario: fija tipos de cambio artificiales que castigan al exportador independiente y canaliza el flujo del spread cambiario hacia el sector hotelero corporativo.</div>
+      </div>
+
+      <div class="matrix-cell vs-left">
+        <div class="matrix-concept" data-i18n="matrix_c2_concept">Cálculo económico</div>
+        <div class="matrix-text" data-i18n="matrix_c2_text">El Estado puede coordinar la asignación de recursos básicos de forma más justa que el mercado libre. Los precios controlados previenen la especulación capitalista.</div>
+      </div>
+      <div class="matrix-cell vs-right">
+        <div class="matrix-concept" data-i18n="matrix_c2_res">Información dispersa (Hayek)</div>
+        <div class="matrix-text" data-i18n="matrix_c2_res_text">La planificación central destruye las señales de precios informales. GAESA no planifica el bienestar; extrae la renta de la escasez para sostener la rentabilidad militar corporativa.</div>
+      </div>
+
+      <div class="matrix-cell vs-left">
+        <div class="matrix-concept" data-i18n="matrix_c3_concept">Institucional y Rent-Seeking</div>
+        <div class="matrix-text" data-i18n="matrix_c3_text">Las reformas y MIPYMES de 2021 demuestran la voluntad estatal de abrir la economía. La ineficiencia agrícola responde a la falta de créditos externos provocada por el bloqueo.</div>
+      </div>
+      <div class="matrix-cell vs-right">
+        <div class="matrix-concept" data-i18n="matrix_c3_res">El bloqueo interno (Tullock)</div>
+        <div class="matrix-text" data-i18n="matrix_c3_res_text">El desabastecimiento es un resultado óptimo para un monopolista. El hambre del 96% de la población coexiste con la captura del flujo de remesas de la diáspora. Es racionalidad de rentas, no ineficiencia.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ HISTORIA LARGA ═════ -->
+<section id="historia">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="historia_label">Perspectiva Histórica</div>
+    <h2 class="section-title reveal" data-i18n="historia_title">La Historia Larga: Cuba como tablero geopolítico</h2>
+    
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:28px;" data-i18n="historia_desc">
+      La discusión contemporánea sobre el desabastecimiento a menudo se reduce a una disputa simplista entre el impacto del embargo estadounidense y las ineficiencias del sistema estatal. Para dotar al análisis de una perspectiva histórica profunda y moral de derechos humanos, este recorrido interactivo detalla cómo la isla siempre ha sido un tablero de poder donde las vidas de sus habitantes han sido instrumentalizadas por grandes hegemonías.
+    </p>
+
+    <div class="reveal">
+      <button class="historia-toggle-btn" id="toggle-historia" onclick="toggleHistoria()" aria-expanded="false" aria-controls="historia-content">
+        <span data-i18n="historia_btn_open">Explorar la historia larga (Rastros originarios a corporativismo)</span>
+        <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition: transform 0.4s var(--ease); margin-left: 8px;">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <div id="historia-content" class="historia-panel">
+      <div class="historia-container">
+      
+        <div class="historia-card">
+          <div class="historia-header">
+            <div class="historia-epoch" data-i18n="hist_epoch1">Precolombino</div>
+            <h3 class="historia-title-card" data-i18n="hist_title1">Rastros Originarios</h3>
+          </div>
+          <p class="historia-text" data-i18n="hist_text1">
+            Comunidades Taínas, Ciboneyes y Guanahatabeyes habitaban la isla organizados en cacicazgos agrícolas y pesqueros autosuficientes. Su estructura social horizontal colapsó con la invasión europea de 1492.
+          </p>
+          <div class="historia-ddhh" data-i18n="hist_ddhh1">Impacto DD.HH.: Exterminio demográfico total de la población nativa original en menos de un siglo.</div>
+        </div>
+
+        <div class="historia-card">
+          <div class="historia-header">
+            <div class="historia-epoch" data-i18n="hist_epoch2">1492 – 1898</div>
+            <h3 class="historia-title-card" data-i18n="hist_title2">Colonia Española</h3>
+          </div>
+          <p class="historia-text" data-i18n="hist_text2">
+            Cuba se convierte en la "Llave del Nuevo Mundo", fortín militar del Imperio Español y epicentro de la economía azucarera. Este auge se sostuvo sobre la base de la esclavitud forzada de más de un millón de africanos.
+          </p>
+          <div class="historia-ddhh" data-i18n="hist_ddhh2">Impacto DD.HH.: Deshumanización legalizada y mercantilización de vidas humanas bajo la trata transatlántica.</div>
+        </div>
+
+        <div class="historia-card">
+          <div class="historia-header">
+            <div class="historia-epoch" data-i18n="hist_epoch3">1898 – 1902</div>
+            <h3 class="historia-title-card" data-i18n="hist_title3">Tutela de EE. UU.</h3>
+          </div>
+          <p class="historia-text" data-i18n="hist_text3">
+            Tras la intervención estadounidense en la guerra de independencia, Cuba queda bajo ocupación militar. La Enmienda Platt, impuesta en su Constitución, otorga a EE. UU. el derecho de intervención y soberanía sobre bahías como Guantánamo.
+          </p>
+          <div class="historia-ddhh" data-i18n="hist_ddhh3">Impacto DD.HH.: Autodeterminación nacional cercenada bajo condiciones de protectorado de facto.</div>
+        </div>
+
+        <div class="historia-card">
+          <div class="historia-header">
+            <div class="historia-epoch" data-i18n="hist_epoch4">1902 – 1959</div>
+            <h3 class="historia-title-card" data-i18n="hist_title4">Periodo Republicano</h3>
+          </div>
+          <p class="historia-text" data-i18n="hist_text4">
+            Época marcada por gobiernos débiles, control hegemónico de monopolios norteamericanos (azúcar, servicios públicos) e infiltración del crimen organizado internacional. Culmina con la dictadura militar de Fulgencio Batista.
+          </p>
+          <div class="historia-ddhh" data-i18n="hist_ddhh4">Impacto DD.HH.: Corrupción estatal endémica, desigualdad estructural extrema y represión armada.</div>
+        </div>
+
+        <div class="historia-card">
+          <div class="historia-header">
+            <div class="historia-epoch" data-i18n="hist_epoch5">1959 – 1991</div>
+            <h3 class="historia-title-card" data-i18n="hist_title5">Órbita Soviética</h3>
+          </div>
+          <p class="historia-text" data-i18n="hist_text5">
+            La Revolución Cubana se alinea con la URSS. La isla es instrumentalizada como un peón estratégico de la Guerra Fría (ej. Crisis de los Misiles en 1962). La economía sobrevive gracias a los subsidios soviéticos a cambio de subordinación geopolítica.
+          </p>
+          <div class="historia-ddhh" data-i18n="hist_ddhh5">Impacto DD.HH.: Supresión sistemática de libertades civiles y persecución política institucionalizada.</div>
+        </div>
+
+        <div class="historia-card">
+          <div class="historia-header">
+            <div class="historia-epoch" data-i18n="hist_epoch6">1991 – Presente</div>
+            <h3 class="historia-title-card" data-i18n="hist_title6">Captura Corporativa</h3>
+          </div>
+          <p class="historia-text" data-i18n="hist_text6">
+            El colapso de la URSS fuerza al régimen a buscar divisas. Las Fuerzas Armadas (FAR) fundan GAESA, absorbiendo los sectores más lucrativos (turismo, finanzas, importaciones). La escasez y las remesas se gestionan como líneas de negocio corporativas.
+          </p>
+          <div class="historia-ddhh" data-i18n="hist_ddhh6">Impacto DD.HH.: Hambre e inseguridad alimentaria inducida por el monopolio sobre la distribución de recursos.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ TIMELINE ═ -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="time_label">Cronología del Colapso</div>
+    <h2 class="section-title reveal" data-i18n="time_title">De la reforma al monopolio total</h2>
+
+    <div class="timeline-container reveal">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year" data-i18n="ev1_year">1994 · GAESA fundado</div>
+        <div class="timeline-title" data-i18n="ev1_title">El conglomerado militar toma el turismo</div>
+        <div class="timeline-desc" data-i18n="ev1_desc">Tras la caída de la URSS y el inicio del Período Especial, las FAR fundan GAESA para administrar los sectores generadores de divisas, iniciando el proceso de captura corporativa militar.</div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year" data-i18n="ev2_year">2017–2021 · Sanciones Trump</div>
+        <div class="timeline-title" data-i18n="ev2_title">240+ sanciones unilaterales</div>
+        <div class="timeline-desc" data-i18n="ev2_desc">Restricciones severas de EE. UU. reducen el flujo turístico externo. GAESA ve caer sus ingresos internacionales y responde intensificando la presión fiscal cambiaria en la economía interna.</div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year" data-i18n="ev3_year">Enero 2021 · Tarea de Ordenamiento</div>
+        <div class="timeline-title" data-i18n="ev3_title">Unificación monetaria inflacionaria</div>
+        <div class="timeline-desc" data-i18n="ev3_desc">Eliminación del CUC. El tipo de cambio informal del peso cubano entra en espiral inflacionaria histórica. El mercado GAESA en Moneda Libremente Convertible (MLC) monopoliza el abasto comercial.</div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year" data-i18n="ev4_year">2021 · MIPYMES legalizadas</div>
+        <div class="timeline-title" data-i18n="ev4_title">Mercado libre periférico tolerado</div>
+        <div class="timeline-desc" data-i18n="ev4_desc">Se autorizan empresas privadas medianas y pequeñas. La evidencia empírica confirma que donde GAESA no ejerce monopolio directo de distribución, el abastecimiento de bienes locales parcialmente mejora.</div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year" data-i18n="ev5_year">Dic 2025 · Corte de petróleo venezolano</div>
+        <div class="timeline-title" data-i18n="ev5_title">Escalada de sanciones navales</div>
+        <div class="timeline-desc" data-i18n="ev5_desc">La Marina de EE. UU. bloquea suministros de petróleo desde Venezuela. El sistema eléctrico nacional colapsa. GAESA es acusada de priorizar la energía eléctrica en sus hoteles turísticos frente al consumo civil.</div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year" data-i18n="ev6_year">Mayo 2026 · Denuncia ante la ONU</div>
+        <div class="timeline-title" data-i18n="ev6_title">Informe FMP expuesto ante relatores</div>
+        <div class="timeline-desc" data-i18n="ev6_desc">Food Monitor Program expone la encuesta de 2,703 hogares ante el Relator Especial ONU, detallando que la asimetría del abasto y la represión agraria equivalen a un desabastecimiento inducido.</div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year" data-i18n="ev7_year">Junio 2026 · Crisis activa</div>
+        <div class="timeline-title" data-i18n="ev7_title">El peor año económico en siete décadas</div>
+        <div class="timeline-desc" data-i18n="ev7_desc">Con la suspensión de operaciones de procesadores internacionales de tarjetas y la contracción crediticia extrema, economistas locales definen el presente periodo como la crisis más severa en 70 años.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ FUENTES ═══ -->
+<section id="fuentes">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="fnt_label">Triangulación de Fuentes</div>
+    <h2 class="section-title reveal" data-i18n="fnt_title">Espectro y sesgos documentados</h2>
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:20px;" data-i18n="fnt_desc">
+      El rigor metodológico no desecha fuentes con intereses definidos; las sitúa dentro del espectro analítico declarando explícitamente sus incentivos para destilar información real del ruido de propaganda.
+    </p>
+
+    <div class="fuentes-grid reveal">
+
+      <div class="fuente-card critical">
+        <div class="fuente-tipo" data-i18n="fnt1_type">● Crítico del régimen</div>
+        <div class="fuente-nombre" data-i18n="fnt1_name">Food Monitor Program (FMP)</div>
+        <div class="fuente-desc" data-i18n="fnt1_desc">Observatorio de seguridad alimentaria independiente. Encuestó 2,703 hogares. Provee datos empíricos de primera mano sobre nutrición. Director: Sergio Ángel Baquero.</div>
+        <div class="fuente-sesgo" data-i18n="fnt1_bias">Sesgo: anti-régimen · Metodología empírica directa</div>
+      </div>
+
+      <div class="fuente-card critical">
+        <div class="fuente-tipo" data-i18n="fnt2_type">● Crítico del régimen</div>
+        <div class="fuente-nombre" data-i18n="fnt2_name">Havana Consulting Group</div>
+        <div class="fuente-desc" data-i18n="fnt2_desc">Think tank económico del exilio técnico radicado en Miami. Analiza transacciones financieras de GAESA y balances consolidados de remesas. Director: Emilio Morales.</div>
+        <div class="fuente-sesgo" data-i18n="fnt2_bias">Sesgo: exilio pro-mercado · Estimaciones técnicas de GAESA</div>
+      </div>
+
+      <div class="fuente-card academic">
+        <div class="fuente-tipo" data-i18n="fnt3_type">◆ Independiente / técnico</div>
+        <div class="fuente-nombre" data-i18n="fnt3_name">elToque</div>
+        <div class="fuente-desc" data-i18n="fnt3_desc">Portal periodístico de economía que publica el índice del mercado informal de divisas en Cuba y balances corporativos filtrados de GAESA. Sede: La Habana / Madrid.</div>
+        <div class="fuente-sesgo" data-i18n="fnt3_bias">Sesgo: bajo/técnico · Referencia indiscutida de precios</div>
+      </div>
+
+      <div class="fuente-card academic">
+        <div class="fuente-tipo" data-i18n="fnt4_type">◆ Independiente / técnico</div>
+        <div class="fuente-nombre" data-i18n="fnt4_name">Cuba Siglo 21</div>
+        <div class="fuente-desc" data-i18n="fnt4_desc">Asociación civil que publica análisis institucionales sobre el poder militar corporativo de GAESA y el colapso inflacionario provocado por el tipo de cambio oficial.</div>
+        <div class="fuente-sesgo" data-i18n="fnt4_bias">Sesgo: moderado crítico · Documentación institucional</div>
+      </div>
+
+      <div class="fuente-card intl">
+        <div class="fuente-tipo" data-i18n="fnt5_type">▲ Internacional / ONU</div>
+        <div class="fuente-nombre" data-i18n="fnt5_name">Relatoría ONU · Alimentación</div>
+        <div class="fuente-desc" data-i18n="fnt5_desc">Relatoría Especial sobre el Derecho a la Alimentación de Naciones Unidas. Recopila denuncias y emite recomendaciones de sistemas alimentarios.</div>
+        <div class="fuente-sesgo" data-i18n="fnt5_bias">Sesgo: institucional neutro · Autoridad formal ONU</div>
+      </div>
+
+      <div class="fuente-card intl">
+        <div class="fuente-tipo" data-i18n="fnt6_type">▲ Internacional / ONU</div>
+        <div class="fuente-nombre" data-i18n="fnt6_name">Relatora ONU · Sanciones</div>
+        <div class="fuente-desc" data-i18n="fnt6_desc">Relatora Especial (Douhan) sobre medidas coercitivas unilaterales. Exige el cese del embargo comercial estadounidense tras su visita oficial a la isla.</div>
+        <div class="fuente-sesgo" data-i18n="fnt6_bias">Sesgo: pro-régimen estructural · Relatoría crítica de EE. UU.</div>
+      </div>
+
+      <div class="fuente-card regime">
+        <div class="fuente-tipo" data-i18n="fnt7_type">■ Régimen / oficial</div>
+        <div class="fuente-nombre" data-i18n="fnt7_name">Gobierno Cubano / ONEI</div>
+        <div class="fuente-desc" data-i18n="fnt7_desc">Oficina Nacional de Estadística e Información. Datos de exportación, turismo y anuarios oficiales del Estado cubano. Útil para contrastar asimetrías de inversión.</div>
+        <div class="fuente-sesgo" data-i18n="fnt7_bias">Sesgo: máximo · Base de datos oficial controlada</div>
+      </div>
+
+      <div class="fuente-card critical">
+        <div class="fuente-tipo" data-i18n="fnt8_type">● Periodismo crítico</div>
+        <div class="fuente-nombre" data-i18n="fnt8_name">14ymedio / Diario de Cuba</div>
+        <div class="fuente-desc" data-i18n="fnt8_desc">Prensa independiente y reportería de terreno que documenta testimonios de agricultores perseguidos y decomisos estatales de cosechas en mercados libres informales.</div>
+        <div class="fuente-sesgo" data-i18n="fnt8_bias">Sesgo: anti-régimen · Cobertura en el terreno de hechos</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ CONCLUSIÓN ═ -->
+<section id="conclusion">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="nav_logo">Cuba · Análisis</div>
+    <h2 class="section-title reveal" data-i18n="conclusion_title">La encrucijada cubana:<br>¿Ideología o extracción?</h2>
+
+    <div class="conclusion-pullquote reveal" data-i18n="conclusion_pullquote">
+      La evidencia empírica analizada indica que la crisis alimentaria y económica de Cuba no responde únicamente al fracaso de una doctrina teórica abstracta, sino a la captura monopolística de la economía por GAESA, holding que instrumentaliza el discurso nacionalista como protección de sus rentas.
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;" class="reveal">
+      <div>
+        <p style="color:var(--text-muted); line-height:1.7; font-size:14.5px; margin-bottom:16px;" data-i18n="conclusion_p1">
+          Esta síntesis resulta sumamente incómoda para el espectro político tradicional. Por un lado, la narrativa oficialista justifica toda carencia material basándose exclusivamente en el embargo comercial de EE. UU. Si bien las sanciones norteamericanas son reales, severas y de efectos indiscutibles (como el corte energético inducido a finales de 2025), esta tesis fracasa en explicar la asimetría interna: la acumulación de divisas por parte de GAESA para la edificación de hoteles de lujo frente al colapso de los servicios médicos y el declive del sector agrícola local.
+        </p>
+      </div>
+      <div>
+        <p style="color:var(--text-muted); line-height:1.7; font-size:14.5px; margin-bottom:16px;" data-i18n="conclusion_p2">
+          Por otro lado, la lectura anticomunista clásica se aferra a la idea de un estado de planificación central puro, obviando que en la isla opera un mercado informal tolerado e incluso rentabilizado por la élite. El modelo explicativo más robusto (teoría del Rent-Seeking) demuestra que el desabastecimiento cubano es la consecuencia directa de un monopolista que ejerce un "bloqueo interno", impidiendo la libre importación, distorsionando el mercado cambiario y anulando los incentivos de producción de la sociedad civil.
+        </p>
+      </div>
+    </div>
+
+    <p class="reveal" style="color:var(--text-primary); line-height:1.7; font-size:15px; margin-bottom:40px; border-top:1px solid var(--border); padding-top:24px; font-weight:500;" data-i18n="conclusion_p3">
+      En última instancia, el análisis del repositorio demuestra que el holding privado-militar de las Fuerzas Armadas (FAR) ha logrado erigirse como un Estado corporativo independiente de la sociedad civil. Sostener la retórica socialista de redistribución cuando los balances contables de GAESA multiplican por 3.2 los ingresos tributarios del Estado no constituye un ideal político, sino una refinada estrategia corporativa de protección marcaria de una cúpula extractora de rentas.
+    </p>
+
+    <!-- Ficha Metodológica -->
+    <div class="metodologia-box reveal">
+      <div class="meta-item">
+        <div class="meta-key" data-i18n="meta_key1">Enfoque Analítico</div>
+        <div class="meta-val" data-i18n="meta_val1">Geopolítico + Complejidad Institucional</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-key" data-i18n="meta_key2">Marco Teórico</div>
+        <div class="meta-val" data-i18n="meta_val2">Teoría del Rent-Seeking (Tullock-Krueger) + Economía Austriaca</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-key" data-i18n="meta_key3">Metodología</div>
+        <div class="meta-val" data-i18n="meta_val3">Triangulación de Fuentes con Sesgo Declarado</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-key" data-i18n="meta_key4">Condición de Falsación</div>
+        <div class="meta-val" data-i18n="meta_val4">Si GAESA se disuelve y el abasto persiste crónico, la tesis es errónea</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-key" data-i18n="meta_key5">Datos Primarios</div>
+        <div class="meta-val" data-i18n="meta_val5">Encuesta FMP 2024 (2,703 hogares) + Balances GAESA filtrados 2025</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-key" data-i18n="meta_key6">Última Actualización</div>
+        <div class="meta-val" data-i18n="meta_val6">Junio 2026 — Crisis activa en desarrollo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ FOOTER ══ -->
+<footer>
+  <div class="footer-note" data-i18n="footer_note">
+    Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a junio 2026.
+  </div>
+  <div class="footer-logo">Cuba<br>Análisis</div>
+</footer>
+
+<script>
+// ── TRADUCCIONES i18n ─────────────────────────────────
+const translations = {
+  es: {
+    nav_logo: "Cuba · Análisis",
+    nav_narrativas: "Narrativas",
+    nav_datos: "Datos",
+    nav_gaesa: "GAESA",
+    nav_geopolitica: "Geopolítica",
+    nav_marco: "Marco Teórico",
+    nav_historia: "Historia Larga",
+    nav_colapso: "Colapso",
+    nav_fuentes: "Fuentes",
+    hero_tag: "Investigación geopolítica · 2026",
+    hero_title_white: "Cuba no es",
+    hero_title_red: "socialismo",
+    hero_title_yellow: "fallido",
+    hero_subtitle: "Es capitalismo de monopolio capturado por una élite militar. Un mercado libre existe — pero está secuestrado.",
+    hero_badge: "Tesis Provocadora · Escuela Austriaca · Datos ONU 2026",
+    hero_scroll: "Desplázate para explorar",
+    met_label: "Narrativas en Espectro",
+    met_title: "Tres lecturas de la realidad cubana",
+    met_intro_label: "Metodología de Triangulación de Fuentes",
+    met_intro_desc: "Para analizar la crisis de Cuba sin caer en sesgos ideológicos preexistentes, sometemos cada perspectiva a tres preguntas de rigor científico:",
+    met_q1_title: "01. Incentivos",
+    met_q1_desc: "¿Quién se beneficia políticamente de que esta narrativa sea aceptada como la oficial?",
+    met_q2_title: "02. Contraste",
+    met_q2_desc: "¿Qué datos sostienen los actores con intereses e incentivos opuestos?",
+    met_q3_title: "03. Falsación",
+    met_q3_desc: "¿Qué condiciones empíricas concretas refutarían esta hipótesis cuantitativa?",
+    met_prompt: "Las narrativas sobre el desabastecimiento se configuran en un espectro continuo. Haz clic en cada tarjeta para profundizar en su análisis.",
+    card1_intensity: "● Narrativa de Ruptura (Disidente)",
+    card1_stmt: "Cuba es un capitalismo corporativo militarizado con marketing socialista",
+    card1_detail: "Desde este prisma, GAESA opera como un holding corporativo cerrado que instrumentaliza el discurso revolucionario de soberanía nacional únicamente como una barrera defensiva de relaciones públicas. El \"socialismo\" en Cuba funciona como una franquicia de marca: se retiene la iconografía histórica del Che Guevara y el antiimperialismo mientras en la práctica se ejecuta una extracción de rentas de corte monopolista tradicional. El incentivo de la cúpula militar gobernante coincide con el de un cartel corporativo del siglo XIX, variando únicamente el uso del uniforme militar en lugar del traje empresarial. <br><br><em>Límite metodológico: Es difícil aislar experimentalmente la ideología política doctrinaria de la pura supervivencia de la élite y su maximización de poder.</em>",
+    card2_intensity: "◆ Narrativa de Captura (Institucional)",
+    card2_stmt: "Mercado libre capturado: las fuerzas de mercado operan, pero un monopsonio militar extrae el excedente productivo",
+    card2_detail: "Desde la perspectiva de la economía de mercado y la imposibilidad del cálculo de planificación central (Mises, Hayek), el colapso cubano no es causado por la inexistencia de mercados (las MIPYMES y el mercado cambiario informal muestran un dinamismo real), sino por la captura sistemática de sus rentas. El productor informal, el campesino y el emprendedor operan en base a señales de precios informales, pero se ven forzados a transferir su excedente a GAESA mediante la entrega obligatoria de divisas al tipo de cambio subvaluado oficial, el control del monopolio importador y la manipulación de insumos. <br><br><em>Condición de falsación: Si se desmantelara el conglomerado corporativo de GAESA y se mantuviera el mismo nivel de desabastecimiento, esta narrativa institucional quedaría refutada.</em>",
+    card3_intensity: "▲ Narrativa Empírica (Falsificable)",
+    card3_stmt: "El desabastecimiento no representa un fallo sistémico de mercado, sino el éxito de incentivos monopólicos en lucrar con la escasez",
+    card3_detail: "Tesis testeable empíricamente: si la monopolización de GAESA es el factor causal dominante de la escasez de alimentos esenciales, la evidencia debería confirmar: (1) escasez asimétrica, siendo crítica en sectores controlados por las FAR y menor en los rubros de distribución informal; (2) una correlación directa entre el incremento de importación de insumos de lujo por GAESA y la caída del financiamiento a la agricultura local; y (3) que la apertura a importadoras privadas (MIPYMES post-2021) alivia sustancialmente el abasto en sectores no cartelizados. El embargo de EE. UU. representa una variable externa severa en el acceso al crédito, pero resulta insuficiente para explicar la profunda brecha entre la acumulación de divisas de GAESA y la desnutrición del 96% de la población cubana. <br><br><em>Esta narrativa es la más resistente al sesgo de confirmación, ya que se ancla a datos de convergencia entre fuentes opuestas.</em>",
+    datos_label: "Encuesta FMP 2024 · ONU 2026",
+    datos_title: "Los números que no mienten",
+    datos_desc: "Encuesta nacional de seguridad alimentaria: 2,703 hogares · Presentada ante el Relator Especial ONU sobre Derecho a la Alimentación · Mayo 2026",
+    card_dato1_label: "Pérdida capacidad de compra",
+    card_dato1_desc: "El 96% de la población cubana perdió su capacidad de adquisición de alimentos esenciales en los últimos años.",
+    card_dato1_source: "Fuente: FMP Encuesta Seguridad Alimentaria 2024",
+    card_dato2_label: "Caída producción agrícola",
+    card_dato2_desc: "La producción agrícola nacional se desplomó 67% en los últimos cinco años mientras GAESA priorizaba exportaciones.",
+    card_dato2_source: "Fuente: FMP / Infobae, mayo 2026",
+    card_dato3_label: "Alimentos importados",
+    card_dato3_desc: "Cuba importa el 80% de los alimentos que consume. Una nación agrícola en dependencia alimentaria total.",
+    card_dato3_source: "Fuente: FMP / Martí Noticias 2026",
+    card_dato4_label: "Economía controlada por GAESA",
+    card_dato4_desc: "GAESA controla más del 70% de la economía cubana y el 95% de las finanzas nacionales. El Estado civil es decorativo.",
+    card_dato4_source: "Fuente: Havana Consulting Group, ASCE 2025",
+    card_dato5_label: "Hogares con hambre nocturna",
+    card_dato5_desc: "El 33.9% de los hogares reporta que al menos un miembro se fue a dormir con hambre por falta de recursos.",
+    card_dato5_source: "Fuente: FMP 2024, Sergio Ángel Baquero",
+    card_dato6_label: "Logra dos comidas al día",
+    card_dato6_desc: "Solo el 29% de la población cubana logra acceder a dos comidas diarias en la crisis actual.",
+    card_dato6_source: "Fuente: Diario de Cuba / FMP 2026",
+    card_dato7_label: "Caída remesas en 2024",
+    card_dato7_desc: "Las remesas cayeron un 43% en 2024 respecto al año anterior y 70% vs. 2019. El 92.68% llega por canales informales.",
+    card_dato7_source: "Fuente: Cuba Siglo 21, febrero 2025",
+    card_dato8_label: "Ingresos GAESA vs impuestos estatales",
+    card_dato8_desc: "Los ingresos del conglomerado son 3.2 veces mayores que los del presupuesto del Estado vía impuestos. Estado capturado.",
+    card_dato8_source: "Fuente: elToque, noviembre 2025 (balances filtrados)",
+    gaesa_label: "Anatomía del Monopolio",
+    gaesa_title: "GAESA: El Estado dentro del Estado",
+    gaesa_desc: "El Grupo de Administración Empresarial S.A. es el brazo financiero de las Fuerzas Armadas Revolucionarias. Opera sin auditoría pública, sin control parlamentario, sin supervisión del Ministerio de Economía. Ni la Contraloría General puede acceder a sus cuentas.",
+    gaesa_node_far: "FUERZAS ARMADAS REVOLUCIONARIAS (FAR)",
+    gaesa_node_gaesa: "GAESA · Grupo de Administración Empresarial S.A.",
+    gaesa_node_bfi: "Banco Financiero Internacional",
+    gaesa_node_cimex: "Cimex S.A.",
+    gaesa_node_trd: "TRD Caribe",
+    gaesa_node_gaviota: "Gaviota S.A. (Turismo)",
+    gaesa_node_flora: "Flora y Fauna S.A.",
+    gaesa_node_caribex: "Tiendas Caribex",
+    gaesa_node_transtur: "Transtur",
+    gaesa_node_universal: "Almacenes Universal",
+    gaesa_sectorial: "Control sectorial estimado",
+    gaesa_fn: "Finanzas nacionales",
+    gaesa_et: "Economía total",
+    gaesa_ia: "Importaciones alimentos",
+    gaesa_dv: "Divisas (USD/EUR)",
+    gaesa_tr: "Turismo receptor",
+    gaesa_chart_note: "* Estimaciones combinadas: Havana Consulting Group (ASCE 2025) + balances GAESA filtrados (elToque, nov 2025) + FMP 2024",
+    geo_label: "Lente Geopolítico",
+    geo_title: "El tablero de actores: intereses opacos",
+    geo_desc: "La triangulación de fuentes requiere identificar los vectores de interés que distorsionan el análisis. Ningún actor es neutral. El ruido informativo es deliberado.",
+    actor1_name: "Estados Unidos",
+    actor1_role: "El Bloqueo como variable de confusión",
+    actor1_desc: "64 años de embargo. Trump aplicó 240+ nuevas sanciones. En diciembre de 2025, la Marina de EE. UU. interrumpió temporalmente el flujo de crudo venezolano. Señal de ruido: el bloqueo es real y sumamente perjudicial, pero resulta insuficiente para explicar la asimetría interna de recursos.",
+    actor2_name: "Régimen cubano / GAESA",
+    actor2_role: "Narrativa del bloqueo como escudo",
+    actor2_desc: "Usa el embargo como coartada para toda ineficiencia interna. No se permite auditoría independiente y los datos oficiales son manipulados. Interés: el régimen busca culpar enteramente a factores externos para eximirse de la captura monopólica.",
+    actor3_name: "Venezuela / Rusia / China",
+    actor3_role: "Aliados con agenda propia",
+    actor3_desc: "Venezuela proveía petróleo (cortado en dic 2025). China financia infraestructura solar. Rusia mantiene lazos comerciales. Interés: estos actores priorizan la persistencia de Cuba como un bastión geopolítico anti-occidental, ajenos a la crisis de abasto local.",
+    actor4_name: "ONU / Relatorías Especiales",
+    actor4_role: "Doble relatoría contradictoria",
+    actor4_desc: "La Relatora sobre sanciones unilaterales (Douhan) exige levantar el embargo. Paralelamente, el Relator de Alimentación recibe el informe FMP contra GAESA. Tensión: ambas denuncias son verdaderas. El bloqueo daña y GAESA extrae rentas; no son excluyentes.",
+    geo_triang_title: "MÉTODO DE TRIANGULACIÓN DE FUENTES",
+    geo_triang_desc: "Para filtrar la señal real del ruido geopolítico: buscamos convergencia entre fuentes con intereses opuestos. Cuando FMP (crítico), elToque (técnico independiente) y Havana Consulting (exilio) coinciden en que GAESA controla más del 70% de la economía, el dato supera el umbral de sesgo de fuente única.",
+    marco_label: "Marco Teórico",
+    marco_title: "Economía Institucional y Rent-Seeking",
+    marco_desc: "La crítica clásica austriaca a la planificación central se aplica a Cuba con un giro moderno: el problema no es la ausencia de mercados informales, sino el Rent-Seeking (búsqueda de rentas) y la captura institucional ejercida por un monopolista corporativo militar.",
+    matrix_hdr1: "Narrativa Oficialista (CEPAL / Régimen)",
+    matrix_hdr2: "Análisis del Repositorio (Institucional / Austriaco)",
+    matrix_c1_concept: "Causa del fracaso",
+    matrix_c1_text: "Las sanciones comerciales unilaterales impiden la liquidez financiera y cortan la cadena de suministro internacional. La planificación socialista se encargaría de distribuir equitativamente la escasez.",
+    matrix_c2_concept: "Cálculo económico",
+    matrix_c2_text: "El Estado puede coordinar la asignación de recursos básicos de forma más justa que el mercado libre. Los precios controlados previenen la especulación capitalista.",
+    matrix_c3_concept: "Institucional y Rent-Seeking",
+    matrix_c3_text: "Las reformas y MIPYMES de 2021 demuestran la voluntad estatal de abrir la economía. La ineficiencia agrícola responde a la falta de créditos externos provocada por el bloqueo.",
+    matrix_c1_res: "El monopolio institucional",
+    matrix_c1_res_text: "GAESA monopoliza el cálculo monetario: fija tipos de cambio artificiales que castigan al exportador independiente y canaliza el flujo del spread cambiario hacia el sector hotelero corporativo.",
+    matrix_c2_res: "Información dispersa (Hayek)",
+    matrix_c2_res_text: "La planificación central destruye las señales de precios informales. GAESA no planifica el bienestar; extrae la renta de la escasez para sostener la rentabilidad militar corporativa.",
+    matrix_c3_res: "El bloqueo interno (Tullock)",
+    matrix_c3_res_text: "El desabastecimiento es un resultado óptimo para un monopolista. El hambre del 96% de la población coexiste con la captura del flujo de remesas de la diáspora. Es racionalidad de rentas, no ineficiencia.",
+    historia_label: "Perspectiva Histórica",
+    historia_title: "La Historia Larga: Cuba como tablero geopolítico",
+    historia_desc: "La discusión contemporánea sobre el desabastecimiento a menudo se reduce a una disputa simplista entre el impacto del embargo estadounidense y las ineficiencias del sistema estatal. Para dotar al análisis de una perspectiva histórica profunda y moral de derechos humanos, este recorrido interactivo detalla cómo la isla siempre ha sido un tablero de poder donde las vidas de sus habitantes han sido instrumentalizadas por grandes hegemonías.",
+    historia_btn_open: "Explorar la historia larga (Rastros originarios a corporativismo)",
+    hist_epoch1: "Precolombino",
+    hist_title1: "Rastros Originarios",
+    hist_text1: "Comunidades Taínas, Ciboneyes y Guanahatabeyes habitaban la isla organizados en cacicazgos agrícolas y pesqueros autosuficientes. Su estructura social horizontal colapsó con la invasión europea de 1492.",
+    hist_ddhh1: "Impacto DD.HH.: Exterminio demográfico total de la población nativa original en menos de un siglo.",
+    hist_epoch2: "1492 – 1898",
+    hist_title2: "Colonia Española",
+    hist_text2: "Cuba se convierte en la \"Llave del Nuevo Mundo\", fortín militar del Imperio Español y epicentro de la economía azucarera. Este auge se sostuvo sobre la base de la esclavitud forzada de más de un millón de africanos.",
+    hist_ddhh2: "Impacto DD.HH.: Deshumanización legalizada y mercantilización de vidas humanas bajo la trata transatlántica.",
+    hist_epoch3: "1898 – 1902",
+    hist_title3: "Tutela de EE. UU.",
+    hist_text3: "Tras la intervención estadounidense en la guerra de independencia, Cuba queda bajo ocupación militar. La Enmienda Platt, impuesta en su Constitución, otorga a EE. UU. el derecho de intervención y soberanía sobre bahías como Guantánamo.",
+    hist_ddhh3: "Impacto DD.HH.: Autodeterminación nacional cercenada bajo condiciones de protectorado de facto.",
+    hist_epoch4: "1902 – 1959",
+    hist_title4: "Periodo Republicano",
+    hist_text4: "Época marcada por gobiernos débiles, control hegemónico de monopolios norteamericanos (azúcar, servicios públicos) e infiltración del crimen organizado internacional. Culmina con la dictadura militar de Fulgencio Batista.",
+    hist_ddhh4: "Impacto DD.HH.: Corrupción estatal endémica, desigualdad estructural extrema y represión armada.",
+    hist_epoch5: "1959 – 1991",
+    hist_title5: "Órbita Soviética",
+    hist_text5: "La Revolución Cubana se alinea con la URSS. La isla es instrumentalizada como un peón estratégico de la Guerra Fría (ej. Crisis de los Misiles en 1962). La economía sobrevive gracias a los subsidios soviéticos a cambio de subordinación geopolítica.",
+    hist_ddhh5: "Impacto DD.HH.: Supresión sistemática de libertades civiles y persecución política institucionalizada.",
+    hist_epoch6: "1991 – Presente",
+    hist_title6: "Captura Corporativa",
+    hist_text6: "El colapso de la URSS fuerza al régimen a buscar divisas. Las Fuerzas Armadas (FAR) fundan GAESA, absorbiendo los sectores más lucrativos (turismo, finanzas, importaciones). La escasez y las remesas se gestionan como líneas de negocio corporativas.",
+    hist_ddhh6: "Impacto DD.HH.: Hambre e inseguridad alimentaria inducida por el monopolio sobre la distribución de recursos.",
+    time_label: "Cronología del Colapso",
+    time_title: "De la reforma al monopolio total",
+    ev1_year: "1994 · GAESA fundado",
+    ev1_title: "El conglomerado militar toma el turismo",
+    ev1_desc: "Tras la caída de la URSS y el inicio del Período Especial, las FAR fundan GAESA para administrar los sectores generadores de divisas, iniciando el proceso de captura corporativa militar.",
+    ev2_year: "2017–2021 · Sanciones Trump",
+    ev2_title: "240+ sanciones unilaterales",
+    ev2_desc: "Restricciones severas de EE. UU. reducen el flujo turístico externo. GAESA ve caer sus ingresos internacionales y responde intensificando la presión fiscal cambiaria en la economía interna.",
+    ev3_year: "Enero 2021 · Tarea de Ordenamiento",
+    ev3_title: "Unificación monetaria inflacionaria",
+    ev3_desc: "Eliminación del CUC. El tipo de cambio informal del peso cubano entra en espiral inflacionaria histórica. El mercado GAESA en Moneda Libremente Convertible (MLC) monopoliza el abasto comercial.",
+    ev4_year: "2021 · MIPYMES legalizadas",
+    ev4_title: "Mercado libre periférico tolerado",
+    ev4_desc: "Se autorizan empresas privadas medianas y pequeñas. La evidencia empírica confirma que donde GAESA no ejerce monopolio directo de distribución, el abastecimiento de bienes locales parcialmente mejora.",
+    ev5_year: "Dic 2025 · Corte de petróleo venezolano",
+    ev5_title: "Escalada de sanciones navales",
+    ev5_desc: "La Marina de EE. UU. bloquea suministros de petróleo desde Venezuela. El sistema eléctrico nacional colapsa. GAESA es acusada de priorizar la energía eléctrica en sus hoteles turísticos frente al consumo civil.",
+    ev6_year: "Mayo 2026 · Denuncia ante la ONU",
+    ev6_title: "Informe FMP expuesto ante relatores",
+    ev6_desc: "Food Monitor Program expone la encuesta de 2,703 hogares ante el Relator Especial ONU, detallando que la asimetría del abasto y la represión agraria equivalen a un desabastecimiento inducido.",
+    ev7_year: "Junio 2026 · Crisis activa",
+    ev7_title: "El peor año económico en siete décadas",
+    ev7_desc: "Con la suspensión de operaciones de procesadores internacionales de tarjetas y la contracción crediticia extrema, economistas locales definen el presente periodo como la crisis más severa en 70 años.",
+    fnt_label: "Triangulación de Fuentes",
+    fnt_title: "Espectro y sesgos documentados",
+    fnt_desc: "El rigor metodológico no desecha fuentes con intereses definidos; las sitúa dentro del espectro analítico declarando explícitamente sus incentivos para destilar información real del ruido de propaganda.",
+    fnt1_type: "● Crítico del régimen",
+    fnt1_name: "Food Monitor Program (FMP)",
+    fnt1_desc: "Observatorio de seguridad alimentaria independiente. Encuestó 2,703 hogares. Provee datos empíricos de primera mano sobre nutrición. Director: Sergio Ángel Baquero.",
+    fnt1_bias: "Sesgo: anti-régimen · Metodología empírica directa",
+    fnt2_type: "● Crítico del régimen",
+    fnt2_name: "Havana Consulting Group",
+    fnt2_desc: "Think tank económico del exilio técnico radicado en Miami. Analiza transacciones financieras de GAESA y balances consolidados de remesas. Director: Emilio Morales.",
+    fnt2_bias: "Sesgo: exilio pro-mercado · Estimaciones técnicas de GAESA",
+    fnt3_type: "◆ Independiente / técnico",
+    fnt3_name: "elToque",
+    fnt3_desc: "Portal periodístico de economía que publica el índice del mercado informal de divisas en Cuba y balances corporativos filtrados de GAESA. Sede: La Habana / Madrid.",
+    fnt3_bias: "Sesgo: bajo/técnico · Referencia indiscutida de precios",
+    fnt4_type: "◆ Independiente / técnico",
+    fnt4_name: "Cuba Siglo 21",
+    fnt4_desc: "Asociación civil que publica análisis institucionales sobre el poder militar corporativo de GAESA y el colapso inflacionario provocado por el tipo de cambio oficial.",
+    fnt4_bias: "Sesgo: moderado crítico · Documentación institucional",
+    fnt5_type: "▲ Internacional / ONU",
+    fnt5_name: "Relatoría ONU · Alimentación",
+    fnt5_desc: "Relatoría Especial sobre el Derecho a la Alimentación de Naciones Unidas. Recopila denuncias y emite recomendaciones de sistemas alimentarios.",
+    fnt5_bias: "Sesgo: institucional neutro · Autoridad formal ONU",
+    fnt6_type: "▲ Internacional / ONU",
+    fnt6_name: "Relatora ONU · Sanciones",
+    fnt6_desc: "Relatora Especial (Douhan) sobre medidas coercitivas unilaterales. Exige el cese del embargo comercial estadounidense tras su visita oficial a la isla.",
+    fnt6_bias: "Sesgo: pro-régimen estructural · Relatoría crítica de EE. UU.",
+    fnt7_type: "■ Régimen / oficial",
+    fnt7_name: "Gobierno Cubano / ONEI",
+    fnt7_desc: "Oficina Nacional de Estadística e Información. Datos de exportación, turismo y anuarios oficiales del Estado cubano. Útil para contrastar asimetrías de inversión.",
+    fnt7_bias: "Sesgo: máximo · Base de datos oficial controlada",
+    fnt8_type: "● Periodismo crítico",
+    fnt8_name: "14ymedio / Diario de Cuba",
+    fnt8_desc: "Prensa independiente y reportería de terreno que documenta testimonios de agricultores perseguidos y decomisos estatales de cosechas en mercados libres informales.",
+    fnt8_bias: "Sesgo: anti-régimen · Cobertura en el terreno de hechos",
+    conclusion_title: "La encrucijada cubana:<br>¿Ideología o extracción?",
+    conclusion_pullquote: "La evidencia empírica analizada indica que la crisis alimentaria y económica de Cuba no responde únicamente al fracaso de una doctrina teórica abstracta, sino a la captura monopolística de la economía por GAESA, holding que instrumentaliza el discurso nacionalista como protección de sus rentas.",
+    conclusion_p1: "Esta síntesis resulta sumamente incómoda para el espectro político tradicional. Por un lado, la narrativa oficialista justifica toda carencia material basándose exclusivamente en el embargo comercial de EE. UU. Si bien las sanciones norteamericanas son reales, severas y de efectos indiscutibles (como el corte energético inducido a finales de 2025), esta tesis fracasa en explicar la asimetría interna: la acumulación de divisas por parte de GAESA para la edificación de hoteles de lujo frente al colapso de los servicios médicos y el declive del sector agrícola local.",
+    conclusion_p2: "Por otro lado, la lectura anticomunista clásica se aferra a la idea de un estado de planificación central puro, obviando que en la isla opera un mercado informal tolerado e incluso rentabilizado por la élite. El modelo explicativo más robusto (teoría del Rent-Seeking) demuestra que el desabastecimiento cubano es la consecuencia directa de un monopolista que ejerce un \"bloqueo interno\", impidiendo la libre importación, distorsionando el mercado cambiario y anulando los incentivos de producción de la sociedad civil.",
+    conclusion_p3: "En última instancia, el análisis del repositorio demuestra que el holding privado-militar de las Fuerzas Armadas (FAR) ha logrado erigirse como un Estado corporativo independiente de la sociedad civil. Sostener la retórica socialista de redistribución cuando los balances contables de GAESA multiplican por 3.2 los ingresos tributarios del Estado no constituye un ideal político, sino una refinada estrategia corporativa de protección marcaria de una cúpula extractora de rentas.",
+    meta_key1: "Enfoque Analítico",
+    meta_val1: "Geopolítico + Complejidad Institucional",
+    meta_key2: "Marco Teórico",
+    meta_val2: "Teoría del Rent-Seeking (Tullock-Krueger) + Economía Austriaca",
+    meta_key3: "Metodología",
+    meta_val3: "Triangulación de Fuentes con Sesgo Declarado",
+    meta_key4: "Condición de Falsación",
+    meta_val4: "Si GAESA se disuelve y el abasto persiste crónico, la tesis es errónea",
+    meta_key5: "Datos Primarios",
+    meta_val5: "Encuesta FMP 2024 (2,703 hogares) + Balances GAESA filtrados 2025",
+    meta_key6: "Última Actualización",
+    meta_val6: "Junio 2026 — Crisis activa en desarrollo",
+    footer_note: "Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a junio 2026."
+  },
+  en: {
+    nav_logo: "Cuba · Analysis",
+    nav_narrativas: "Narratives",
+    nav_datos: "Data",
+    nav_gaesa: "GAESA",
+    nav_geopolitica: "Geopolitics",
+    nav_marco: "Theoretical Framework",
+    nav_historia: "Deep History",
+    nav_colapso: "Collapse",
+    nav_fuentes: "Sources",
+    hero_tag: "Geopolitical Investigation · 2026",
+    hero_title_white: "Cuba is not a",
+    hero_title_red: "failed",
+    hero_title_yellow: "socialism",
+    hero_subtitle: "It is monopoly capitalism captured by a military elite. A free market exists — but it is hijacked.",
+    hero_badge: "Provocative Thesis · Austrian School · UN Data 2026",
+    hero_scroll: "Scroll to explore",
+    met_label: "Narratives in Spectrum",
+    met_title: "Three readings of the Cuban reality",
+    met_intro_label: "Source Triangulation Methodology",
+    met_intro_desc: "To analyze the Cuban crisis without falling into pre-existing ideological biases, we subject each perspective to three questions of scientific rigor:",
+    met_q1_title: "01. Incentives",
+    met_q1_desc: "Who benefits politically from this narrative being accepted as the official version?",
+    met_q2_title: "02. Contrast",
+    met_q2_desc: "What data supports actors with opposing interests and incentives?",
+    met_q3_title: "03. Falsification",
+    met_q3_desc: "What concrete empirical conditions would refute this quantitative hypothesis?",
+    met_prompt: "Narratives regarding the food shortage are configured on a continuous spectrum. Click on each card to expand its analysis.",
+    card1_intensity: "● Rupture Narrative (Dissident)",
+    card1_stmt: "Cuba is a militarized corporate capitalism with socialist marketing",
+    card1_detail: "From this prism, GAESA operates as a closed corporate holding that instrumentalizes the revolutionary discourse of national sovereignty solely as a defensive public relations shield. Current \"socialism\" in Cuba functions as a brand franchise: retaining the historical iconography of Che Guevara and anti-imperialism while in practice executing a traditional monopolistic extraction of rents. The military ruling elite's incentives align with those of a 19th-century corporate cartel, varying only in the use of military uniforms instead of business suits. <br><br><em>Methodological limit: It is difficult to experimentally isolate political ideological doctrine from pure elite survival and power maximization.</em>",
+    card2_intensity: "◆ Capture Narrative (Institutional)",
+    card2_stmt: "Hijacked free market: market forces operate, but a military monopsony extracts the productive surplus",
+    card2_detail: "From the perspective of market economics and the impossibility of central planning calculation (Mises, Hayek), the Cuban collapse is not caused by the nonexistence of markets (private MSMEs and the informal currency market show real dynamism), but by the systematic capture of their rents. The informal producer, the peasant, and the entrepreneur operate based on informal price signals, but are forced to transfer their surplus to GAESA through the mandatory surrender of foreign exchange at the official undervalued exchange rate, control of the importing monopoly, and raw material manipulation. <br><br><em>Falsification condition: If the GAESA corporate conglomerate were dismantled and the same level of shortages persisted, this institutional narrative would be refuted.</em>",
+    card3_intensity: "▲ Empirical Narrative (Falsifiable)",
+    card3_stmt: "The shortage does not represent a systemic market failure, but the success of monopolistic incentives in profiting from scarcity",
+    card3_detail: "Empirically testable thesis: if GAESA's monopolization is the dominant causal factor of the shortage of essential foods, the evidence should confirm: (1) asymmetric scarcity, being critical in sectors controlled by the military and lower in informal distribution niches; (2) a direct correlation between GAESA's increased luxury imports and the fall of funding for local agriculture; and (3) that opening up to private importers (MSMEs post-2021) substantially alleviates supply in non-cartelized sectors. The US embargo represents a severe external variable in access to credit, but is insufficient to explain the deep gap between GAESA's foreign exchange accumulation and the malnutrition of 96% of the Cuban population. <br><br><em>This narrative is the most resistant to confirmation bias, as it anchors to data showing convergence between opposing sources.</em>",
+    datos_label: "FMP Survey 2024 · UN 2026",
+    datos_title: "The numbers that do not lie",
+    datos_desc: "National food security survey: 2,703 households · Presented to the UN Special Rapporteur on the Right to Food · May 2026",
+    card_dato1_label: "Loss of purchasing power",
+    card_dato1_desc: "96% of the Cuban population lost its purchasing power for essential food items in recent years.",
+    card_dato1_source: "Source: FMP Food Security Survey 2024",
+    card_dato2_label: "Drop in agricultural production",
+    card_dato2_desc: "National agricultural production plummeted 67% over the last five years while GAESA prioritized exports.",
+    card_dato2_source: "Source: FMP / Infobae, May 2026",
+    card_dato3_label: "Imported food",
+    card_dato3_desc: "Cuba imports 80% of the food it consumes. An agricultural nation in total food dependency.",
+    card_dato3_source: "Source: FMP / Marti Noticias 2026",
+    card_dato4_label: "Economy controlled by GAESA",
+    card_dato4_desc: "GAESA controls more than 70% of the Cuban economy and 95% of national finances. The civil State is decorative.",
+    card_dato4_source: "Source: Havana Consulting Group, ASCE 2025",
+    card_dato5_label: "Households with night hunger",
+    card_dato5_desc: "33.9% of households report that at least one member went to sleep hungry due to a lack of resources.",
+    card_dato5_source: "Source: FMP 2024, Sergio Angel Baquero",
+    card_dato6_label: "Manage two meals a day",
+    card_dato6_desc: "Only 29% of the Cuban population manages to access two meals daily in the current crisis.",
+    card_dato6_source: "Source: Diario de Cuba / FMP 2026",
+    card_dato7_label: "Drop in remittances in 2024",
+    card_dato7_desc: "Remittances fell 43% in 2024 compared to the previous year and 70% vs. 2019. 92.68% arrive via informal channels.",
+    card_dato7_source: "Source: Cuba Siglo 21, February 2025",
+    card_dato8_label: "GAESA income vs state taxes",
+    card_dato8_desc: "The conglomerate's revenues are 3.2 times larger than the state's budget via tax revenues. Captured State.",
+    card_dato8_source: "Source: elToque, November 2025 (filtered balance sheets)",
+    gaesa_label: "Anatomy of the Monopoly",
+    gaesa_title: "GAESA: The State within the State",
+    gaesa_desc: "Grupo de Administracion Empresarial S.A. is the financial arm of the Revolutionary Armed Forces. It operates without public audit, parliamentary control, or supervision from the Ministry of Economy. Not even the Comptroller General can access its accounts.",
+    gaesa_node_far: "REVOLUTIONARY ARMED FORCES (FAR)",
+    gaesa_node_gaesa: "GAESA · Enterprise Management Group S.A.",
+    gaesa_node_bfi: "Banco Financiero Internacional",
+    gaesa_node_cimex: "Cimex S.A.",
+    gaesa_node_trd: "TRD Caribe",
+    gaesa_node_gaviota: "Gaviota S.A. (Tourism)",
+    gaesa_node_flora: "Flora y Fauna S.A.",
+    gaesa_node_caribex: "Caribex Stores",
+    gaesa_node_transtur: "Transtur",
+    gaesa_node_universal: "Universal Warehouses",
+    gaesa_sectorial: "Estimated sectorial control",
+    gaesa_fn: "National finances",
+    gaesa_et: "Total economy",
+    gaesa_ia: "Food imports",
+    gaesa_dv: "Foreign exchange (USD/EUR)",
+    gaesa_tr: "Receptive tourism",
+    gaesa_chart_note: "* Combined estimates: Havana Consulting Group (ASCE 2025) + filtered GAESA balance sheets (elToque, Nov 2025) + FMP 2024",
+    geo_label: "Geopolitical Lens",
+    geo_title: "The actor board: opaque interests",
+    geo_desc: "Source triangulation requires identifying the vectors of interest that distort analysis. No actor is neutral. Informational noise is deliberate.",
+    actor1_name: "United States",
+    actor1_role: "The Embargo as a confounding variable",
+    actor1_desc: "64 years of embargo. Trump applied 240+ new sanctions. In December 2025, the US Navy temporarily disrupted the Venezuelan crude flow. Noise signal: the embargo is real and highly damaging, but remains insufficient to explain the internal asymmetry of resources.",
+    actor2_name: "Cuban Regime / GAESA",
+    actor2_role: "Embargo narrative as a shield",
+    actor2_desc: "Uses the embargo as an alibi for all internal inefficiencies. No independent auditing is allowed, and official statistics are manipulated. Interest: the regime has a strong incentive to blame external factors to evade responsibility for monopolistic capture.",
+    actor3_name: "Venezuela / Russia / China",
+    actor3_role: "Allies with their own agenda",
+    actor3_desc: "Venezuela provided oil (cut in Dec 2025). China funds solar infrastructure. Russia maintains commercial ties. Interest: these actors prioritize Cuba's persistence as an anti-Western geopolitical outpost, indifferent to the local supply crisis.",
+    actor4_name: "UN / Special Rapporteurs",
+    actor4_role: "Contradictory double rapporteurship",
+    actor4_desc: "The Rapporteur on unilateral sanctions (Douhan) demands lifting the embargo. Meanwhile, the Rapporteur on Food receives the FMP report against GAESA. Tension: both claims are true. The embargo hurts AND GAESA extracts rents; they are not mutually exclusive.",
+    geo_triang_title: "SOURCE TRIANGULATION METHOD",
+    geo_triang_desc: "To filter real signal from geopolitical noise: look for convergence between sources with opposing interests. When FMP (critical), elToque (technical independent), and Havana Consulting (exile) converge on the same data showing GAESA controls 70%+ of the economy, the signal rises above single-source bias.",
+    marco_label: "Theoretical Framework",
+    marco_title: "Institutional Economics and Rent-Seeking",
+    marco_desc: "The classic Austrian critique of central planning applies to Cuba with a modern twist: the problem is not the absence of informal markets, but the Rent-Seeking and institutional capture exercised by a military corporate monopolist.",
+    matrix_hdr1: "Officialist Narrative (ECLAC / Regime)",
+    matrix_hdr2: "Repository Analysis (Institutional / Austrian)",
+    matrix_c1_concept: "Cause of failure",
+    matrix_c1_text: "Unilateral commercial sanctions prevent financial liquidity and cut off the international supply chain. Socialist planning would be in charge of distributing the shortages fairly.",
+    matrix_c2_concept: "Economic calculation",
+    matrix_c2_text: "The State can coordinate the allocation of basic resources more fairly than the free market. Controlled prices prevent capitalist speculation.",
+    matrix_c3_concept: "Institutional and Rent-Seeking",
+    matrix_c3_text: "The 2021 reforms and MSMEs demonstrate the state's willingness to open the economy. Agricultural inefficiency responds to the lack of external credit caused by the blockade.",
+    matrix_c1_res: "Institutional monopoly",
+    matrix_c1_res_text: "GAESA monopolizes monetary calculation: it sets artificial exchange rates that punish the independent exporter and channels the flow of the currency spread to the corporate hotel sector.",
+    matrix_c2_res: "Dispersed information (Hayek)",
+    matrix_c2_res_text: "Central planning destroys informal price signals. GAESA does not plan welfare; it extracts rents from scarcity to support military corporate profitability.",
+    matrix_c3_res: "The internal blockade (Tullock)",
+    matrix_c3_res_text: "Shortages are an optimal outcome for a monopolist. The hunger of 96% of the population coexists with the capture of the diaspora's remittance flow. It is rent rationality, not inefficiency.",
+    historia_label: "Geopolitical Perspective",
+    historia_title: "Deep History: Cuba as a geopolitical chessboard",
+    historia_desc: "Contemporary discussion on shortages often reduces to a simplistic dispute between the impact of the US embargo and the inefficiencies of the state system. To provide a deep historical and human rights perspective, this interactive tour details how the island has always been a chessboard of power where its people's lives have been instrumentalized by great hegemonies.",
+    historia_btn_open: "Explore the deep history (First settlers to corporate capture)",
+    hist_epoch1: "Pre-Columbian",
+    hist_title1: "First Settlers",
+    hist_text1: "Taino, Ciboney, and Guanahatabey communities inhabited the island organized in self-sufficient agricultural and fishing chiefdoms. Their horizontal social structure collapsed with the European invasion of 1492.",
+    hist_ddhh1: "HR Impact: Total demographic extermination of the original native population in less than a century.",
+    hist_epoch2: "1492 – 1898",
+    hist_title2: "Spanish Colony",
+    hist_text2: "Cuba becomes the \"Key to the New World\", a military fort for the Spanish Empire and the epicenter of the sugar economy. This boom was sustained on the slave labor of over a million Africans.",
+    hist_ddhh2: "HR Impact: Legalized dehumanization and commodification of human lives under the transatlantic slave trade.",
+    hist_epoch3: "1898 – 1902",
+    hist_title3: "US Tutelage",
+    hist_text3: "Following US intervention in the war of independence, Cuba falls under military occupation. The Platt Amendment, forced into its Constitution, grants the US the right of intervention and naval bases like Guantanamo.",
+    hist_ddhh3: "HR Impact: National self-determination severed under de facto protectorate conditions.",
+    hist_epoch4: "1902 – 1959",
+    hist_title4: "Republican Period",
+    hist_text4: "An era marked by weak governments, hegemonic control of US monopolies (sugar, public services), and the infiltration of international organized crime. Concludes with Fulgencio Batista's repressive military dictatorship.",
+    hist_ddhh4: "HR Impact: Endemic state corruption, extreme structural inequality, and armed repression.",
+    hist_epoch5: "1959 – 1991",
+    hist_title5: "Soviet Sphere",
+    hist_text5: "The Cuban Revolution aligns with the USSR. The island is instrumentalized as a strategic pawn in the Cold War (e.g., the 1962 Missile Crisis). The economy survives on Soviet subsidies in exchange for geopolitical subordination.",
+    hist_ddhh5: "HR Impact: Systematic suppression of civil liberties and institutionalized political persecution.",
+    hist_epoch6: "1991 – Present",
+    hist_title6: "Corporate Capture",
+    hist_text6: "The collapse of the USSR forces the regime to seek foreign currency. The Armed Forces (FAR) establish GAESA, absorbing the most lucrative sectors (tourism, finance, imports). Scarcity and remittances are managed as corporate business lines.",
+    hist_ddhh6: "HR Impact: Hunger and food insecurity induced by the military monopoly over resource distribution.",
+    time_label: "Timeline of the Collapse",
+    time_title: "From reform to total monopoly",
+    ev1_year: "1994 · GAESA founded",
+    ev1_title: "Military conglomerate takes tourism",
+    ev1_desc: "Following the fall of the USSR and the start of the \"Special Period,\" the FAR found GAESA to manage foreign currency-generating sectors, starting the military corporate capture process.",
+    ev2_year: "2017–2021 · Trump Sancions",
+    ev2_title: "240+ unilateral sanctions",
+    ev2_desc: "Severe US restrictions reduce the flow of foreign tourists. GAESA sees its international revenues fall and responds by intensifying fiscal and currency pressure on the domestic economy.",
+    ev3_year: "Jan 2021 · Currency Unification",
+    ev3_title: "Inflationary monetary overhaul",
+    ev3_desc: "Elimination of the CUC. The informal exchange rate of the Cuban peso enters a historic inflationary spiral. GAESA's stores in Freely Convertible Currency (MLC) monopolize commercial supply.",
+    ev4_year: "2021 · MSMEs Legalized",
+    ev4_title: "Peripheral free market tolerated",
+    ev4_desc: "Private small and medium enterprises are authorized. Empirical evidence confirms that where GAESA does not exercise a direct distribution monopoly, supply of local goods partially improves.",
+    ev5_year: "Dec 2025 · Venezuelan oil cut",
+    ev5_title: "Escalation of naval sanctions",
+    ev5_desc: "The US Navy blocks Venezuelan oil shipments. The national power grid collapses. GAESA is accused of prioritizing electricity in its tourist hotels over civilian consumption.",
+    ev6_year: "May 2026 · UN Denunciation",
+    ev6_title: "FMP report presented to Rapporteurs",
+    ev6_desc: "Food Monitor Program exposes the survey of 2,703 households before the UN Special Rapporteur, showing that asymmetric supply and agricultural crackdowns constitute induced scarcity.",
+    ev7_year: "June 2026 · Active Crisis",
+    ev7_title: "Worst economic year in seven decades",
+    ev7_desc: "With the suspension of international card processors and extreme credit contraction, local economists define the current period as the most severe economic crisis in 70 years.",
+    fnt_label: "Source Triangulation",
+    fnt_title: "Documented spectrum and biases",
+    fnt_desc: "Methodological rigor does not discard sources with defined interests; it positions them within the analytical spectrum, explicitly stating their incentives to distill real information from propaganda noise.",
+    fnt1_type: "● Critical of the regime",
+    fnt1_name: "Food Monitor Program (FMP)",
+    fnt1_desc: "Independent food security observatory. Surveyed 2,703 households. Provides direct empirical data on nutrition and agricultural repression. Director: Sergio Angel Baquero.",
+    fnt1_bias: "Bias: anti-regime · Direct empirical methodology",
+    fnt2_type: "● Critical of the regime",
+    fnt2_name: "Havana Consulting Group",
+    fnt2_desc: "Economic think tank of the technical Cuban exile based in Miami. Analyzes GAESA's financial transactions and consolidated remittances. Director: Emilio Morales.",
+    fnt2_bias: "Bias: pro-market exile · GAESA technical estimates",
+    fnt3_type: "◆ Independent / technical",
+    fnt3_name: "elToque",
+    fnt3_desc: "Economic journalism portal that tracks the informal currency exchange rate in Cuba and publishes leaked corporate balance sheets of GAESA. Sede: Havana / Madrid.",
+    fnt3_bias: "Bias: low/technical · Uncontested price reference",
+    fnt4_type: "◆ Independent / technical",
+    fnt4_name: "Cuba Siglo 21",
+    fnt4_desc: "Civil association that publishes institutional analyses of GAESA's military corporate power and the inflation caused by official exchange policies.",
+    fnt4_bias: "Bias: moderate critical · Institutional documentation",
+    fnt5_type: "▲ International / UN",
+    fnt5_name: "UN Rapporteurship · Food",
+    fnt5_desc: "United Nations Special Rapporteurship on the Right to Food. Collects denunciations and issues recommendations on food systems.",
+    fnt5_bias: "Bias: institutional neutral · UN formal authority",
+    fnt6_type: "▲ International / UN",
+    fnt6_name: "UN Rapporteurship · Sancions",
+    fnt6_desc: "UN Special Rapporteur (Douhan) on unilateral coercive measures. Demands lifting the US embargo following an official visit to the island.",
+    fnt6_bias: "Bias: structural pro-regime · Critical of US sanctions",
+    fnt7_type: "■ Regime / official",
+    fnt7_name: "Cuban Government / ONEI",
+    fnt7_desc: "National Office of Statistics and Information. Provides official data on exports, tourism, and state yearbooks. Useful for contrasting investment asymmetries.",
+    fnt7_bias: "Bias: maximum · Controlled official database",
+    fnt8_type: "● Critical journalism",
+    fnt8_name: "14ymedio / Diario de Cuba",
+    fnt8_desc: "Independent press and field reporting documenting cases of persecuted farmers and state confiscation of crops in informal free markets.",
+    fnt8_bias: "Bias: anti-regime · On-the-ground field coverage",
+    conclusion_title: "The Cuban Crossroads:<br>Ideology or Extraction?",
+    conclusion_pullquote: "The analyzed empirical evidence indicates that Cuba's food and economic crisis does not respond solely to the failure of an abstract theoretical doctrine, but to the monopolistic capture of the economy by GAESA, a holding company that instrumentalizes nationalist discourse as protection for its rents.",
+    conclusion_p1: "This synthesis is highly uncomfortable for the traditional political spectrum. On one hand, the officialist narrative justifies all material deprivation based exclusively on the US commercial embargo. While North American sanctions are real, severe, and have indisputable effects (such as the energy crisis at the end of 2025), this thesis fails to explain the internal asymmetry: GAESA's persistent accumulation of foreign currency to build luxury hotels while medical services collapse and local agriculture declines.",
+    conclusion_p2: "On the other hand, the classical anti-communist reading clings to the idea of a pure central planning state, ignoring that an informal market operates on the island, tolerated and even monetized by the elite. The most robust explanatory model (Rent-Seeking theory) shows that the Cuban shortage is the direct consequence of a monopolist exercising an \"internal embargo,\" preventing free imports, distorting the exchange market, and destroying the production incentives of civil society.",
+    conclusion_p3: "Ultimately, the analysis of the repository shows that the private-military holding company of the Armed Forces (FAR) has managed to set itself up as a corporate state independent of civil society. Sustaining the socialist rhetoric of redistribution when GAESA's balance sheets multiply the state's tax revenues by 3.2 is not a political ideal, but a refined corporate strategy to protect the brand of a rent-extracting clique.",
+    meta_key1: "Analytical Approach",
+    meta_val1: "Geopolitical + Institutional Complexity",
+    meta_key2: "Theoretical Framework",
+    meta_val2: "Rent-Seeking Theory (Tullock-Krueger) + Austrian Economics",
+    meta_key3: "Methodology",
+    meta_val3: "Triangulation of Sources with Stated Bias",
+    meta_key4: "Falsification Condition",
+    meta_val4: "If GAESA dissolves and the supply remains chronically low, the thesis is wrong",
+    meta_key5: "Primary Data",
+    meta_val5: "FMP Survey 2024 (2,703 households) + Leaked GAESA Balance Sheets 2025",
+    meta_key6: "Last Update",
+    meta_val6: "June 2026 — Active crisis in development",
+    footer_note: "This analysis is of a journalistic and intellectual research nature. The theses and narratives presented are academic hypotheses subject to empirical falsification. Sources are explicitly identified with their bias. It does not represent the political position of any government or party. Data updated as of June 2026."
+  }
+};
+
+let currentLang = 'es';
+
+function changeLanguage(lang) {
+  currentLang = lang;
+  
+  // Toggles the 'active' class on language switcher buttons
+  document.getElementById('lang-btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('lang-btn-en').classList.toggle('active', lang === 'en');
+  
+  // Updates HTML document lang attribute for screen readers & SEO
+  document.documentElement.setAttribute('lang', lang);
+  
+  // Update texts
+  updateContent();
+  
+  // Store user preference
+  localStorage.setItem('cuba_narratives_lang', lang);
+}
+
+function updateContent() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[currentLang] && translations[currentLang][key]) {
+      el.textContent = translations[currentLang][key];
+    }
+  });
+  
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (translations[currentLang] && translations[currentLang][key]) {
+      el.innerHTML = translations[currentLang][key];
+    }
+  });
+  
+  // Recalculates scrollheight for history panel if open, preventing truncating
+  const content = document.getElementById('historia-content');
+  if (content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
+    content.style.maxHeight = content.scrollHeight + 'px';
+  }
+}
+
+// ── PROGRESS BAR ─────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('progress-bar').style.width = progress + '%';
+});
+
+// ── NAVBAR ANIMATION ON SCROLL ───────────────────────
+const navElement = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) {
+    navElement.classList.add('scrolled');
+  } else {
+    navElement.classList.remove('scrolled');
+  }
+});
+
+// ── REVEAL ON SCROLL ──────────────────────────────────
+const reveals = document.querySelectorAll('.reveal');
+const timelineEvents = document.querySelectorAll('.timeline-event');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.05 });
+
+reveals.forEach(el => observer.observe(el));
+timelineEvents.forEach(el => observer.observe(el));
+
+// ── BAR CHART ANIMATION ───────────────────────────────
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const bars = entry.target.querySelectorAll('.monopoly-bar-fill');
+      bars.forEach(bar => {
+        const targetWidth = bar.getAttribute('data-width');
+        bar.style.width = targetWidth + '%';
+      });
+    }
+  });
+}, { threshold: 0.15 });
+
+const chart = document.getElementById('monopoly-chart');
+if (chart) barObserver.observe(chart);
+
+// ── COUNTER ANIMATION ─────────────────────────────────
+function animateCounter(el, target) {
+  let current = 0;
+  const increment = target / 50;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(current);
+  }, 20);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const val = entry.target.querySelector('[data-target]');
+      if (val && !val.classList.contains('counted')) {
+        val.classList.add('counted');
+        animateCounter(val, parseInt(val.getAttribute('data-target')));
+      }
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.dato-card').forEach(card => counterObserver.observe(card));
+
+// ── TESIS TOGGLE ──────────────────────────────────────
+function toggleTesis(card) {
+  const wasActive = card.classList.contains('active');
+  document.querySelectorAll('.tesis-card').forEach(c => c.classList.remove('active'));
+  if (!wasActive) card.classList.add('active');
+}
+
+// ── HISTORIA TOGGLE ───────────────────────────────────
+function toggleHistoria() {
+  const content = document.getElementById('historia-content');
+  const btn = document.getElementById('toggle-historia');
+  const icon = btn.querySelector('.toggle-icon');
+  const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+  
+  if (isOpen) {
+    content.style.maxHeight = '0px';
+    content.style.opacity = '0';
+    icon.style.transform = 'rotate(0deg)';
+    btn.setAttribute('aria-expanded', 'false');
+  } else {
+    content.style.maxHeight = content.scrollHeight + 'px';
+    content.style.opacity = '1';
+    icon.style.transform = 'rotate(180deg)';
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+// ── SMOOTH NAV ────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      const yOffset = -60; 
+      const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior: 'smooth'});
+    }
+  });
+});
+
+// ── INIT LANG ─────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('cuba_narratives_lang');
+  if (savedLang) {
+    changeLanguage(savedLang);
+  } else {
+    const userLang = navigator.language || navigator.userLanguage;
+    if (userLang && userLang.startsWith('en')) {
+      changeLanguage('en');
+    } else {
+      changeLanguage('es');
+    }
+  }
+});
+</script>
+</body>
+</html>

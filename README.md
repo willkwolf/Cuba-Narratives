@@ -125,46 +125,49 @@ no tiene ideología fija, pero sí preferencias epistémicas:
 
 ---
 
-## 📚 Consulta de fuentes — Caso inaugural: Cuba
+## 📚 Consulta de fuentes — Caso inaugural: Cuba (Línea de Partida)
 
-### Fuentes primarias de datos
+### 📊 Datos Cuantitativos y Estadísticas Clave (Verificado Junio 2026)
 
-| Fuente | Tipo | Sesgo declarado | Dato clave aportado |
-|---|---|---|---|
-| **Food Monitor Program (FMP)** | ONG observatorio alimentario | Crítico del régimen | 96% pérdida capacidad de compra; encuesta 2,703 hogares (2024) |
-| **Havana Consulting Group** | Think tank exilio técnico | Anti-régimen | GAESA controla 70%+ economía, 95% finanzas nacionales |
-| **elToque** | Portal economía cubana | Técnico independiente | Balances filtrados GAESA; ingresos 3.2× presupuesto estatal |
-| **Cuba Siglo 21** | ONG análisis político | Moderadamente crítico | Informe colapso inflacionario; dossier MIPYMES y remesas |
+| Dato / Indicador | Descripción Empírica | Fuente Primaria |
+|---|---|---|
+| **96%** | Pérdida de capacidad de compra para adquirir alimentos esenciales por parte de la población en años recientes. | Food Monitor Program (FMP) - Encuesta Seguridad Alimentaria 2024 |
+| **67%** | Desplome de la producción agrícola nacional durante los últimos 5 años, coincidiendo con la redirección de recursos militares. | FMP / Infobae (Mayo 2026) |
+| **80%** | Porcentaje de alimentos consumidos en la isla que son de origen importado. | FMP / Martí Noticias 2026 |
+| **>70%** | Porcentaje de la economía cubana bajo control directo o indirecto del conglomerado militar GAESA. | Havana Consulting Group / ASCE 2025 |
+| **95%** | Porcentaje de los flujos financieros controlados por GAESA en transacciones nacionales. | Havana Consulting Group / ASCE 2025 |
+| **33.9%** | Porcentaje de hogares donde al menos un miembro se ha ido a dormir con hambre por falta de recursos financieros. | FMP 2024 (Sergio Ángel Baquero) |
+| **29%** | Porcentaje de hogares que se alimenta **solo dos veces** al día bajo la crisis actual. | Diario de Cuba / FMP 2026 |
+| **43%** | Caída interanual en el volumen total de remesas familiares recibidas en la isla durante 2024 (-70% comparado con 2019). | Cuba Siglo 21 (Febrero 2025) |
+| **92.68%** | Porcentaje de las remesas totales entrantes que ingresan al país por canales informales. | Cuba Siglo 21 (Febrero 2025) |
+| **3.2x** | Proporción en la que los ingresos consolidados estimados de GAESA superan el presupuesto tributario estatal de Cuba. | elToque (Noviembre 2025 - balances filtrados) |
 
-### Fuentes internacionales / ONU
+### 🔍 Clasificación de Fuentes y Sesgos Documentados
 
-| Fuente | Tipo | Sesgo declarado | Posición |
-|---|---|---|---|
-| **Relator Especial ONU — Alimentación** | Organismo ONU | Institucional neutral | Recibe denuncia FMP contra GAESA |
-| **Relatora ONU — Sanciones (Douhan, Bielorrusia)** | Organismo ONU | Pro-régimen estructural | Pide levantar embargo de EEUU |
-| **CEPAL** | Organismo regional | Institucional / desarrollista | Atribuye parte del colapso al embargo |
-| **Human Rights Watch** | ONG DDHH | Crítico de régimen | Documentó uso del embargo como "pretexto" |
+Para contrarrestar la polarización de las narrativas tradicionales, las fuentes se clasifican explícitamente según su sesgo e incentivos de procedencia:
 
-### Fuentes de periodismo en terreno
+#### A. Fuentes Críticas / Exilio (Sesgo Anti-Régimen Pro-Mercado)
+* **Food Monitor Program (FMP):** Observatorio independiente de seguridad alimentaria. Provee datos sobre desnutrición recogidos de forma presencial en 2,703 hogares en Cuba (Director: Sergio Ángel Baquero).
+* **Havana Consulting Group:** Consultora basada en Miami. Analiza transacciones financieras de GAESA y balances de remesas (Director: Emilio Morales).
+* **14ymedio / Diario de Cuba:** Medios independientes cubanos. Reportajes en terreno sobre decomisos estatales a agricultores y mercados informales.
 
-| Fuente | Tipo | Sesgo declarado | Valor específico |
-|---|---|---|---|
-| **14ymedio** | Medio independiente cubano | Anti-régimen | Testimonios en terreno; casos de confiscación |
-| **Diario de Cuba** | Medio independiente cubano | Anti-régimen | Cobertura de represión a mercados informales |
-| **Martí Noticias** | Radio Martí / EEUU | Anti-régimen / financiación EEUU | Amplifica FMP; sesgo de financiador visible |
-| **Infobae América** | Medio regional | Moderadamente crítico | Cobertura amplia del informe FMP ante ONU |
+#### B. Fuentes Técnicas Independientes (Sesgo Bajo / Metodología de Mercado)
+* **elToque:** Portal independiente de economía. Publica el índice diario del tipo de cambio informal de divisas y balances corporativos filtrados de GAESA.
+* **Cuba Siglo 21:** Asociación civil. Informes institucionales sobre el poder corporativo de GAESA, MIPYMES post-2021 y manipulación cambiaria.
 
-### Fuentes del régimen / oficiales
+#### C. Fuentes Oficiales / Régimen (Sesgo Pro-Régimen)
+* **Gobierno Cubano / ONEI (Oficina Nacional de Estadística e Información):** Anuario Estadístico oficial. Útil para contrastar asimetrías de inversión (hoteles de lujo vs. agricultura).
+* **Relatora ONU sobre Sanciones (Alena Douhan):** Relatoría especial de Naciones Unidas. Foco prioritario en el impacto estructural negativo del embargo estadounidense.
 
-| Fuente | Tipo | Sesgo declarado | Uso metodológico |
-|---|---|---|---|
-| **ONEI (Anuario Estadístico Cuba 2024)** | Estadística oficial | Régimen | Base comparativa — triangular distorsiones |
-| **Granma / Cubadebate** | Prensa oficial | Propaganda de Estado | Identificar narrativa oficial a debunkear |
+#### D. Fuentes Internacionales Neutras (Sesgo Bajo / Foco en Derechos)
+* **Relatoría ONU sobre la Alimentación:** Relatoría especial. Evaluaciones del derecho a la alimentación, alertas nutricionales y recomendaciones al gobierno cubano.
+
+---
 
 ### Cómo usar este mapa de fuentes
 
 ```
-✅ Usar para tesis:     Datos que aparecen en columna IZQUIERDA y DERECHA del espectro
+✅ Usar para tesis:     Datos que aparecen en convergencia entre fuentes con intereses OPUESTOS
 ⚠️ Usar con reserva:   Datos que solo aparecen en fuentes de un solo lado
 ❌ No usar como prueba: Datos de fuente única sin posibilidad de corroboración
 ```

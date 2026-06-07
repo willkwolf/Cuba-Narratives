@@ -1090,6 +1090,36 @@ footer {
   line-height: 1.1;
 }
 
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-repo-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+}
+
+.footer-repo-link:hover {
+  border-color: var(--accent);
+  opacity: 0.8;
+}
+
 /* ─── ACCESIBILIDAD Y ANIMACIONES ───────────────────── */
 .reveal {
   opacity: 0;
@@ -1741,7 +1771,7 @@ a:focus, button:focus {
 <section id="conclusion">
   <div class="container">
     <div class="section-label reveal" data-i18n="nav_logo">Cuba · Análisis</div>
-    <h2 class="section-title reveal" data-i18n="conclusion_title">La encrucijada cubana:<br>¿Ideología o extracción?</h2>
+    <h2 class="section-title reveal" data-i18n-html="conclusion_title">La encrucijada cubana:<br>¿Ideología o extracción?</h2>
 
     <div class="conclusion-pullquote reveal" data-i18n="conclusion_pullquote">
       La evidencia empírica analizada indica que la crisis alimentaria y económica de Cuba no responde únicamente al fracaso de una doctrina teórica abstracta, sino a la captura monopolística de la economía por GAESA, holding que instrumentaliza el discurso nacionalista como protección de sus rentas.
@@ -1796,8 +1826,15 @@ a:focus, button:focus {
 
 <!-- ════════════════════════════════════ FOOTER ══ -->
 <footer>
-  <div class="footer-note" data-i18n="footer_note">
-    Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a junio 2026.
+  <div class="footer-info">
+    <div class="footer-note" data-i18n="footer_note">
+      Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a junio 2026.
+    </div>
+    <div class="footer-links">
+      <a id="footer-repo-link" href="https://github.com/willkwolf/Cuba-Narratives#readme" target="_blank" rel="noopener" class="footer-repo-link" data-i18n="footer_repo_link">
+        Para saber más: Explora el repositorio y el README en GitHub →
+      </a>
+    </div>
   </div>
   <div class="footer-logo">Cuba<br>Análisis</div>
 </footer>
@@ -2026,7 +2063,8 @@ const translations = {
     meta_val5: "Encuesta FMP 2024 (2,703 hogares) + Balances GAESA filtrados 2025",
     meta_key6: "Última Actualización",
     meta_val6: "Junio 2026 — Crisis activa en desarrollo",
-    footer_note: "Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a junio 2026."
+    footer_note: "Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a junio 2026.",
+    footer_repo_link: "Para saber más: Explora el repositorio y el README en GitHub →"
   },
   en: {
     nav_logo: "Cuba · Analysis",
@@ -2249,7 +2287,8 @@ const translations = {
     meta_val5: "FMP Survey 2024 (2,703 households) + Leaked GAESA Balance Sheets 2025",
     meta_key6: "Last Update",
     meta_val6: "June 2026 — Active crisis in development",
-    footer_note: "This analysis is of a journalistic and intellectual research nature. The theses and narratives presented are academic hypotheses subject to empirical falsification. Sources are explicitly identified with their bias. It does not represent the political position of any government or party. Data updated as of June 2026."
+    footer_note: "This analysis is of a journalistic and intellectual research nature. The theses and narratives presented are academic hypotheses subject to empirical falsification. Sources are explicitly identified with their bias. It does not represent the political position of any government or party. Data updated as of June 2026.",
+    footer_repo_link: "To learn more: Explore the repository and README on GitHub →"
   }
 };
 

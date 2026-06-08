@@ -21,7 +21,7 @@
   --color-critico: #a63f2b; /* Terracota cálido (Sociedad Civil) */
   --color-oficial: #435a43; /* Verde oliva seco (Gobierno/Militares) */
   --color-tecnico: #2e576f; /* Azul acero (Independientes/ONU) */
-  --accent: #b0831c;        /* Oro envejecido para acentos e interactividad */
+  --accent: #916912;        /* Oro envejecido oscuro para acentos (contraste WCAG AA 4.67:1) */
   
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --font-display: 'Playfair Display', serif;
@@ -116,7 +116,7 @@ nav.scrolled {
 
 .nav-links a {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(11.5px, 0.8vw, 13px);
   letter-spacing: 1px;
   color: var(--text-muted);
   text-decoration: none;
@@ -142,9 +142,9 @@ nav.scrolled {
   background: transparent;
   border: none;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: clamp(11.5px, 0.8vw, 13px);
   font-weight: 600;
-  padding: 4px 8px;
+  padding: 6px 12px;
   cursor: pointer;
   color: var(--text-muted);
   transition: all 0.3s var(--ease);
@@ -182,7 +182,7 @@ nav.scrolled {
 
 .hero-tag {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(11px, 0.8vw, 13px);
   letter-spacing: 3px;
   color: var(--color-critico);
   text-transform: uppercase;
@@ -228,7 +228,7 @@ nav.scrolled {
   border: 1px solid rgba(181, 84, 60, 0.25);
   padding: 10px 18px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: clamp(11.5px, 0.8vw, 13px);
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-critico);
@@ -256,7 +256,7 @@ nav.scrolled {
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: clamp(10px, 0.75vw, 11px);
   letter-spacing: 2px;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -289,7 +289,7 @@ section {
 
 .section-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(11px, 0.8vw, 13px);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--accent);
@@ -383,7 +383,7 @@ section {
 
 .tesis-intensity {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: clamp(10.5px, 0.75vw, 12px);
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -470,7 +470,7 @@ section {
 
 .dato-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(10.5px, 0.75vw, 12px);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--text-primary);
@@ -479,7 +479,7 @@ section {
 }
 
 .dato-desc {
-  font-size: 13.5px;
+  font-size: clamp(14px, 1vw, 15px);
   line-height: 1.55;
   color: var(--text-muted);
   margin-bottom: 16px;
@@ -487,7 +487,7 @@ section {
 
 .dato-source {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: clamp(10px, 0.75vw, 11px);
   color: var(--text-muted);
   border-top: 1px solid var(--border);
   padding-top: 10px;
@@ -553,7 +553,7 @@ section {
   border: 1px solid var(--border);
   padding: 12px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(11px, 0.8vw, 13px);
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--text-primary);
@@ -651,7 +651,7 @@ section {
 
 .modal-entity-subtitle {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(10.5px, 0.75vw, 12px);
   color: var(--text-muted);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -688,7 +688,7 @@ section {
 
 .modal-lens-title {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(10.5px, 0.75vw, 12px);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -721,7 +721,7 @@ section {
   border: 1px solid var(--text-primary);
   padding: 8px 20px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: clamp(11px, 0.8vw, 13px);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -759,7 +759,7 @@ section {
 
 .monopoly-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: clamp(11.5px, 0.8vw, 13px);
   color: var(--text-primary);
   font-weight: 600;
 }
@@ -780,7 +780,7 @@ section {
   align-items: center;
   padding-left: 12px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: clamp(10px, 0.75vw, 11px);
   font-weight: 700;
   color: var(--bg);
   white-space: nowrap;
@@ -830,7 +830,7 @@ section {
 
 .geo-actor-name {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(10.5px, 0.75vw, 12px);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--accent);
@@ -846,7 +846,7 @@ section {
 }
 
 .geo-actor-desc {
-  font-size: 13.5px;
+  font-size: clamp(14px, 1vw, 15px);
   line-height: 1.6;
   color: var(--text-muted);
 }
@@ -885,7 +885,7 @@ section {
 .matrix-cell.header {
   background: rgba(27, 30, 36, 0.03);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(11px, 0.8vw, 12px);
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -901,7 +901,7 @@ section {
 
 .matrix-concept {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: clamp(10.5px, 0.75vw, 11.5px);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 6px;
@@ -911,7 +911,7 @@ section {
 .vs-right .matrix-concept { color: var(--color-critico); }
 
 .matrix-text {
-  font-size: 13.5px;
+  font-size: clamp(14px, 1vw, 15px);
   line-height: 1.55;
   color: var(--text-muted);
 }
@@ -927,7 +927,7 @@ section {
   color: var(--accent);
   padding: 16px 24px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: clamp(11.5px, 0.8vw, 13px);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   cursor: pointer;
@@ -992,7 +992,7 @@ section {
 
 .historia-epoch {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: clamp(10.5px, 0.75vw, 12px);
   color: var(--accent);
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -1008,7 +1008,7 @@ section {
 }
 
 .historia-text {
-  font-size: 13px;
+  font-size: clamp(13.5px, 0.95vw, 15px);
   line-height: 1.55;
   color: var(--text-muted);
   margin-bottom: 16px;
@@ -1018,7 +1018,7 @@ section {
   border-top: 1px dashed var(--border);
   padding-top: 10px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: clamp(10px, 0.75vw, 11px);
   color: var(--color-critico);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -1064,7 +1064,7 @@ section {
 
 .timeline-year {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: clamp(10.5px, 0.75vw, 12px);
   letter-spacing: 2px;
   color: var(--color-critico);
   margin-bottom: 4px;
@@ -1073,13 +1073,13 @@ section {
 
 .timeline-title {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: clamp(16px, 1.1vw, 18px);
   font-weight: 700;
   margin-bottom: 6px;
 }
 
 .timeline-desc {
-  font-size: 13px;
+  font-size: clamp(13.5px, 0.95vw, 15px);
   line-height: 1.55;
   color: var(--text-muted);
 }
@@ -1132,7 +1132,7 @@ section {
 
 .fuente-tipo {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: clamp(10px, 0.75vw, 11px);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -1145,13 +1145,13 @@ section {
 
 .fuente-nombre {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: clamp(16px, 1.1vw, 18px);
   font-weight: 700;
   margin-bottom: 8px;
 }
 
 .fuente-desc {
-  font-size: 13px;
+  font-size: clamp(13.5px, 0.95vw, 14.5px);
   line-height: 1.5;
   color: var(--text-muted);
   margin-bottom: 12px;
@@ -1159,7 +1159,7 @@ section {
 
 .fuente-sesgo {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: clamp(10px, 0.75vw, 11px);
   letter-spacing: 0.5px;
   padding: 4px 8px;
   border: 1px solid var(--border);
@@ -1301,10 +1301,13 @@ footer {
   transform: translateY(0);
 }
 
-/* Focus states para accesibilidad */
-a:focus, button:focus {
+/* Focus-visible states para accesibilidad sin ruido visual */
+a:focus-visible, button:focus-visible {
   outline: 2px dashed var(--accent);
   outline-offset: 4px;
+}
+a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
+  outline: none;
 }
 
 </style>
@@ -1330,8 +1333,8 @@ a:focus, button:focus {
     
     <!-- Language Selection Switch -->
     <div class="lang-switch">
-      <button id="lang-btn-es" class="lang-btn active" onclick="changeLanguage('es')">ES</button>
-      <button id="lang-btn-en" class="lang-btn" onclick="changeLanguage('en')">EN</button>
+      <button id="lang-btn-es" class="lang-btn active" onclick="changeLanguage('es')" aria-label="Cambiar idioma a español" data-i18n-aria="aria_lang_es">ES</button>
+      <button id="lang-btn-en" class="lang-btn" onclick="changeLanguage('en')" aria-label="Cambiar idioma a inglés" data-i18n-aria="aria_lang_en">EN</button>
     </div>
   </div>
 </nav>
@@ -2011,7 +2014,7 @@ a:focus, button:focus {
 <!-- ════════════════════════════════════ MODAL GAESA ══ -->
 <div id="gaesa-modal" class="modal-overlay" onclick="closeEntityModal(event)">
   <div class="modal-card" onclick="event.stopPropagation()">
-    <button class="modal-close-btn" onclick="closeEntityModal(event)" aria-label="Close">&times;</button>
+    <button class="modal-close-btn" onclick="closeEntityModal(event)" aria-label="Cerrar modal de entidad" data-i18n-aria="aria_close_modal">&times;</button>
     <h3 id="modal-title" class="modal-entity-title">Nombre</h3>
     <div class="modal-entity-subtitle" data-i18n="gaesa_modal_subtitle">Entidad del Conglomerado GAESA</div>
     
@@ -2285,7 +2288,11 @@ const translations = {
     gaesa_modal_transtur_critical: "Mantiene una flota moderna de autos importados para turistas mientras el transporte público nacional para la población civil colapsa por escasez crónica de combustible y repuestos.",
     gaesa_node_universal: "Almacenes Universal S.A.",
     gaesa_modal_universal_official: "Operador logístico principal que administra zonas francas, depósitos aduaneros y puertos comerciales clave para el abastecimiento estratégico del país.",
-    gaesa_modal_universal_critical: "Controla los servicios de aduana y almacenamiento en puertos críticos (como la Zona Especial de Desarrollo del Mariel), cobrando peajes y tarifas aduaneras elevadas en dólares que ahogan al comercio privado."
+    gaesa_modal_universal_critical: "Controla los servicios de aduana y almacenamiento en puertos críticos (como la Zona Especial de Desarrollo del Mariel), cobrando peajes y tarifas aduaneras elevadas en dólares que ahogan al comercio privado.",
+    doc_title: "CUBA: CAPITALISMO CAPTURADO — Análisis Geopolítico",
+    aria_close_modal: "Cerrar modal de entidad",
+    aria_lang_es: "Cambiar idioma a español",
+    aria_lang_en: "Cambiar idioma a inglés"
   },
   en: {
     nav_logo: "Cuba · Analysis",
@@ -2537,7 +2544,11 @@ const translations = {
     gaesa_modal_transtur_critical: "Maintains a modern fleet of imported rental cars for tourists while the national public transport network for civil society collapses due to chronic fuel and spare parts shortages.",
     gaesa_node_universal: "Almacenes Universal S.A.",
     gaesa_modal_universal_official: "Primary logistics operator managing free trade zones, customs warehouses, and key commercial ports for the country's strategic supply.",
-    gaesa_modal_universal_critical: "Controls customs and storage services at critical entry ports (such as the Mariel Special Development Zone), charging high ad-valorem fees and tariffs in USD that suffocate private trade."
+    gaesa_modal_universal_critical: "Controls customs and storage services at critical entry ports (such as the Mariel Special Development Zone), charging high ad-valorem fees and tariffs in USD that suffocate private trade.",
+    doc_title: "CUBA: CAPTURED CAPITALISM — Geopolitical Analysis",
+    aria_close_modal: "Close entity modal",
+    aria_lang_es: "Switch language to Spanish",
+    aria_lang_en: "Switch language to English"
   },
 };
 
@@ -2572,6 +2583,19 @@ function updateContent() {
     const key = el.getAttribute('data-i18n-html');
     if (translations[currentLang] && translations[currentLang][key]) {
       el.innerHTML = translations[currentLang][key];
+    }
+  });
+  
+  // Update document title for SEO and accessibility
+  if (translations[currentLang] && translations[currentLang].doc_title) {
+    document.title = translations[currentLang].doc_title;
+  }
+  
+  // Update aria-labels dynamically
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria');
+    if (translations[currentLang] && translations[currentLang][key]) {
+      el.setAttribute('aria-label', translations[currentLang][key]);
     }
   });
   

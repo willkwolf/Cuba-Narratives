@@ -563,6 +563,173 @@ section {
   align-items: center;
   justify-content: center;
   min-height: 50px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.org-node:hover {
+  background: var(--surface);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ─── MODAL GAESA ───────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(27, 30, 36, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  width: 90%;
+  max-width: 650px;
+  max-height: 85vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 30px;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+  color: var(--color-critico);
+}
+
+.modal-entity-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  margin-top: 10px;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+}
+
+.modal-entity-subtitle {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.modal-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .modal-compare-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.modal-lens-box {
+  padding: 18px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+}
+
+.modal-lens-box.official {
+  background: rgba(46, 87, 111, 0.02);
+  border-left: 4px solid var(--color-tecnico);
+}
+
+.modal-lens-box.critical {
+  background: rgba(166, 63, 43, 0.02);
+  border-left: 4px solid var(--color-critico);
+}
+
+.modal-lens-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.modal-lens-title.official {
+  color: var(--color-tecnico);
+}
+
+.modal-lens-title.critical {
+  color: var(--color-critico);
+}
+
+.modal-lens-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.modal-action-container {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-confirm-btn {
+  background: var(--text-primary);
+  color: var(--bg);
+  border: 1px solid var(--text-primary);
+  padding: 8px 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.modal-confirm-btn:hover {
+  opacity: 0.9;
 }
 
 /* Gráfico de Barras */
@@ -1374,14 +1541,14 @@ a:focus, button:focus {
       <div class="org-node-root" style="background: #3c4f3c;" data-i18n="gaesa_node_gaesa">GAESA · Grupo de Administración Empresarial S.A.</div>
       <div class="org-connector-down"></div>
       <div class="org-level">
-        <div class="org-node" data-i18n="gaesa_node_bfi">Banco Financiero Internacional</div>
-        <div class="org-node" data-i18n="gaesa_node_cimex">Cimex S.A.</div>
-        <div class="org-node" data-i18n="gaesa_node_trd">TRD Caribe</div>
-        <div class="org-node" data-i18n="gaesa_node_gaviota">Gaviota S.A. (Turismo)</div>
-        <div class="org-node" data-i18n="gaesa_node_flora">Flora y Fauna S.A.</div>
-        <div class="org-node" data-i18n="gaesa_node_caribex">Tiendas Caribex</div>
-        <div class="org-node" data-i18n="gaesa_node_transtur">Transtur</div>
-        <div class="org-node" data-i18n="gaesa_node_universal">Almacenes Universal</div>
+        <div class="org-node" onclick="showEntityModal('bfi')" data-i18n="gaesa_node_bfi">Banco Financiero Internacional S.A. (BFI)</div>
+        <div class="org-node" onclick="showEntityModal('cimex')" data-i18n="gaesa_node_cimex">Corporación CIMEX S.A.</div>
+        <div class="org-node" onclick="showEntityModal('trd')" data-i18n="gaesa_node_trd">Cadena de Tiendas TRD Caribe</div>
+        <div class="org-node" onclick="showEntityModal('gaviota')" data-i18n="gaesa_node_gaviota">Grupo de Turismo Gaviota S.A.</div>
+        <div class="org-node" onclick="showEntityModal('flora')" data-i18n="gaesa_node_flora">Empresa Nacional para la Protección de la Flora y la Fauna</div>
+        <div class="org-node" onclick="showEntityModal('caribex')" data-i18n="gaesa_node_caribex">Caribex S.A.</div>
+        <div class="org-node" onclick="showEntityModal('transtur')" data-i18n="gaesa_node_transtur">TRANSTUR S.A.</div>
+        <div class="org-node" onclick="showEntityModal('universal')" data-i18n="gaesa_node_universal">Almacenes Universal S.A.</div>
       </div>
     </div>
 
@@ -1839,6 +2006,30 @@ a:focus, button:focus {
   <div class="footer-logo">Cuba<br>Análisis</div>
 </footer>
 
+<!-- ════════════════════════════════════ MODAL GAESA ══ -->
+<div id="gaesa-modal" class="modal-overlay" onclick="closeEntityModal(event)">
+  <div class="modal-card" onclick="event.stopPropagation()">
+    <button class="modal-close-btn" onclick="closeEntityModal(event)" aria-label="Close">&times;</button>
+    <h3 id="modal-title" class="modal-entity-title">Nombre</h3>
+    <div class="modal-entity-subtitle" data-i18n="gaesa_modal_subtitle">Entidad del Conglomerado GAESA</div>
+    
+    <div class="modal-compare-grid">
+      <div class="modal-lens-box official">
+        <div class="modal-lens-title official" data-i18n="gaesa_modal_official_title">Lente CEPAL / Estado (Oficial)</div>
+        <div id="modal-desc-official" class="modal-lens-text">...</div>
+      </div>
+      <div class="modal-lens-box critical">
+        <div class="modal-lens-title critical" data-i18n="gaesa_modal_critical_title">Lente Rent-Seeking (Extracción)</div>
+        <div id="modal-desc-critical" class="modal-lens-text">...</div>
+      </div>
+    </div>
+    
+    <div class="modal-action-container">
+      <button class="modal-confirm-btn" onclick="closeEntityModal(event)" data-i18n="gaesa_modal_close_btn">Entendido</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ── TRADUCCIONES i18n ─────────────────────────────────
 const translations = {
@@ -2064,7 +2255,35 @@ const translations = {
     meta_key6: "Última Actualización",
     meta_val6: "Junio 2026 — Crisis activa en desarrollo",
     footer_note: "Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a junio 2026.",
-    footer_repo_link: "Para saber más: Explora el repositorio y el README en GitHub →"
+    footer_repo_link: "Para saber más: Explora el repositorio y el README en GitHub →",
+    gaesa_modal_subtitle: "Entidad del Conglomerado GAESA",
+    gaesa_modal_official_title: "Lente CEPAL / Estado (Oficial)",
+    gaesa_modal_critical_title: "Lente Rent-Seeking (Extracción)",
+    gaesa_modal_close_btn: "Entendido",
+    gaesa_node_bfi: "Banco Financiero Internacional S.A. (BFI)",
+    gaesa_modal_bfi_official: "Banco comercial creado para centralizar las operaciones de divisas del comercio exterior cubano, facilitando transacciones estatales de importación de alimentos y combustible.",
+    gaesa_modal_bfi_critical: "Controlado directamente por GAESA, retiene las divisas generadas por remesas, turismo y exportaciones de médicos, utilizándolas de forma discrecional fuera del presupuesto nacional fiscalizado.",
+    gaesa_node_cimex: "Corporación CIMEX S.A.",
+    gaesa_modal_cimex_official: "Grupo comercial estatal dedicado a la importación y comercialización mayorista y minorista de bienes de consumo, combustibles y servicios para la población.",
+    gaesa_modal_cimex_critical: "Opera como el mayor oligopolio comercial de la isla. Captura dólares de remesas familiares a través de tiendas recaudadoras y monopoliza la importación comercial con altos márgenes de ganancia.",
+    gaesa_node_trd: "Cadena de Tiendas TRD Caribe",
+    gaesa_modal_trd_official: "Cadena nacional de tiendas minoristas creada para facilitar el acceso a electrodomésticos y bienes de consumo mediante la captación de divisas extranjeras.",
+    gaesa_modal_trd_critical: "Monopolio de tiendas minoristas en dólares (MLC) que impone un sobreprecio de hasta el 240% sobre productos esenciales, obligando al ciudadano a depender del mercado cambiario informal.",
+    gaesa_node_gaviota: "Grupo de Turismo Gaviota S.A.",
+    gaesa_modal_gaviota_official: "Principal corporación de turismo del país, encargada del desarrollo hotelero, marinas y agencias de viaje para atraer divisas externas y financiar el bienestar social.",
+    gaesa_modal_gaviota_critical: "Brazo constructor de GAESA. Canaliza divisas líquidas para edificar resorts de lujo vacíos (bajo una ocupación real menor al 15% en 2025/2026) mientras desfinancia servicios públicos y agricultura.",
+    gaesa_node_flora: "Empresa Nacional para la Protección de la Flora y la Fauna",
+    gaesa_modal_flora_official: "Entidad responsable de la conservación de áreas protegidas, zoocriaderos, desarrollo forestal y promoción del ecoturismo nacional.",
+    gaesa_modal_flora_critical: "Controla latifundios agrícolas, cotos de caza exclusivos y la exportación de recursos naturales exóticos de alto valor comercial, desviando los ingresos de la fiscalización estatal ordinaria.",
+    gaesa_node_caribex: "Caribex S.A.",
+    gaesa_modal_caribex_official: "Comercializadora oficial de productos del mar y recursos pesqueros para la exportación y el abastecimiento turístico.",
+    gaesa_modal_caribex_critical: "Monopoliza la exportación de mariscos de alta gama (langostas, camarones) pescados en aguas soberanas, privando a la población del acceso a proteínas marinas locales de calidad.",
+    gaesa_node_transtur: "TRANSTUR S.A.",
+    gaesa_modal_transtur_official: "Empresa estatal de transporte turístico y renta de vehículos, vital para garantizar la movilidad de visitantes extranjeros e ingresar divisas frescas.",
+    gaesa_modal_transtur_critical: "Mantiene una flota moderna de autos importados para turistas mientras el transporte público nacional para la población civil colapsa por escasez crónica de combustible y repuestos.",
+    gaesa_node_universal: "Almacenes Universal S.A.",
+    gaesa_modal_universal_official: "Operador logístico principal que administra zonas francas, depósitos aduaneros y puertos comerciales clave para el abastecimiento estratégico del país.",
+    gaesa_modal_universal_critical: "Controla los servicios de aduana y almacenamiento en puertos críticos (como la Zona Especial de Desarrollo del Mariel), cobrando peajes y tarifas aduaneras elevadas en dólares que ahogan al comercio privado."
   },
   en: {
     nav_logo: "Cuba · Analysis",
@@ -2288,8 +2507,36 @@ const translations = {
     meta_key6: "Last Update",
     meta_val6: "June 2026 — Active crisis in development",
     footer_note: "This analysis is of a journalistic and intellectual research nature. The theses and narratives presented are academic hypotheses subject to empirical falsification. Sources are explicitly identified with their bias. It does not represent the political position of any government or party. Data updated as of June 2026.",
-    footer_repo_link: "To learn more: Explore the repository and README on GitHub →"
-  }
+    footer_repo_link: "To learn more: Explore the repository and README on GitHub →",
+    gaesa_modal_subtitle: "GAESA Conglomerate Entity",
+    gaesa_modal_official_title: "CEPAL / State Lens (Official)",
+    gaesa_modal_critical_title: "Rent-Seeking Lens (Extraction)",
+    gaesa_modal_close_btn: "Understood",
+    gaesa_node_bfi: "Banco Financiero Internacional S.A. (BFI)",
+    gaesa_modal_bfi_official: "Commercial bank created to centralize foreign exchange operations of Cuban foreign trade, facilitating state imports of food and fuel.",
+    gaesa_modal_bfi_critical: "Directly controlled by GAESA, it retains foreign exchange generated by remittances, tourism, and medical exports, using them discretionally outside the audited national budget.",
+    gaesa_node_cimex: "Corporación CIMEX S.A.",
+    gaesa_modal_cimex_official: "State commercial group dedicated to the wholesale and retail import and commercialization of consumer goods, fuel, and services for the population.",
+    gaesa_modal_cimex_critical: "Operates as the largest commercial oligopoly on the island. Captures U.S. dollars from family remittances through state stores and monopolizes commercial imports with high profit margins.",
+    gaesa_node_trd: "Cadena de Tiendas TRD Caribe",
+    gaesa_modal_trd_official: "National retail store chain created to facilitate access to home appliances and consumer goods by capturing foreign exchange.",
+    gaesa_modal_trd_critical: "Monopoly of retail stores in foreign currency (MLC) that imposes markup rates of up to 240% on essential goods, forcing citizens to depend on the controlled currency market.",
+    gaesa_node_gaviota: "Grupo de Turismo Gaviota S.A.",
+    gaesa_modal_gaviota_official: "Main tourism corporation in the country, in charge of hotel development, marinas, and travel agencies to attract foreign exchange and finance social welfare.",
+    gaesa_modal_gaviota_critical: "GAESA's construction arm. Channels liquid foreign exchange to build empty luxury resorts (with actual occupancy below 15% in 2025/2026) while defunding basic public services and local agriculture.",
+    gaesa_node_flora: "Empresa Nacional para la Protección de la Flora y la Fauna",
+    gaesa_modal_flora_official: "Entity responsible for the conservation of protected areas, animal breeding centers, forestry development, and national ecotourism promotion.",
+    gaesa_modal_flora_critical: "Controls agricultural land holdings, exclusive hunting grounds, and the export of high-value exotic natural resources, bypassing ordinary state tax inspection.",
+    gaesa_node_caribex: "Caribex S.A.",
+    gaesa_modal_caribex_official: "Official exporter of seafood and fishery resources for export and tourist supply.",
+    gaesa_modal_caribex_critical: "Monopolizes the export of high-end seafood (lobster, shrimp) caught in sovereign waters, depriving the local population of access to quality marine proteins.",
+    gaesa_node_transtur: "TRANSTUR S.A.",
+    gaesa_modal_transtur_official: "State tourist transport and car rental company, vital to guarantee the mobility of foreign visitors and bring in fresh foreign exchange.",
+    gaesa_modal_transtur_critical: "Maintains a modern fleet of imported rental cars for tourists while the national public transport network for civil society collapses due to chronic fuel and spare parts shortages.",
+    gaesa_node_universal: "Almacenes Universal S.A.",
+    gaesa_modal_universal_official: "Primary logistics operator managing free trade zones, customs warehouses, and key commercial ports for the country's strategic supply.",
+    gaesa_modal_universal_critical: "Controls customs and storage services at critical entry ports (such as the Mariel Special Development Zone), charging high ad-valorem fees and tariffs in USD that suffocate private trade."
+  },
 };
 
 let currentLang = 'es';
@@ -2448,6 +2695,51 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       window.scrollTo({top: y, behavior: 'smooth'});
     }
   });
+// ── MODAL CONTROL GAESA ──────────────────────────────
+let gaesaModalOpenScrollY = 0;
+
+function showEntityModal(entityId) {
+  const modal = document.getElementById('gaesa-modal');
+  const title = document.getElementById('modal-title');
+  const official = document.getElementById('modal-desc-official');
+  const critical = document.getElementById('modal-desc-critical');
+  
+  const titleKey = 'gaesa_node_' + entityId;
+  const officialKey = 'gaesa_modal_' + entityId + '_official';
+  const criticalKey = 'gaesa_modal_' + entityId + '_critical';
+  
+  if (translations[currentLang]) {
+    title.textContent = translations[currentLang][titleKey] || entityId.toUpperCase();
+    official.textContent = translations[currentLang][officialKey] || '';
+    critical.textContent = translations[currentLang][criticalKey] || '';
+  }
+  
+  modal.classList.add('active');
+  gaesaModalOpenScrollY = window.scrollY;
+}
+
+function closeEntityModal(event) {
+  if (event) event.preventDefault();
+  const modal = document.getElementById('gaesa-modal');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+}
+
+window.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeEntityModal();
+  }
+});
+
+window.addEventListener('scroll', () => {
+  const modal = document.getElementById('gaesa-modal');
+  if (modal && modal.classList.contains('active')) {
+    const diff = Math.abs(window.scrollY - gaesaModalOpenScrollY);
+    if (diff > 45) {
+      closeEntityModal();
+    }
+  }
 });
 
 // ── INIT LANG ─────────────────────────────────────────

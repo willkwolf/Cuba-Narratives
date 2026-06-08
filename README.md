@@ -207,7 +207,7 @@ SIEMPRE:
 ```
 CASO ACTUAL:    Cuba — Desabastecimiento y monopolio GAESA
 FECHA DATOS:    Junio 2026 (crisis activa, datos en evolución)
-MARCO TEÓRICO:  Escuela Austriaca + Rent-Seeking Theory
+MARCO TEÓRICO:  Contraste: Lente CEPAL vs. Economía Institucional y Rent-Seeking
 HIPÓTESIS:      GAESA = monopolio capitalista con retórica socialista
 FALSIFICACIÓN:  Si GAESA se disuelve y el desabasto persiste → tesis incompleta
 FUENTE SEED:    Food Monitor Program (FMP) — informe ONU mayo 2026

@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CUBA: CAPITALISMO CAPTURADO — Análisis Geopolítico</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500;700&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;700&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
 
 :root {
   --negro: #0b0c0f;
   --blanco-crudo: #f2efe9;
   --gris-cemento: #14161d;
   --gris-medio: #262933;
+  --font-number: 'Outfit', sans-serif;
   
   /* Paleta Tufte para Contraste de Fuentes sin Sesgo */
   --color-critico: #b5543c; /* Terracota para fuentes de la sociedad civil y críticas */
@@ -401,9 +402,9 @@ section {
 .dato-card:hover { background: rgba(42,42,42,0.95); }
 
 .dato-value {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-number);
   font-size: clamp(48px, 6vw, 80px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1;
   margin-bottom: 8px;
 }
@@ -480,7 +481,7 @@ section {
   display: flex;
   align-items: center;
   padding-left: 12px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-number);
   font-size: 10px;
   font-weight: 700;
   color: var(--blanco-crudo);
@@ -492,9 +493,9 @@ section {
 }
 
 .monopoly-pct {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-number);
   font-size: 28px;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--blanco-crudo);
   text-align: right;
 }
@@ -712,11 +713,12 @@ section {
 }
 
 .timeline-year {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-number);
   font-size: 11px;
   letter-spacing: 3px;
   color: var(--rojo-vivo);
   margin-bottom: 6px;
+  font-weight: 700;
 }
 
 .timeline-title {

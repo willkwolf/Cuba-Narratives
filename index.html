@@ -27,6 +27,7 @@
   --font-display: 'Playfair Display', serif;
   --font-body: 'Outfit', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
+  --font-number: 'Outfit', sans-serif;
 }
 
 * { 
@@ -458,9 +459,9 @@ section {
 }
 
 .dato-value {
-  font-family: var(--font-display);
+  font-family: var(--font-number);
   font-size: clamp(38px, 5vw, 64px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -779,7 +780,7 @@ section {
   display: flex;
   align-items: center;
   padding-left: 12px;
-  font-family: var(--font-mono);
+  font-family: var(--font-number);
   font-size: clamp(10px, 0.75vw, 11px);
   font-weight: 700;
   color: var(--bg);
@@ -791,7 +792,7 @@ section {
 }
 
 .monopoly-pct {
-  font-family: var(--font-display);
+  font-family: var(--font-number);
   font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
@@ -1063,7 +1064,7 @@ section {
 }
 
 .timeline-year {
-  font-family: var(--font-mono);
+  font-family: var(--font-number);
   font-size: clamp(10.5px, 0.75vw, 12px);
   letter-spacing: 2px;
   color: var(--color-critico);

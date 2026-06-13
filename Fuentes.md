@@ -32,7 +32,7 @@ Para contrarrestar la polarización de las narrativas tradicionales, las fuentes
 |---|---|---|---|
 | **Food Monitor Program (FMP)** | Observatorio independiente de seguridad alimentaria | Datos directos sobre desnutrición de 2,703 hogares presenciales en la isla [web:1][web:7] | Anti-régimen institucional |
 | **Havana Consulting Group** | Consultora económica basada en Miami | Estimaciones técnicas sobre flujos de remesas y transacciones bancarias de GAESA [web:2][web:5] | Exilio pro-mercado |
-| **14ymedio / Diario de Cuba** | Medios independientes cubanos | Reportajes en terreno sobre decomisos estatales a agricultores y dinámicas en mercados libres [web:12][web:15] | Crítico del régimen |
+| **14ymedio / Diario de Cuba** | Medios independientes cubanos | Reportajes en terreno sobre decomisos estatales a agricultores y dinámicas en mercados de abasto informal [web:12][web:15] | Crítico del régimen |
 
 ### B. Fuentes Técnicas Independientes (Sesgo Bajo / Metodología de Mercado)
 
@@ -64,8 +64,8 @@ La investigación se estructura bajo la lógica de falsación popperiana para ga
 
 | Elemento | Descripción |
 |---|---|
-| **Tesis** | La crisis alimentaria en Cuba es causada dominantemente por la captura del excedente productivo de la sociedad civil por parte de un monopolio corporativo-militar (GAESA), que opera como un "bloqueo interno" al impedir la importación libre y la libre determinación de precios |
-| **Condición de Falsación** | Si se desmantelaran las trabas monopólicas de GAESA (monopsonio sobre insumos agrícolas e importaciones) y, aun así, la escasez de alimentos esenciales persistiera crónica bajo libre mercado e iniciativa civil, la hipótesis del monopolio militar como causa dominante quedaría **falsada** |
+| **Tesis** | La crisis de abasto en Cuba responde a la captura de los flujos de divisas y del excedente de la sociedad civil por parte de un monopolio corporativo-militar (GAESA), que opera como un "bloqueo interno" regulatorio y cambiario al impedir la importación autónoma y desregular los tipos de cambio |
+| **Condición de Falsación** | Si se desmantelara el holding corporativo de GAESA (permitiendo importaciones autónomas de insumos y desregulando la asignación cambiaria) y, aun así, la crisis alimentaria persistiera idéntica bajo iniciativa civil, la hipótesis del monopolio militar como factor determinante quedaría **falsada** |
 
 ### Hipótesis del Bloqueo Externo (Embargo de EE. UU.)
 

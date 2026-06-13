@@ -40,6 +40,8 @@ body {
   color: var(--blanco-crudo);
   font-family: 'IBM Plex Sans', sans-serif;
   overflow-x: hidden;
+  font-size: clamp(16px, 1.1vw, 18px); /* Escalado fluido para 1080p */
+  line-height: 1.6;
 }
 
 /* ─── BARRA DE PROGRESO ─────────────────────────────── */
@@ -69,7 +71,7 @@ nav {
 
 .nav-logo {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
+  font-size: clamp(14px, 0.9vw, 15px);
   font-weight: 700;
   letter-spacing: 3px;
   color: var(--rojo-vivo);
@@ -84,7 +86,7 @@ nav {
 
 .nav-links a {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13.5px, 0.85vw, 14.5px);
   letter-spacing: 2px;
   color: rgba(240,236,228,0.55);
   text-decoration: none;
@@ -131,7 +133,7 @@ nav {
 
 .hero-tag {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 4px;
   color: var(--rojo-vivo);
   text-transform: uppercase;
@@ -168,7 +170,7 @@ nav {
 
 .hero-subtitle {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: clamp(13px, 1.8vw, 18px);
+  font-size: clamp(15px, 1.2vw, 18px);
   color: rgba(240,236,228,0.65);
   max-width: 620px;
   line-height: 1.7;
@@ -185,7 +187,7 @@ nav {
   border: 1px solid rgba(192,22,12,0.4);
   padding: 12px 20px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--rojo-vivo);
@@ -215,7 +217,7 @@ nav {
   align-items: center;
   gap: 8px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 3px;
   color: rgba(240,236,228,0.3);
   text-transform: uppercase;
@@ -250,7 +252,7 @@ section {
 
 .section-label {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--rojo-vivo);
@@ -337,7 +339,7 @@ section {
 
 .tesis-intensity {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -357,7 +359,7 @@ section {
 }
 
 .tesis-detail {
-  font-size: 13px;
+  font-size: clamp(14px, 0.9vw, 15px);
   line-height: 1.6;
   color: rgba(240,236,228,0.55);
   display: none;
@@ -415,7 +417,7 @@ section {
 
 .dato-label {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: rgba(240,236,228,0.5);
@@ -423,14 +425,14 @@ section {
 }
 
 .dato-desc {
-  font-size: 13px;
+  font-size: clamp(14.5px, 0.95vw, 15.5px);
   line-height: 1.6;
   color: rgba(240,236,228,0.65);
 }
 
 .dato-source {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
+  font-size: clamp(13px, 0.8vw, 14px);
   color: rgba(240,236,228,0.25);
   margin-top: 16px;
   letter-spacing: 1px;
@@ -460,7 +462,7 @@ section {
 
 .monopoly-label {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
+  font-size: clamp(13.5px, 0.85vw, 14.5px);
   letter-spacing: 1px;
   color: rgba(240,236,228,0.7);
   text-align: right;
@@ -482,7 +484,7 @@ section {
   align-items: center;
   padding-left: 12px;
   font-family: var(--font-number);
-  font-size: 10px;
+  font-size: clamp(13px, 0.8vw, 14px);
   font-weight: 700;
   color: var(--blanco-crudo);
   white-space: nowrap;
@@ -540,7 +542,7 @@ section {
   border: 1px solid rgba(192,22,12,0.3);
   padding: 12px 18px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 1px;
   text-transform: uppercase;
   color: rgba(240,236,228,0.8);
@@ -586,7 +588,7 @@ section {
 
 .geo-actor-name {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--amarillo-alerta);
@@ -601,7 +603,7 @@ section {
 }
 
 .geo-actor-desc {
-  font-size: 13px;
+  font-size: clamp(14px, 0.9vw, 15px);
   line-height: 1.65;
   color: rgba(240,236,228,0.6);
 }
@@ -642,7 +644,7 @@ section {
   align-items: center;
   justify-content: center;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: rgba(240,236,228,0.4);
@@ -653,7 +655,7 @@ section {
 
 .matrix-concept {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -714,7 +716,7 @@ section {
 
 .timeline-year {
   font-family: var(--font-number);
-  font-size: 11px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 3px;
   color: var(--rojo-vivo);
   margin-bottom: 6px;
@@ -729,7 +731,7 @@ section {
 }
 
 .timeline-desc {
-  font-size: 13px;
+  font-size: clamp(14px, 0.9vw, 15px);
   line-height: 1.65;
   color: rgba(240,236,228,0.6);
   max-width: 600px;
@@ -772,7 +774,7 @@ section {
 
 .fuente-tipo {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -792,7 +794,7 @@ section {
 }
 
 .fuente-desc {
-  font-size: 12px;
+  font-size: clamp(13.5px, 0.85vw, 14.5px);
   line-height: 1.6;
   color: rgba(240,236,228,0.5);
   margin-bottom: 14px;
@@ -800,7 +802,7 @@ section {
 
 .fuente-sesgo {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 1px;
   padding: 6px 10px;
   border: 1px solid rgba(240,236,228,0.1);
@@ -854,7 +856,7 @@ section {
 }
 
 .meta-key {
-  font-size: 9px;
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--rojo-vivo);
@@ -881,7 +883,7 @@ footer {
 
 .footer-note {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13px, 0.85vw, 14.5px);
   letter-spacing: 1px;
   color: rgba(240,236,228,0.25);
   max-width: 500px;
@@ -995,7 +997,7 @@ mark {
 
 .historia-epoch {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13px, 0.8vw, 14px);
   color: var(--accent);
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1010,7 +1012,7 @@ mark {
 }
 
 .historia-text {
-  font-size: 13px;
+  font-size: clamp(14px, 0.9vw, 15px);
   line-height: 1.65;
   color: rgba(240, 236, 228, 0.65);
   margin-bottom: 16px;
@@ -1020,12 +1022,62 @@ mark {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 12px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: clamp(13px, 0.8vw, 14px);
   color: var(--color-critico);
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
+/* Gamificación pasiva y Active Recalls */
+.active-recall-card {
+  background: rgba(220, 174, 67, 0.04);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  padding: 24px;
+  margin: 30px 0 45px;
+}
+.recall-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(13px, 0.8vw, 14px);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.recall-question {
+  font-size: clamp(16px, 1.1vw, 18px);
+  font-weight: 600;
+  color: var(--blanco-crudo);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.recall-answer {
+  font-size: clamp(14.5px, 0.95vw, 16px);
+  color: rgba(240, 236, 228, 0.6);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.logro-badge-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(67, 90, 67, 0.08);
+  border: 1px solid rgba(67, 90, 67, 0.2);
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin: 24px 0 35px;
+}
+.logro-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(13px, 0.8vw, 14px);
+  font-weight: 600;
+  color: #8bb28b;
+  letter-spacing: 0.5px;
+}
 </style>
 </head>
 <body>
@@ -1077,28 +1129,28 @@ mark {
 <!-- ══════════════════════════════════ TESIS ═════ -->
 <section id="tesis">
   <div class="tesis-container">
-    <div class="section-label reveal">Narrativas en Espectro</div>
+    <div class="section-label reveal">Módulo 1 · Narrativas en Espectro</div>
     <h2 class="section-title reveal">
       Tres lecturas<br>de la realidad cubana
     </h2>
     
     <div class="metodologia-intro reveal" style="border-left: 2px solid var(--accent); padding-left: 20px; margin: 30px 0 40px; max-width: 800px;">
-      <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px;">Metodología de Triangulación de Fuentes</p>
+      <p style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px;">Metodología de Triangulación de Fuentes</p>
       <p style="font-size: 15px; line-height: 1.7; color: rgba(240,236,228,0.75); margin-bottom: 20px;">
         Para analizar la crisis de Cuba sin caer en sesgos ideológicos preexistentes, sometemos cada perspectiva a tres preguntas de rigor científico:
       </p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
         <div style="background: rgba(255,255,255,0.01); padding: 16px; border: 1px solid rgba(255,255,255,0.04);">
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--color-critico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;">01. Incentivos</div>
-          <div style="font-size: 12.5px; color: rgba(240,236,228,0.6); line-height: 1.5;">¿Quién se beneficia políticamente de que esta narrativa sea aceptada como la oficial?</div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--color-critico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;">01. Incentivos</div>
+          <div style="font-size: 13.5px; color: rgba(240,236,228,0.6); line-height: 1.5;">¿Quién se beneficia políticamente de que esta narrativa sea aceptada como la oficial?</div>
         </div>
         <div style="background: rgba(255,255,255,0.01); padding: 16px; border: 1px solid rgba(255,255,255,0.04);">
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--color-tecnico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;">02. Contraste</div>
-          <div style="font-size: 12.5px; color: rgba(240,236,228,0.6); line-height: 1.5;">¿Qué datos sostienen los actores con intereses e incentivos opuestos?</div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--color-tecnico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;">02. Contraste</div>
+          <div style="font-size: 13.5px; color: rgba(240,236,228,0.6); line-height: 1.5;">¿Qué datos sostienen los actores con intereses e incentivos opuestos?</div>
         </div>
         <div style="background: rgba(255,255,255,0.01); padding: 16px; border: 1px solid rgba(255,255,255,0.04);">
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;">03. Falsación</div>
-          <div style="font-size: 12.5px; color: rgba(240,236,228,0.6); line-height: 1.5;">¿Qué condiciones empíricas concretas refutarían esta hipótesis cuantitativa?</div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--accent); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;">03. Falsación</div>
+          <div style="font-size: 13.5px; color: rgba(240,236,228,0.6); line-height: 1.5;">¿Qué condiciones empíricas concretas refutarían esta hipótesis cuantitativa?</div>
         </div>
       </div>
     </div>
@@ -1149,14 +1201,25 @@ mark {
       </div>
 
     </div>
+
+    <!-- Logro y Active Recall Módulo 1 -->
+    <div class="logro-badge-container reveal">
+      <span class="logro-text">🔓 LOGRO DESBLOQUEADO: Entendimiento del Espectro (Nivel 1/5)</span>
+    </div>
+    
+    <div class="active-recall-card reveal">
+      <div class="recall-badge">💡 AUTOPREGUNTA DE RETENCIÓN (Active Recall)</div>
+      <div class="recall-question">¿Cómo difiere la Tesis de Captura de la Tesis de Ruptura?</div>
+      <div class="recall-answer">Respuesta rápida: La Tesis de Ruptura sostiene que el socialismo es un mero marketing para un capitalismo corporativo militar. La Tesis de Captura argumenta que existen fuerzas reales de mercado informal, pero que GAESA las somete a una extracción monopolista coercitiva.</div>
+    </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════ DATOS ═══ -->
 <section id="datos">
-  <div class="section-label reveal">Encuesta FMP 2024 · ONU 2026</div>
+  <div class="section-label reveal">Módulo 2 · Evidencia Empírica</div>
   <h2 class="section-title reveal">Los números<br>que no mienten</h2>
-  <p class="reveal" style="color:rgba(240,236,228,0.5); max-width:600px; line-height:1.7; margin-bottom:8px; font-size:13px;">
+  <p class="reveal" style="color:rgba(240,236,228,0.5); max-width:600px; line-height:1.7; margin-bottom:8px; font-size:13.5px;">
     Encuesta nacional de seguridad alimentaria: 2,703 hogares · Presentada ante el Relator Especial ONU sobre Derecho a la Alimentación · Mayo 2026
   </p>
 
@@ -1219,11 +1282,16 @@ mark {
     </div>
 
   </div>
+
+  <!-- Logro Módulo 2 -->
+  <div class="logro-badge-container reveal">
+    <span class="logro-text">🔓 LOGRO DESBLOQUEADO: Alfabetización de Datos (Nivel 2/5)</span>
+  </div>
 </section>
 
 <!-- ════════════════════════════════════ GAESA ═══ -->
 <section id="gaesa">
-  <div class="section-label reveal">Anatomía del Monopolio</div>
+  <div class="section-label reveal">Módulo 3 · Anatomía del Monopolio</div>
   <h2 class="section-title reveal">GAESA:<br>El Estado dentro del Estado</h2>
 
   <p class="reveal" style="color:rgba(240,236,228,0.6); max-width:700px; line-height:1.7; margin-bottom:16px;">
@@ -1235,7 +1303,7 @@ mark {
   <div class="org-chart reveal">
     <div class="org-node-root">FUERZAS ARMADAS REVOLUCIONARIAS (FAR)</div>
     <div class="org-connector-down"></div>
-    <div class="org-node-root" style="background: #8a0d08; font-size:12px;">GAESA · Grupo de Administración Empresarial S.A.</div>
+    <div class="org-node-root" style="background: #8a0d08; font-size:13px;">GAESA · Grupo de Administración Empresarial S.A.</div>
     <div class="org-connector-down"></div>
     <div class="org-level">
       <div class="org-node">Banco Financiero Internacional</div>
@@ -1295,14 +1363,25 @@ mark {
 
   </div>
 
-  <p class="reveal" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:rgba(240,236,228,0.3); letter-spacing:1px; margin-top:16px;">
+  <p class="reveal" style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:rgba(240,236,228,0.3); letter-spacing:1px; margin-top:16px;">
     * Estimaciones combinadas: Havana Consulting Group (ASCE 2025) + balances GAESA filtrados (elToque, nov 2025) + FMP 2024
   </p>
+
+  <!-- Logro y Active Recall Módulo 3 -->
+  <div class="logro-badge-container reveal">
+    <span class="logro-text">🔓 LOGRO DESBLOQUEADO: Estructura del Holding (Nivel 3/5)</span>
+  </div>
+
+  <div class="active-recall-card reveal">
+    <div class="recall-badge">💡 AUTOPREGUNTA DE RETENCIÓN (Active Recall)</div>
+    <div class="recall-question">¿Por qué GAESA es calificada como un monopsonio y no solo un monopolio de venta?</div>
+    <div class="recall-answer">Respuesta rápida: Porque GAESA opera como el único comprador legal autorizado de divisas (vía remesas controladas) y controla de forma exclusiva las importaciones de insumos agrícolas, obligando a los productores a transferirle su excedente comercial de manera indirecta.</div>
+  </div>
 </section>
 
 <!-- ════════════════════════════════ GEOPOLÍTICA ═ -->
 <section id="geopolitica">
-  <div class="section-label reveal">Lente Geopolítico</div>
+  <div class="section-label reveal">Módulo 4 · El Tablero de Actores</div>
   <h2 class="section-title reveal">El tablero de actores:<br>intereses opacos</h2>
   <p class="reveal" style="color:rgba(240,236,228,0.6); max-width:680px; line-height:1.7; margin-bottom:20px;">
     Triangulación de fuentes requiere identificar los vectores de interés que distorsionan el análisis.
@@ -1370,6 +1449,11 @@ mark {
       El dato del 70%+ de control económico aparece en fuentes ideológicamente incompatibles: eso es triangulación.
     </p>
   </div>
+
+  <!-- Logro Módulo 4 -->
+  <div class="logro-badge-container reveal">
+    <span class="logro-text">🔓 LOGRO DESBLOQUEADO: Triangulación Geopolítica (Nivel 4/5)</span>
+  </div>
 </section>
 
 <!-- ════════════════════════════════ AUSTRIACA ═══ -->
@@ -1428,7 +1512,7 @@ mark {
 
 <!-- ═══════════════════════════════════ HISTORIA LARGA ═════ -->
 <section id="historia">
-  <div class="section-label reveal">Perspectiva Histórica</div>
+  <div class="section-label reveal">Módulo 5 · Perspectiva Histórica</div>
   <h2 class="section-title reveal">La Historia Larga:<br>Cuba como tablero geopolítico</h2>
   
   <p class="reveal" style="color:rgba(240,236,228,0.6); max-width:680px; line-height:1.7; margin-bottom:28px;">
@@ -1514,6 +1598,17 @@ mark {
       </div>
 
     </div>
+  </div>
+
+  <!-- Logro y Active Recall Módulo 5 -->
+  <div class="logro-badge-container reveal">
+    <span class="logro-text">🔓 LOGRO DESBLOQUEADO: Raíces Históricas de la crisis (Nivel 5/5)</span>
+  </div>
+
+  <div class="active-recall-card reveal">
+    <div class="recall-badge">💡 AUTOPREGUNTA DE RETENCIÓN (Active Recall)</div>
+    <div class="recall-question">¿Por qué la crisis de desabastecimiento en Cuba no es solo una coyuntura temporal reciente?</div>
+    <div class="recall-answer">Respuesta rápida: Porque responde a una vulnerabilidad alimentaria y estructural de larga data en la isla, caracterizada por la subordinación a enclaves extractivos externos (colonia, URSS, Venezuela) y la falta secular de incentivos para la producción agrícola local autónoma.</div>
   </div>
 </section>
 
@@ -1698,6 +1793,11 @@ mark {
       <div class="meta-key">Última Actualización</div>
       <div class="meta-val">Junio 2026 — Crisis activa en desarrollo</div>
     </div>
+  </div>
+
+  <!-- Logro Final Conclusión -->
+  <div class="logro-badge-container reveal" style="background: rgba(220, 174, 67, 0.08); border-color: rgba(220, 174, 67, 0.25); margin: 24px 0 0 0;">
+    <span class="logro-text" style="color: var(--accent);">🏆 NIVEL MÁXIMO ALCANZADO: Analista de Complejidad Institucional</span>
   </div>
 </section>
 

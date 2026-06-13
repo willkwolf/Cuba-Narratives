@@ -67,6 +67,63 @@ p, .timeline-desc, .geo-actor-desc {
   transition: width 0.1s;
 }
 
+/* ─── GAMIFICACIÓN PASIVA & CARGA COGNITIVA ────────── */
+.active-recall-card {
+  background: rgba(145, 105, 18, 0.03);
+  border: 1px solid rgba(145, 105, 18, 0.12);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 24px;
+  margin: 35px 0;
+  max-width: 720px;
+}
+.recall-badge {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 0.85vw, 13px);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.recall-question {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.1vw, 18px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.recall-answer {
+  font-family: var(--font-body);
+  font-size: clamp(14.5px, 0.95vw, 16px);
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.logro-badge-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(67, 90, 67, 0.08);
+  border: 1px solid rgba(67, 90, 67, 0.2);
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin: 24px 0 35px;
+}
+.logro-text {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 0.85vw, 13px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-oficial);
+}
+
 /* ─── NAVEGACIÓN RECEPTIVA ──────────────────────────── */
 nav {
   position: fixed;
@@ -117,7 +174,7 @@ nav.scrolled {
 
 .nav-links a {
   font-family: var(--font-mono);
-  font-size: clamp(11.5px, 0.8vw, 13px);
+  font-size: clamp(14px, 0.9vw, 15px);
   letter-spacing: 1px;
   color: var(--text-muted);
   text-decoration: none;
@@ -143,7 +200,7 @@ nav.scrolled {
   background: transparent;
   border: none;
   font-family: var(--font-mono);
-  font-size: clamp(11.5px, 0.8vw, 13px);
+  font-size: clamp(14px, 0.9vw, 15px);
   font-weight: 600;
   padding: 6px 12px;
   cursor: pointer;
@@ -183,7 +240,7 @@ nav.scrolled {
 
 .hero-tag {
   font-family: var(--font-mono);
-  font-size: clamp(11px, 0.8vw, 13px);
+  font-size: clamp(14px, 0.9vw, 15px);
   letter-spacing: 3px;
   color: var(--color-critico);
   text-transform: uppercase;
@@ -229,7 +286,7 @@ nav.scrolled {
   border: 1px solid rgba(181, 84, 60, 0.25);
   padding: 10px 18px;
   font-family: var(--font-mono);
-  font-size: clamp(11.5px, 0.8vw, 13px);
+  font-size: clamp(14px, 0.9vw, 15px);
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-critico);
@@ -257,7 +314,7 @@ nav.scrolled {
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: clamp(10px, 0.75vw, 11px);
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 2px;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -290,7 +347,7 @@ section {
 
 .section-label {
   font-family: var(--font-mono);
-  font-size: clamp(11px, 0.8vw, 13px);
+  font-size: clamp(14px, 0.9vw, 15px);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--accent);
@@ -384,7 +441,7 @@ section {
 
 .tesis-intensity {
   font-family: var(--font-mono);
-  font-size: clamp(10.5px, 0.75vw, 12px);
+  font-size: clamp(13px, 0.85vw, 14.5px);
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -471,7 +528,7 @@ section {
 
 .dato-label {
   font-family: var(--font-mono);
-  font-size: clamp(10.5px, 0.75vw, 12px);
+  font-size: clamp(13px, 0.85vw, 14.5px);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--text-primary);
@@ -488,7 +545,7 @@ section {
 
 .dato-source {
   font-family: var(--font-mono);
-  font-size: clamp(10px, 0.75vw, 11px);
+  font-size: clamp(13px, 0.8vw, 14px);
   color: var(--text-muted);
   border-top: 1px solid var(--border);
   padding-top: 10px;
@@ -554,7 +611,7 @@ section {
   border: 1px solid var(--border);
   padding: 12px;
   font-family: var(--font-mono);
-  font-size: clamp(11px, 0.8vw, 13px);
+  font-size: clamp(14px, 0.9vw, 15px);
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--text-primary);
@@ -652,7 +709,7 @@ section {
 
 .modal-entity-subtitle {
   font-family: var(--font-mono);
-  font-size: clamp(10.5px, 0.75vw, 12px);
+  font-size: clamp(13px, 0.85vw, 14.5px);
   color: var(--text-muted);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -689,7 +746,7 @@ section {
 
 .modal-lens-title {
   font-family: var(--font-mono);
-  font-size: clamp(10.5px, 0.75vw, 12px);
+  font-size: clamp(13px, 0.85vw, 14.5px);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -705,7 +762,7 @@ section {
 }
 
 .modal-lens-text {
-  font-size: 13.5px;
+  font-size: 14.5px;
   line-height: 1.6;
   color: var(--text-primary);
 }
@@ -722,7 +779,7 @@ section {
   border: 1px solid var(--text-primary);
   padding: 8px 20px;
   font-family: var(--font-mono);
-  font-size: clamp(11px, 0.8vw, 13px);
+  font-size: clamp(14px, 0.9vw, 15px);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -760,7 +817,7 @@ section {
 
 .monopoly-label {
   font-family: var(--font-mono);
-  font-size: clamp(11.5px, 0.8vw, 13px);
+  font-size: clamp(14px, 0.9vw, 15px);
   color: var(--text-primary);
   font-weight: 600;
 }
@@ -781,7 +838,7 @@ section {
   align-items: center;
   padding-left: 12px;
   font-family: var(--font-number);
-  font-size: clamp(10px, 0.75vw, 11px);
+  font-size: clamp(13px, 0.8vw, 14px);
   font-weight: 700;
   color: var(--bg);
   white-space: nowrap;
@@ -831,7 +888,7 @@ section {
 
 .geo-actor-name {
   font-family: var(--font-mono);
-  font-size: clamp(10.5px, 0.75vw, 12px);
+  font-size: clamp(13px, 0.85vw, 14.5px);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--accent);
@@ -886,7 +943,7 @@ section {
 .matrix-cell.header {
   background: rgba(27, 30, 36, 0.03);
   font-family: var(--font-mono);
-  font-size: clamp(11px, 0.8vw, 12px);
+  font-size: clamp(13.5px, 0.85vw, 14.5px);
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -902,7 +959,7 @@ section {
 
 .matrix-concept {
   font-family: var(--font-mono);
-  font-size: clamp(10.5px, 0.75vw, 11.5px);
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 6px;
@@ -928,7 +985,7 @@ section {
   color: var(--accent);
   padding: 16px 24px;
   font-family: var(--font-mono);
-  font-size: clamp(11.5px, 0.8vw, 13px);
+  font-size: clamp(14px, 0.9vw, 15px);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   cursor: pointer;
@@ -993,7 +1050,7 @@ section {
 
 .historia-epoch {
   font-family: var(--font-mono);
-  font-size: clamp(10.5px, 0.75vw, 12px);
+  font-size: clamp(13px, 0.85vw, 14.5px);
   color: var(--accent);
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -1019,7 +1076,7 @@ section {
   border-top: 1px dashed var(--border);
   padding-top: 10px;
   font-family: var(--font-mono);
-  font-size: clamp(10px, 0.75vw, 11px);
+  font-size: clamp(13px, 0.8vw, 14px);
   color: var(--color-critico);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -1065,7 +1122,7 @@ section {
 
 .timeline-year {
   font-family: var(--font-number);
-  font-size: clamp(10.5px, 0.75vw, 12px);
+  font-size: clamp(13px, 0.85vw, 14.5px);
   letter-spacing: 2px;
   color: var(--color-critico);
   margin-bottom: 4px;
@@ -1133,7 +1190,7 @@ section {
 
 .fuente-tipo {
   font-family: var(--font-mono);
-  font-size: clamp(10px, 0.75vw, 11px);
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -1160,7 +1217,7 @@ section {
 
 .fuente-sesgo {
   font-family: var(--font-mono);
-  font-size: clamp(10px, 0.75vw, 11px);
+  font-size: clamp(13px, 0.8vw, 14px);
   letter-spacing: 0.5px;
   padding: 4px 8px;
   border: 1px solid var(--border);
@@ -1369,7 +1426,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
 <!-- ══════════════════════════════════ NARRATIVAS (TESIS) ═════ -->
 <section id="tesis">
   <div class="container">
-    <div class="section-label reveal" data-i18n="met_label">Narrativas en Espectro</div>
+    <div class="section-label reveal" data-i18n="met_label">Módulo 1 · Narrativas en Espectro</div>
     <h2 class="section-title reveal" data-i18n="met_title">Tres lecturas de la realidad cubana</h2>
     
     <!-- Cuadro Metodológico -->
@@ -1440,13 +1497,25 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       </div>
 
     </div>
+    
+    <!-- Logro y Active Recall Módulo 1 -->
+    <div class="logro-badge-container reveal">
+      <span class="logro-text" data-i18n="logro_m1">🔓 LOGRO DESBLOQUEADO: Entendimiento del Espectro (Nivel 1/5)</span>
+    </div>
+    
+    <div class="active-recall-card reveal">
+      <div class="recall-badge">💡 AUTOPREGUNTA DE RETENCIÓN (Active Recall)</div>
+      <div class="recall-question" data-i18n="recall_q1">¿Cómo difiere la Tesis de Captura de la Tesis de Ruptura?</div>
+      <div class="recall-answer" data-i18n="recall_a1">Respuesta rápida: La Tesis de Ruptura sostiene que el socialismo es un mero marketing para un capitalismo corporativo militar. La Tesis de Captura argumenta que existen fuerzas reales de mercado informal, pero que GAESA las somete a una extracción monopolista coercitiva.</div>
+    </div>
+
   </div>
 </section>
 
 <!-- ════════════════════════════════════ DATOS ═══ -->
 <section id="datos">
   <div class="container">
-    <div class="section-label reveal" data-i18n="datos_label">Encuesta FMP 2024 · ONU 2026</div>
+    <div class="section-label reveal" data-i18n="datos_label">Módulo 2 · Evidencia Empírica</div>
     <h2 class="section-title reveal" data-i18n="datos_title">Los números que no mienten</h2>
     <p class="reveal" style="color:var(--text-muted); margin-bottom:24px; font-size:14px;" data-i18n="datos_desc">
       Encuesta nacional de seguridad alimentaria: 2,703 hogares · Presentada ante el Relator Especial ONU sobre Derecho a la Alimentación · Mayo 2026
@@ -1527,13 +1596,19 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       </div>
 
     </div>
+    
+    <!-- Logro Módulo 2 -->
+    <div class="logro-badge-container reveal">
+      <span class="logro-text" data-i18n="logro_m2">🔓 LOGRO DESBLOQUEADO: Alfabetización de Datos (Nivel 2/5)</span>
+    </div>
+
   </div>
 </section>
 
 <!-- ════════════════════════════════════ GAESA ═══ -->
 <section id="gaesa">
   <div class="container">
-    <div class="section-label reveal" data-i18n="gaesa_label">Anatomía del Monopolio</div>
+    <div class="section-label reveal" data-i18n="gaesa_label">Módulo 3 · Anatomía del Monopolio</div>
     <h2 class="section-title reveal" data-i18n="gaesa_title">GAESA: El Estado dentro del Estado</h2>
 
     <p class="reveal" style="color:var(--text-muted); margin-bottom:30px;" data-i18n="gaesa_desc">
@@ -1609,12 +1684,24 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       * Estimaciones combinadas: Havana Consulting Group (ASCE 2025) + balances GAESA filtrados (elToque, nov 2025) + FMP 2024
     </p>
   </div>
+  
+  <!-- Logro y Active Recall Módulo 3 -->
+  <div class="logro-badge-container reveal">
+    <span class="logro-text" data-i18n="logro_m3">🔓 LOGRO DESBLOQUEADO: Estructura del Holding (Nivel 3/5)</span>
+  </div>
+
+  <div class="active-recall-card reveal">
+    <div class="recall-badge">💡 AUTOPREGUNTA DE RETENCIÓN (Active Recall)</div>
+    <div class="recall-question" data-i18n="recall_q2">¿Por qué GAESA es calificada como un monopsonio y no solo un monopolio de venta?</div>
+    <div class="recall-answer" data-i18n="recall_a2">Respuesta rápida: Porque GAESA opera como el único comprador legal autorizado de divisas (vía remesas controladas) y controla de forma exclusiva las importaciones de insumos agrícolas, obligando a los productores a transferirle su excedente comercial de manera indirecta.</div>
+  </div>
+
 </section>
 
 <!-- ════════════════════════════════ GEOPOLÍTICA ═ -->
 <section id="geopolitica">
   <div class="container">
-    <div class="section-label reveal" data-i18n="geo_label">Lente Geopolítico</div>
+    <div class="section-label reveal" data-i18n="geo_label">Módulo 4 · El Tablero de Actores</div>
     <h2 class="section-title reveal" data-i18n="geo_title">El tablero de actores: intereses opacos</h2>
     <p class="reveal" style="color:var(--text-muted); margin-bottom:20px;" data-i18n="geo_desc">
       La triangulación de fuentes requiere identificar los vectores de interés que distorsionan el análisis. Ningún actor es neutral. El ruido informativo es deliberado.
@@ -1667,6 +1754,12 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       </p>
     </div>
   </div>
+  
+  <!-- Logro Módulo 4 -->
+  <div class="logro-badge-container reveal">
+    <span class="logro-text" data-i18n="logro_m4">🔓 LOGRO DESBLOQUEADO: Triangulación Geopolítica (Nivel 4/5)</span>
+  </div>
+
 </section>
 
 <!-- ════════════════════════════════ MARCO TEÓRICO ═══ -->
@@ -1717,7 +1810,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
 <!-- ═══════════════════════════════════ HISTORIA LARGA ═════ -->
 <section id="historia">
   <div class="container">
-    <div class="section-label reveal" data-i18n="historia_label">Perspectiva Histórica</div>
+    <div class="section-label reveal" data-i18n="historia_label">Módulo 5 · Perspectiva Histórica</div>
     <h2 class="section-title reveal" data-i18n="historia_title">La Historia Larga: Cuba como tablero geopolítico</h2>
     
     <p class="reveal" style="color:var(--text-muted); margin-bottom:28px;" data-i18n="historia_desc">
@@ -1866,6 +1959,18 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       </div>
 
     </div>
+    
+    <!-- Logro y Active Recall Módulo 5 -->
+    <div class="logro-badge-container reveal">
+      <span class="logro-text" data-i18n="logro_m5">🔓 LOGRO DESBLOQUEADO: Raíces Históricas de la crisis (Nivel 5/5)</span>
+    </div>
+
+    <div class="active-recall-card reveal">
+      <div class="recall-badge">💡 AUTOPREGUNTA DE RETENCIÓN (Active Recall)</div>
+      <div class="recall-question" data-i18n="recall_q3">¿Por qué la crisis de desabastecimiento en Cuba no es solo una coyuntura temporal reciente?</div>
+      <div class="recall-answer" data-i18n="recall_a3">Respuesta rápida: Porque responde a una vulnerabilidad alimentaria y estructural de larga data en la isla, caracterizada por la subordinación a enclaves extractivos externos (colonia, URSS, Venezuela) y la falta secular de incentivos para la producción agrícola local autónoma.</div>
+    </div>
+
   </div>
 </section>
 
@@ -1994,6 +2099,12 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
         <div class="meta-val" data-i18n="meta_val6">Junio 2026 — Crisis activa en desarrollo</div>
       </div>
     </div>
+
+    <!-- Logro Final Conclusión -->
+    <div class="logro-badge-container reveal" style="background: rgba(145, 105, 18, 0.08); border-color: rgba(145, 105, 18, 0.25);">
+      <span class="logro-text" style="color: var(--accent);" data-i18n="logro_m6">🏆 NIVEL MÁXIMO ALCANZADO: Analista de Complejidad Institucional</span>
+    </div>
+
   </div>
 </section>
 
@@ -2056,7 +2167,7 @@ const translations = {
     hero_subtitle: "Un análisis metodológico interactivo que triangula datos y posturas geopolíticas para desglosar la crisis alimentaria y el rol del monopolio de GAESA en Cuba.",
     hero_badge: "Triangulación de Fuentes · Complejidad Institucional · Datos ONU 2026",
     hero_scroll: "Desplázate para explorar",
-    met_label: "Narrativas en Espectro",
+    met_label: "Módulo 1 · Narrativas en Espectro",
     met_title: "Tres lecturas de la realidad cubana",
     met_intro_label: "Metodología de Triangulación de Fuentes",
     met_intro_desc: "Para analizar la crisis de Cuba sin caer en sesgos ideológicos preexistentes, sometemos cada perspectiva a tres preguntas de rigor científico:",
@@ -2076,7 +2187,7 @@ const translations = {
     card3_intensity: "▲ Narrativa Empírica (Falsificable)",
     card3_stmt: "El desabastecimiento no representa un simple fallo técnico, sino el éxito de incentivos monopolistas de extracción sobre la escasez",
     card3_detail: "Tesis testeable empíricamente: si la captura de GAESA es el factor causal dominante de la crisis de abasto, la evidencia debería confirmar: (1) escasez asimétrica, crítica en sectores controlados por el conglomerado y menor en redes de abasto informal; (2) una correlación directa entre el gasto militar en infraestructura hotelera y la caída drástica de la inversión en agricultura local; y (3) que la apertura parcial a importaciones privadas (MIPYMES post-2021) alivia el abasto en nichos desregulados. El embargo de EE. UU. representa una variable externa severa en el comercio y crédito internacional, pero resulta insuficiente para explicar por qué se priorizan resorts vacíos sobre la producción de alimentos esenciales. <br><br><em>Esta narrativa es la más resistente al sesgo de confirmación, ya que se ancla a datos de convergencia entre fuentes opuestas.</em>",
-    datos_label: "Encuesta FMP 2024 · ONU 2026",
+    datos_label: "Módulo 2 · Evidencia Empírica",
     datos_title: "Los números que no mienten",
     datos_desc: "Encuesta nacional de seguridad alimentaria: 2,703 hogares · Presentada ante el Relator Especial ONU sobre Derecho a la Alimentación · Mayo 2026",
     card_dato1_label: "Pérdida capacidad de compra",
@@ -2103,7 +2214,7 @@ const translations = {
     card_dato8_label: "Ingresos GAESA vs impuestos estatales",
     card_dato8_desc: "Los ingresos del conglomerado son 3.2 veces mayores que los del presupuesto del Estado vía impuestos. Estado capturado.",
     card_dato8_source: "Fuente: elToque, noviembre 2025 (balances filtrados)",
-    gaesa_label: "Anatomía del Monopolio",
+    gaesa_label: "Módulo 3 · Anatomía del Monopolio",
     gaesa_title: "GAESA: El Estado dentro del Estado",
     gaesa_desc: "El Grupo de Administración Empresarial S.A. es el brazo financiero de las Fuerzas Armadas Revolucionarias. Opera sin auditoría pública, sin control parlamentario, sin supervisión del Ministerio de Economía. Ni la Contraloría General puede acceder a sus cuentas.",
     gaesa_node_far: "FUERZAS ARMADAS REVOLUCIONARIAS (FAR)",
@@ -2123,7 +2234,7 @@ const translations = {
     gaesa_dv: "Divisas (USD/EUR)",
     gaesa_tr: "Turismo receptor",
     gaesa_chart_note: "* Estimaciones combinadas: Havana Consulting Group (ASCE 2025) + balances GAESA filtrados (elToque, nov 2025) + FMP 2024",
-    geo_label: "Lente Geopolítico",
+    geo_label: "Módulo 4 · El Tablero de Actores",
     geo_title: "El tablero de actores: intereses opacos",
     geo_desc: "La triangulación de fuentes requiere identificar los vectores de interés que distorsionan el análisis. Ningún actor es neutral. El ruido informativo es deliberado.",
     actor1_name: "Estados Unidos",
@@ -2157,7 +2268,7 @@ const translations = {
     matrix_c2_res_text: "La planificación central destruye las señales de precios informales. GAESA no planifica el bienestar; extrae la renta de la escasez para sostener la rentabilidad militar corporativa.",
     matrix_c3_res: "El bloqueo interno (Tullock)",
     matrix_c3_res_text: "El desabastecimiento es un resultado óptimo para un monopolista. El hambre del 96% de la población coexiste con la captura del flujo de remesas de la diáspora. Es racionalidad de rentas, no ineficiencia.",
-    historia_label: "Perspectiva Histórica",
+    historia_label: "Módulo 5 · Perspectiva Histórica",
     historia_title: "La Historia Larga: Cuba como tablero geopolítico",
     historia_desc: "La discusión contemporánea sobre el desabastecimiento a menudo se reduce a una disputa simplista entre el impacto del embargo estadounidense y las ineficiencias del sistema estatal. Para dotar al análisis de una perspectiva histórica profunda y moral de derechos humanos, este recorrido interactivo detalla cómo la isla siempre ha sido un tablero de poder donde las vidas de sus habitantes han sido instrumentalizadas por grandes hegemonías.",
     historia_btn_open: "Explorar la historia larga (Rastros originarios a corporativismo)",
@@ -2293,7 +2404,19 @@ const translations = {
     doc_title: "CUBA: CAPTURA CORPORATIVA Y MONOPOLIO MILITAR — Análisis Geopolítico",
     aria_close_modal: "Cerrar modal de entidad",
     aria_lang_es: "Cambiar idioma a español",
-    aria_lang_en: "Cambiar idioma a inglés"
+    aria_lang_en: "Cambiar idioma a inglés",
+    logro_m1: "🔓 LOGRO DESBLOQUEADO: Entendimiento del Espectro (Nivel 1/5)",
+    logro_m2: "🔓 LOGRO DESBLOQUEADO: Alfabetización de Datos (Nivel 2/5)",
+    logro_m3: "🔓 LOGRO DESBLOQUEADO: Estructura del Holding (Nivel 3/5)",
+    logro_m4: "🔓 LOGRO DESBLOQUEADO: Triangulación Geopolítica (Nivel 4/5)",
+    logro_m5: "🔓 LOGRO DESBLOQUEADO: Raíces Históricas de la crisis (Nivel 5/5)",
+    logro_m6: "🏆 NIVEL MÁXIMO ALCANZADO: Analista de Complejidad Institucional",
+    recall_q1: "¿Cómo difiere la Tesis de Captura de la Tesis de Ruptura?",
+    recall_a1: "Respuesta rápida: La Tesis de Ruptura sostiene que el socialismo es un mero marketing para un capitalismo corporativo militar. La Tesis de Captura argumenta que existen fuerzas reales de mercado informal, pero que GAESA las somete a una extracción monopolista coercitiva.",
+    recall_q2: "¿Por qué GAESA es calificada como un monopsonio y no solo un monopolio de venta?",
+    recall_a2: "Respuesta rápida: Porque GAESA opera como el único comprador legal autorizado de divisas (vía remesas controladas) y controla de forma exclusiva las importaciones de insumos agrícolas, obligando a los productores a transferirle su excedente comercial de manera indirecta.",
+    recall_q3: "¿Por qué la crisis de desabastecimiento en Cuba no es solo una coyuntura temporal reciente?",
+    recall_a3: "Respuesta rápida: Porque responde a una vulnerabilidad alimentaria y estructural de larga data en la isla, caracterizada por la subordinación a enclaves extractivos externos (colonia, URSS, Venezuela) y la falta secular de incentivos para la producción agrícola local autónoma."
   },
   en: {
     nav_logo: "Cuba · Analysis",
@@ -2312,7 +2435,7 @@ const translations = {
     hero_subtitle: "An interactive methodological analysis triangulating data and geopolitical stances to unpack Cuba's food crisis and GAESA's monopoly role.",
     hero_badge: "Source Triangulation · Institutional Complexity · UN Data 2026",
     hero_scroll: "Scroll to explore",
-    met_label: "Narratives in Spectrum",
+    met_label: "Module 1 · Narratives in Spectrum",
     met_title: "Three readings of the Cuban reality",
     met_intro_label: "Source Triangulation Methodology",
     met_intro_desc: "To analyze the Cuban crisis without falling into pre-existing ideological biases, we subject each perspective to three questions of scientific rigor:",
@@ -2332,7 +2455,7 @@ const translations = {
     card3_intensity: "▲ Empirical Narrative (Falsifiable)",
     card3_stmt: "The shortage does not represent a simple technical failure, but the success of monopolistic incentives in extracting rent from scarcity",
     card3_detail: "Empirically testable thesis: if GAESA's capture is the dominant causal factor of the supply crisis, the evidence should confirm: (1) asymmetric scarcity, critical in sectors controlled by the conglomerate and lower in informal distribution networks; (2) a direct correlation between military spending on hotel infrastructure and the drastic fall of investment in local agriculture; and (3) that opening up to private imports (MSMEs post-2021) partially alleviates supply in deregulated niches. The US embargo represents a severe external variable in international trade and credit, but is insufficient to explain why empty resorts are prioritized over essential food production. <br><br><em>This narrative is the most resistant to confirmation bias, as it anchors to data showing convergence between opposing sources.</em>",
-    datos_label: "FMP Survey 2024 · UN 2026",
+    datos_label: "Module 2 · Empirical Evidence",
     datos_title: "The numbers that do not lie",
     datos_desc: "National food security survey: 2,703 households · Presented to the UN Special Rapporteur on the Right to Food · May 2026",
     card_dato1_label: "Loss of purchasing power",
@@ -2359,7 +2482,7 @@ const translations = {
     card_dato8_label: "GAESA income vs state taxes",
     card_dato8_desc: "The conglomerate's revenues are 3.2 times larger than the state's budget via tax revenues. Captured State.",
     card_dato8_source: "Source: elToque, November 2025 (filtered balance sheets)",
-    gaesa_label: "Anatomy of the Monopoly",
+    gaesa_label: "Module 3 · Anatomy of the Monopoly",
     gaesa_title: "GAESA: The State within the State",
     gaesa_desc: "Grupo de Administracion Empresarial S.A. is the financial arm of the Revolutionary Armed Forces. It operates without public audit, parliamentary control, or supervision from the Ministry of Economy. Not even the Comptroller General can access its accounts.",
     gaesa_node_far: "REVOLUTIONARY ARMED FORCES (FAR)",
@@ -2379,7 +2502,7 @@ const translations = {
     gaesa_dv: "Foreign exchange (USD/EUR)",
     gaesa_tr: "Receptive tourism",
     gaesa_chart_note: "* Combined estimates: Havana Consulting Group (ASCE 2025) + filtered GAESA balance sheets (elToque, Nov 2025) + FMP 2024",
-    geo_label: "Geopolitical Lens",
+    geo_label: "Module 4 · The Board of Actors",
     geo_title: "The actor board: opaque interests",
     geo_desc: "Source triangulation requires identifying the vectors of interest that distort analysis. No actor is neutral. Informational noise is deliberate.",
     actor1_name: "United States",
@@ -2413,7 +2536,7 @@ const translations = {
     matrix_c2_res_text: "Central planning destroys informal price signals. GAESA does not plan welfare; it extracts rents from scarcity to support military corporate profitability.",
     matrix_c3_res: "The internal blockade (Tullock)",
     matrix_c3_res_text: "Shortages are an optimal outcome for a monopolist. The hunger of 96% of the population coexists with the capture of the diaspora's remittance flow. It is rent rationality, not inefficiency.",
-    historia_label: "Geopolitical Perspective",
+    historia_label: "Module 5 · Historical Perspective",
     historia_title: "Deep History: Cuba as a geopolitical chessboard",
     historia_desc: "Contemporary discussion on shortages often reduces to a simplistic dispute between the impact of the US embargo and the inefficiencies of the state system. To provide a deep historical and human rights perspective, this interactive tour details how the island has always been a chessboard of power where its people's lives have been instrumentalized by great hegemonies.",
     historia_btn_open: "Explore the deep history (First settlers to corporate capture)",
@@ -2549,7 +2672,19 @@ const translations = {
     doc_title: "CUBA: CORPORATE CAPTURE AND MILITARY MONOPOLY — Geopolitical Analysis",
     aria_close_modal: "Close entity modal",
     aria_lang_es: "Switch language to Spanish",
-    aria_lang_en: "Switch language to English"
+    aria_lang_en: "Switch language to English",
+    logro_m1: "🔓 ACHIEVEMENT UNLOCKED: Understanding the Spectrum (Level 1/5)",
+    logro_m2: "🔓 ACHIEVEMENT UNLOCKED: Data Literacy (Level 2/5)",
+    logro_m3: "🔓 ACHIEVEMENT UNLOCKED: Structure of the Holding (Level 3/5)",
+    logro_m4: "🔓 ACHIEVEMENT UNLOCKED: Geopolitical Triangulation (Level 4/5)",
+    logro_m5: "🔓 ACHIEVEMENT UNLOCKED: Historical Roots of the Crisis (Level 5/5)",
+    logro_m6: "🏆 MAXIMUM LEVEL REACHED: Institutional Complexity Analyst",
+    recall_q1: "How does the Capture Thesis differ from the Rupture Thesis?",
+    recall_a1: "Quick answer: The Rupture Thesis argues that socialism is mere marketing for military corporate capitalism. The Capture Thesis argues that real informal market forces exist, but GAESA subjects them to coercive monopolistic extraction.",
+    recall_q2: "Why is GAESA classified as a monopsony and not just a sales monopoly?",
+    recall_a2: "Quick answer: Because GAESA operates as the sole authorized legal buyer of foreign exchange (via controlled remittances) and exclusively controls imports of agricultural inputs, forcing producers to transfer their commercial surplus indirectly.",
+    recall_q3: "Why is the shortage crisis in Cuba not just a recent temporary situation?",
+    recall_a3: "Quick answer: Because it responds to a long-standing food and structural vulnerability on the island, characterized by subordination to external extractive enclaves (colony, USSR, Venezuela) and a secular lack of incentives for autonomous local agricultural production."
   },
 };
 

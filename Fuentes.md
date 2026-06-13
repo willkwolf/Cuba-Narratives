@@ -60,7 +60,7 @@ Para contrarrestar la polarización de las narrativas tradicionales, las fuentes
 
 La investigación se estructura bajo la lógica de falsación popperiana para garantizar su rigor científico:
 
-### Hipótesis del Rent-Seeking (Monopolio Militar)
+### Hipótesis de la Búsqueda de Rentas (Monopolio Militar)
 
 | Elemento | Descripción |
 |---|---|

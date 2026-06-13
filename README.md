@@ -118,7 +118,7 @@ no tiene ideología fija, pero sí preferencias epistémicas:
 | Actores racionales sobre conspiraciones | Navaja de Occam geopolítica |
 | Datos de primer orden sobre metaanálisis | Menos capas de interpretación |
 | Escuela Austriaca para economías de precios distorsionados | Mises: cálculo económico; Hayek: conocimiento disperso |
-| Rent-Seeking Theory (Tullock-Krueger) para monopolios políticos | Explica captura sin conspiración |
+| Búsqueda de Rentas (Rent-Seeking Theory) (Tullock-Krueger) para monopolios políticos | Explica captura sin conspiración |
 
 > **Para agentes IA:** el marco teórico es una caja de herramientas, no un dogma.
 > Si un caso requiere otro marco, documéntalo en `fuentes.md` del caso.
@@ -207,7 +207,7 @@ SIEMPRE:
 ```
 CASO ACTUAL:    Cuba — Desabastecimiento y monopolio GAESA
 FECHA DATOS:    Junio 2026 (crisis activa, datos en evolución)
-MARCO TEÓRICO:  Contraste: Lente CEPAL vs. Economía Institucional y Rent-Seeking
+MARCO TEÓRICO:  Contraste: Lente CEPAL vs. Economía Institucional y Búsqueda de Rentas (Rent-Seeking)
 HIPÓTESIS:      GAESA = monopolio capitalista con retórica socialista
 FALSIFICACIÓN:  Si GAESA se disuelve y el desabasto persiste → tesis incompleta
 FUENTE SEED:    Food Monitor Program (FMP) — informe ONU mayo 2026

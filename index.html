@@ -1243,108 +1243,260 @@ section {
   border-left: 3px solid var(--color-critico);
 }
 
-.metodologia-box {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 24px;
-  margin: 30px 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+.conclusion-p {
+  color: var(--text-primary);
+  line-height: 1.75;
+  font-size: clamp(16px, 1.05vw, 18px);
+  margin-bottom: 20px;
+  max-width: 720px;
 }
 
-@media (min-width: 600px) {
-  .metodologia-box {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* ─── NAVEGACIÓN MÓVIL DESLIZABLE ─────────────────────── */
+.mobile-subnav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 8px 5%;
+  background: rgba(250, 247, 242, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 52px;
+  z-index: 998;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-
-@media (min-width: 900px) {
-  .metodologia-box {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.mobile-subnav::-webkit-scrollbar {
+  display: none;
 }
-
-.meta-item {
+.mobile-subnav a {
   font-family: var(--font-mono);
-}
-
-.meta-key {
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--color-critico);
-  margin-bottom: 4px;
-}
-
-.meta-val {
   font-size: 12.5px;
+  letter-spacing: 0.5px;
   color: var(--text-muted);
-  line-height: 1.4;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  transition: all 0.2s var(--ease);
+}
+.mobile-subnav a:hover,
+.mobile-subnav a:focus,
+.mobile-subnav a:active {
+  color: var(--accent);
+  background: rgba(145, 105, 18, 0.08);
+  border-color: var(--accent);
+}
+@media (min-width: 1024px) {
+  .mobile-subnav {
+    display: none;
+  }
 }
 
-/* ─── FOOTER ─────────────────────────────────────────── */
+/* ─── FOOTER CON CITACIÓN APA Y METADATOS ──────────── */
 footer {
-  background: var(--bg);
-  padding: 40px 5%;
+  background: var(--surface);
   border-top: 1px solid var(--border);
+  padding: 60px 5% 40px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 36px;
 }
 
-@media (min-width: 768px) {
-  footer {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 860px) {
+  .footer-grid {
+    grid-template-columns: 1.2fr 1fr;
   }
 }
 
-.footer-note {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  max-width: 600px;
+.footer-brand-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .footer-logo {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
-  color: var(--text-muted);
-  line-height: 1.1;
+  color: var(--text-primary);
+  line-height: 1.2;
 }
 
-.footer-info {
+.footer-author-text {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 0.95vw, 15.5px);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.author-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: clamp(16px, 1.05vw, 17.5px);
+}
+
+.footer-note {
+  font-family: var(--font-mono);
+  font-size: clamp(12.5px, 0.85vw, 13.5px);
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.footer-readme-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.footer-links {
+.footer-readme-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-critico);
+  font-weight: 700;
+}
+
+.footer-readme-desc {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 0.95vw, 15px);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.footer-readme-links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  margin-top: 4px;
 }
 
 .footer-repo-link {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s, opacity 0.2s;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   width: fit-content;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .footer-repo-link:hover {
-  border-color: var(--accent);
-  opacity: 0.8;
+  opacity: 0.85;
+  transform: translateX(3px);
+}
+
+/* Tarjeta de Citación APA */
+.footer-citation-card {
+  background: rgba(145, 105, 18, 0.04);
+  border: 1px solid rgba(145, 105, 18, 0.18);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 22px 26px;
+}
+
+.citation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.citation-badge {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.citation-copy-btn {
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 7px 14px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.citation-copy-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.citation-quote {
+  font-family: var(--font-body);
+  font-size: clamp(14.5px, 0.95vw, 16px);
+  line-height: 1.65;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.citation-quote em {
+  font-style: italic;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 /* ─── BITÁCORA DE EVIDENCIA (Historial Periodístico) ── */
@@ -1434,7 +1586,7 @@ footer {
 
 .bitacora-verdict-badge {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -1508,7 +1660,7 @@ footer {
   color: var(--accent);
   font-family: var(--font-mono);
   text-transform: uppercase;
-  font-size: 11.5px;
+  font-size: 12px;
   letter-spacing: 1px;
   display: block;
   margin-bottom: 4px;
@@ -1554,7 +1706,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       <li><a href="#historia" data-i18n="nav_historia">Historia Larga</a></li>
       <li><a href="#timeline" data-i18n="nav_colapso">Colapso</a></li>
       <li><a href="#bitacora" data-i18n="nav_bitacora">Bitácora</a></li>
-      <li><a href="#fuentes" data-i18n="nav_fuentes">Fuentes</a></li>
+      <li><a href="#conclusion" data-i18n="nav_conclusion">Síntesis</a></li>
     </ul>
     
     <!-- Language Selection Switch -->
@@ -1564,6 +1716,19 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
     </div>
   </div>
 </nav>
+
+<!-- Navegación móvil táctil (Píldoras deslizables con área táctil cómoda) -->
+<div class="mobile-subnav" aria-label="Navegación de secciones rápida">
+  <a href="#tesis" data-i18n="nav_narrativas">Narrativas</a>
+  <a href="#datos" data-i18n="nav_datos">Datos</a>
+  <a href="#gaesa" data-i18n="nav_gaesa">GAESA</a>
+  <a href="#geopolitica" data-i18n="nav_geopolitica">Geopolítica</a>
+  <a href="#marco-teorico" data-i18n="nav_marco">Marco Teórico</a>
+  <a href="#historia" data-i18n="nav_historia">Historia</a>
+  <a href="#timeline" data-i18n="nav_colapso">Colapso</a>
+  <a href="#bitacora" data-i18n="nav_bitacora">Bitácora</a>
+  <a href="#conclusion" data-i18n="nav_conclusion">Síntesis</a>
+</div>
 
 <!-- ═══════════════════════════════════ HERO ═════ -->
 <section id="hero">
@@ -1599,22 +1764,22 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
     
     <!-- Cuadro Metodológico -->
     <div class="metodologia-intro reveal" style="border-left: 2px solid var(--accent); padding-left: 20px; margin: 30px 0 40px;">
-      <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px;" data-i18n="met_intro_label">Metodología de Triangulación de Fuentes</p>
+      <p style="font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px;" data-i18n="met_intro_label">Metodología de Triangulación de Fuentes</p>
       <p style="font-size: 15px; color: var(--text-primary); margin-bottom: 20px; max-width:760px;" data-i18n="met_intro_desc">
         Para analizar la crisis de Cuba sin caer en sesgos ideológicos preexistentes, sometemos cada perspectiva a tres preguntas de rigor científico:
       </p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
         <div style="background: rgba(27,30,36,0.02); padding: 16px; border: 1px solid var(--border); border-radius: 4px;">
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--color-critico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="met_q1_title">01. Incentivos</div>
-          <div style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;" data-i18n="met_q1_desc">¿Quién se beneficia políticamente de que esta narrativa sea aceptada como la oficial?</div>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-critico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="met_q1_title">01. Incentivos</div>
+          <div style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55;" data-i18n="met_q1_desc">¿Quién se beneficia políticamente de que esta narrativa sea aceptada como la oficial?</div>
         </div>
         <div style="background: rgba(27,30,36,0.02); padding: 16px; border: 1px solid var(--border); border-radius: 4px;">
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--color-tecnico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="met_q2_title">02. Contraste</div>
-          <div style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;" data-i18n="met_q2_desc">¿Qué datos sostienen los actores con intereses e incentivos opuestos?</div>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-tecnico); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="met_q2_title">02. Contraste</div>
+          <div style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55;" data-i18n="met_q2_desc">¿Qué datos sostienen los actores con intereses e incentivos opuestos?</div>
         </div>
         <div style="background: rgba(27,30,36,0.02); padding: 16px; border: 1px solid var(--border); border-radius: 4px;">
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="met_q3_title">03. Falsación</div>
-          <div style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;" data-i18n="met_q3_desc">¿Qué condiciones empíricas concretas refutarían esta hipótesis cuantitativa?</div>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase;" data-i18n="met_q3_title">03. Falsación</div>
+          <div style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55;" data-i18n="met_q3_desc">¿Qué condiciones empíricas concretas refutarían esta hipótesis cuantitativa?</div>
         </div>
       </div>
     </div>
@@ -1664,12 +1829,6 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
         </div>
       </div>
 
-    </div>
-    
-    <!-- Active Recall Módulo 1 -->
-    <div class="active-recall-card reveal">
-      <div class="recall-question" data-i18n="recall_q1">¿Cómo difiere la Tesis de Captura de la Tesis de Ruptura?</div>
-      <div class="recall-answer" data-i18n="recall_a1">Respuesta rápida: La Tesis de Ruptura sostiene que el socialismo es un mero marketing para un capitalismo corporativo militar. La Tesis de Captura argumenta que existen fuerzas reales de mercado informal, pero que GAESA las somete a una extracción monopolista coercitiva.</div>
     </div>
 
   </div>
@@ -1840,17 +1999,10 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
 
     </div>
 
-    <p class="reveal" style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted); letter-spacing:0.5px; margin-top:16px;" data-i18n="gaesa_chart_note">
+    <p class="reveal" style="font-family:var(--font-mono); font-size:12.5px; color:var(--text-muted); letter-spacing:0.5px; margin-top:16px;" data-i18n="gaesa_chart_note">
       * Estimaciones trianguladas: Balances contables internos filtrados de GAESA (Pavel Vidal / elTOQUE: ~40% del PIB, $14,467M en reservas líquidas) contrastados con Havana Consulting Group (exilio >70%) y ONEI.
     </p>
   </div>
-  
-  <!-- Active Recall Módulo 3 -->
-  <div class="active-recall-card reveal">
-    <div class="recall-question" data-i18n="recall_q2">¿Por qué GAESA es calificada como un monopsonio y no solo un monopolio de venta?</div>
-    <div class="recall-answer" data-i18n="recall_a2">Respuesta rápida: Porque GAESA opera como el único comprador legal autorizado de divisas (vía remesas controladas) y controla de forma exclusiva las importaciones de insumos agrícolas, obligando a los productores a transferirle su excedente comercial de manera indirecta.</div>
-  </div>
-
 </section>
 
 <!-- ════════════════════════════════ GEOPOLÍTICA ═ -->
@@ -1903,8 +2055,8 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
     </div>
 
     <div class="reveal" style="margin-top:40px; padding:24px; border:1px solid var(--accent); background:rgba(176, 131, 28, 0.03); border-radius: 4px;">
-      <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--accent); margin-bottom:12px; font-weight:700;" data-i18n="geo_triang_title">MÉTODO DE TRIANGULACIÓN DE FUENTES</div>
-      <p style="font-size:14px; line-height:1.6; color:var(--text-primary);" data-i18n="geo_triang_desc">
+      <div style="font-family:var(--font-mono); font-size:12px; letter-spacing:2px; color:var(--accent); margin-bottom:12px; font-weight:700;" data-i18n="geo_triang_title">MÉTODO DE TRIANGULACIÓN DE FUENTES</div>
+      <p style="font-size:15px; line-height:1.65; color:var(--text-primary);" data-i18n="geo_triang_desc">
         Para filtrar la señal real del ruido geopolítico triangulamos fuentes con incentivos opuestos. Mientras el exilio (Havana Consulting Group) calculaba que GAESA controlaba más del 70% de la economía, la auditoría econométrica de balances filtrados (Pavel Vidal / elTOQUE) demostró un peso del ~40% del PIB pero con una liquidez masiva ($14,467M en reservas bancarias y 3.2× los ingresos tributarios del Estado). Ambas fuentes convergen en lo sustantivo: el control desproporcionado de divisas e importaciones asfixia la economía civil.
       </p>
     </div>
@@ -2118,13 +2270,6 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       </div>
 
     </div>
-    
-    <!-- Active Recall Módulo 5 -->
-    <div class="active-recall-card reveal">
-      <div class="recall-question" data-i18n="recall_q3">¿Por qué la crisis de desabastecimiento en Cuba no es solo una coyuntura temporal reciente?</div>
-      <div class="recall-answer" data-i18n="recall_a3">Respuesta rápida: Porque responde a una vulnerabilidad alimentaria y estructural de larga data en la isla, caracterizada por la subordinación a enclaves extractivos externos (colonia, URSS, Venezuela) y la falta secular de incentivos para la producción agrícola local autónoma.</div>
-    </div>
-
   </div>
 </section>
 
@@ -2273,78 +2418,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
   </div>
 </section>
 
-<!-- ══════════════════════════════════ FUENTES ═══ -->
-<section id="fuentes">
-  <div class="container">
-    <div class="section-label reveal" data-i18n="fnt_label">Triangulación de Fuentes</div>
-    <h2 class="section-title reveal" data-i18n="fnt_title">Espectro y sesgos documentados</h2>
-    <p class="reveal" style="color:var(--text-muted); margin-bottom:20px;" data-i18n="fnt_desc">
-      El rigor metodológico no desecha fuentes con intereses definidos; las sitúa dentro del espectro analítico declarando explícitamente sus incentivos para destilar información real del ruido de propaganda.
-    </p>
-
-    <div class="fuentes-grid reveal">
-
-      <div class="fuente-card critical">
-        <div class="fuente-tipo" data-i18n="fnt1_type">● Crítico del régimen</div>
-        <div class="fuente-nombre" data-i18n="fnt1_name">Food Monitor Program (FMP)</div>
-        <div class="fuente-desc" data-i18n="fnt1_desc">Observatorio de seguridad alimentaria independiente. Encuestó 2,703 hogares. Provee datos empíricos de primera mano sobre nutrición. Director: Sergio Ángel Baquero.</div>
-        <div class="fuente-sesgo" data-i18n="fnt1_bias">Sesgo: anti-régimen · Metodología empírica directa</div>
-      </div>
-
-      <div class="fuente-card critical">
-        <div class="fuente-tipo" data-i18n="fnt2_type">● Crítico del régimen</div>
-        <div class="fuente-nombre" data-i18n="fnt2_name">Havana Consulting Group</div>
-        <div class="fuente-desc" data-i18n="fnt2_desc">Think tank económico del exilio técnico radicado en Miami. Analiza transacciones financieras de GAESA y balances consolidados de remesas. Director: Emilio Morales.</div>
-        <div class="fuente-sesgo" data-i18n="fnt2_bias">Sesgo: exilio pro-mercado · Estimaciones técnicas de GAESA</div>
-      </div>
-
-      <div class="fuente-card academic">
-        <div class="fuente-tipo" data-i18n="fnt3_type">◆ Independiente / técnico</div>
-        <div class="fuente-nombre" data-i18n="fnt3_name">elToque</div>
-        <div class="fuente-desc" data-i18n="fnt3_desc">Portal periodístico de economía que publica el índice del mercado informal de divisas en Cuba y balances corporativos filtrados de GAESA. Sede: La Habana / Madrid.</div>
-        <div class="fuente-sesgo" data-i18n="fnt3_bias">Sesgo: bajo/técnico · Referencia indiscutida de precios</div>
-      </div>
-
-      <div class="fuente-card academic">
-        <div class="fuente-tipo" data-i18n="fnt4_type">◆ Independiente / técnico</div>
-        <div class="fuente-nombre" data-i18n="fnt4_name">Cuba Siglo 21</div>
-        <div class="fuente-desc" data-i18n="fnt4_desc">Asociación civil que publica análisis institucionales sobre el poder militar corporativo de GAESA y el colapso inflacionario provocado por el tipo de cambio oficial.</div>
-        <div class="fuente-sesgo" data-i18n="fnt4_bias">Sesgo: moderado crítico · Documentación institucional</div>
-      </div>
-
-      <div class="fuente-card intl">
-        <div class="fuente-tipo" data-i18n="fnt5_type">▲ Internacional / ONU</div>
-        <div class="fuente-nombre" data-i18n="fnt5_name">Relatoría ONU · Alimentación</div>
-        <div class="fuente-desc" data-i18n="fnt5_desc">Relatoría Especial sobre el Derecho a la Alimentación de Naciones Unidas. Recopila denuncias y emite recomendaciones de sistemas alimentarios.</div>
-        <div class="fuente-sesgo" data-i18n="fnt5_bias">Sesgo: institucional neutro · Autoridad formal ONU</div>
-      </div>
-
-      <div class="fuente-card intl">
-        <div class="fuente-tipo" data-i18n="fnt6_type">▲ Internacional / ONU</div>
-        <div class="fuente-nombre" data-i18n="fnt6_name">Relatora ONU · Sanciones</div>
-        <div class="fuente-desc" data-i18n="fnt6_desc">Relatora Especial (Douhan) sobre medidas coercitivas unilaterales. Exige el cese del embargo comercial estadounidense tras su visita oficial a la isla.</div>
-        <div class="fuente-sesgo" data-i18n="fnt6_bias">Sesgo: pro-régimen estructural · Relatoría crítica de EE. UU.</div>
-      </div>
-
-      <div class="fuente-card regime">
-        <div class="fuente-tipo" data-i18n="fnt7_type">■ Régimen / oficial</div>
-        <div class="fuente-nombre" data-i18n="fnt7_name">Gobierno Cubano / ONEI</div>
-        <div class="fuente-desc" data-i18n="fnt7_desc">Oficina Nacional de Estadística e Información. Datos de exportación, turismo y anuarios oficiales del Estado cubano. Útil para contrastar asimetrías de inversión.</div>
-        <div class="fuente-sesgo" data-i18n="fnt7_bias">Sesgo: máximo · Base de datos oficial controlada</div>
-      </div>
-
-      <div class="fuente-card critical">
-        <div class="fuente-tipo" data-i18n="fnt8_type">● Periodismo crítico</div>
-        <div class="fuente-nombre" data-i18n="fnt8_name">14ymedio / Diario de Cuba</div>
-        <div class="fuente-desc" data-i18n="fnt8_desc">Prensa independiente y reportería de terreno que documenta testimonios de agricultores perseguidos y decomisos estatales de cosechas en mercados libres informales.</div>
-        <div class="fuente-sesgo" data-i18n="fnt8_bias">Sesgo: anti-régimen · Cobertura en el terreno de hechos</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════ CONCLUSIÓN ═ -->
+<!-- ══════════════════════════════════ CONCLUSIÓN / SÍNTESIS ═ -->
 <section id="conclusion">
   <div class="container">
     <div class="section-label reveal" data-i18n="nav_logo">Cuba · Análisis</div>
@@ -2354,69 +2428,84 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       La evidencia empírica analizada demuestra que la crisis cubana se desenvuelve en un escenario a la vez complicado (sanciones bilaterales, cerco crediticio y crisis energética) y complejo (mercados informales adaptativos y captura de rentas). Reducir el ruido exige abandonar explicaciones monocausales: el colapso no proviene de una abstracción doctrinaria ni exclusivamente del embargo exterior, sino de una estructura asimétrica donde el holding militar GAESA opera con balances opacos de liquidez ($14,467M) y despilfarro hotelero mientras la economía productiva civil se desmorona.
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;" class="reveal">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 30px;" class="reveal">
       <div>
-        <p style="color:var(--text-muted); line-height:1.7; font-size:14.5px; margin-bottom:16px;" data-i18n="conclusion_p1">
+        <p class="conclusion-p" data-i18n="conclusion_p1">
           Esta síntesis periodística desarma el relato binario tradicional para simplificar y reducir el ruido informativo. Por un lado, la narrativa oficialista atribuye cada privación exclusivamente a las sanciones de EE. UU. El embargo norteamericano es un factor real, severo y reforzado por las sanciones del Departamento de Estado en septiembre de 2026 bajo la O.E. 14404 contra el Banco Exterior de Cuba y el sector energético. Sin embargo, utilizarlo como coartada absoluta choca contra los datos: no explica por qué el Estado invirtió hasta 14 veces más en construir hoteles de lujo con ocupaciones de apenas 25%–30% (según la ONEI analizada por Pedro Monreal) mientras la producción agrícola nacional caía un 67%.
         </p>
       </div>
       <div>
-        <p style="color:var(--text-muted); line-height:1.7; font-size:14.5px; margin-bottom:16px;" data-i18n="conclusion_p2">
+        <p class="conclusion-p" data-i18n="conclusion_p2">
           Por otro lado, la lectura anticomunista clásica que reduce la isla a un estatismo puro ignora la enorme complejidad de los mercados informales y la supervivencia civil: hoy el 92.68% de las remesas familiares ingresa eludiendo la banca oficial para sortear el tipo de cambio distorsionado. La teoría de la búsqueda de rentas (Tullock-Krueger) y la economía institucional revelan que GAESA no opera como un cartel omnipotente ni eficiente, sino como una burocracia militar opaca que extrae el excedente privado, restringe la importación independiente y malgasta miles de millones en elefantes blancos improductivos.
         </p>
       </div>
     </div>
 
-    <p class="reveal" style="color:var(--text-primary); line-height:1.7; font-size:15px; margin-bottom:40px; border-top:1px solid var(--border); padding-top:24px; font-weight:500;" data-i18n="conclusion_p3">
+    <p class="conclusion-p reveal" style="border-top:1px solid var(--border); padding-top:24px; font-weight:500;" data-i18n="conclusion_p3">
       En última instancia, el sitio somete sus hipótesis a falsación constante para ofrecer un anclaje empírico verificable ante una realidad complicada y compleja: los balances contables reales filtrados demuestran que GAESA representa aproximadamente el 40% del PIB (matizando estimaciones previas del exilio superiores al 70%), pero concentra depósitos que multiplican por 3.2 los ingresos tributarios del Estado. Reconocer tanto la asfixia crediticia externa como la desinversión y captura militar interna no busca complacer trincheras ideológicas, sino despejar la propaganda para que el lector comprenda la raíz tangible del hambre en Cuba.
     </p>
-
-    <!-- Ficha Metodológica -->
-    <div class="metodologia-box reveal">
-      <div class="meta-item">
-        <div class="meta-key" data-i18n="meta_key1">Enfoque Analítico</div>
-        <div class="meta-val" data-i18n="meta_val1">Geopolítico + Complejidad Institucional</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-key" data-i18n="meta_key2">Marco Teórico</div>
-        <div class="meta-val" data-i18n="meta_val2">Teoría de la Búsqueda de Rentas (Tullock-Krueger) + Economía Austriaca</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-key" data-i18n="meta_key3">Metodología</div>
-        <div class="meta-val" data-i18n="meta_val3">Triangulación de Fuentes con Sesgo Declarado</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-key" data-i18n="meta_key4">Condición de Falsación</div>
-        <div class="meta-val" data-i18n="meta_val4">Si cesan las sanciones y se descentraliza GAESA pero el desabastecimiento persiste, las hipótesis quedan refutadas</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-key" data-i18n="meta_key5">Datos Primarios</div>
-        <div class="meta-val" data-i18n="meta_val5">Encuesta FMP 2024 (2,703 hogares) + Balances filtrados GAESA (elTOQUE / Vidal) + ONEI / Monreal 2026</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-key" data-i18n="meta_key6">Última Actualización</div>
-        <div class="meta-val" data-i18n="meta_val6">Septiembre 2026 — Crisis activa en desarrollo continuo</div>
-      </div>
-    </div>
-
-
 
   </div>
 </section>
 
 <!-- ════════════════════════════════════ FOOTER ══ -->
 <footer>
-  <div class="footer-info">
-    <div class="footer-note" data-i18n="footer_note">
-      Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a septiembre 2026.
+  <div class="footer-container">
+    <div class="footer-grid">
+      
+      <!-- Bloque 1: Marca, Autoría y Nota Legal -->
+      <div class="footer-brand-block">
+        <div class="footer-logo">Cuba · Análisis</div>
+        <p class="footer-author-text">
+          <strong data-i18n="footer_author_label">Investigación y Autoría:</strong><br>
+          <span class="author-name">William Camilo Artunduaga Viana</span>
+        </p>
+        <p class="footer-note" data-i18n="footer_note">
+          Este análisis es de carácter de investigación periodística e intelectual. Las hipótesis presentadas están sujetas a falsación empírica continua. No representa posición política de ningún gobierno o partido. Datos actualizados a septiembre 2026.
+        </p>
+      </div>
+
+      <!-- Bloque 2: Metodología y Fuentes en GitHub (README) -->
+      <div class="footer-readme-card">
+        <div class="footer-readme-title" data-i18n="footer_readme_title">Metodología y Fuentes en GitHub</div>
+        <p class="footer-readme-desc" data-i18n="footer_readme_desc">
+          Para reducir la fricción cognitiva del lector, la documentación técnica exhaustiva, la matriz de sesgos declarados de las fuentes primarias, los datasets estructurados y los criterios popperianos de falsación se preservan íntegros en el repositorio:
+        </p>
+        <div class="footer-readme-links">
+          <a id="footer-repo-link" href="https://github.com/willkwolf/Cuba-Narratives#readme" target="_blank" rel="noopener" class="footer-repo-link" data-i18n="footer_repo_link">
+            Consultar README y Metodología →
+          </a>
+          <a id="footer-fuentes-link" href="https://github.com/willkwolf/Cuba-Narratives/blob/main/Fuentes.md" target="_blank" rel="noopener" class="footer-repo-link" data-i18n="footer_fuentes_link">
+            Auditoría de Fuentes (Fuentes.md) →
+          </a>
+        </div>
+      </div>
+
     </div>
-    <div class="footer-links">
-      <a id="footer-repo-link" href="https://github.com/willkwolf/Cuba-Narratives#readme" target="_blank" rel="noopener" class="footer-repo-link" data-i18n="footer_repo_link">
-        Para saber más: Explora el repositorio y el README en GitHub →
-      </a>
+
+    <!-- Bloque 3: Citación Académica APA -->
+    <div class="footer-citation-card">
+      <div class="citation-header">
+        <div class="citation-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span data-i18n="citation_badge">Citación Sugerida (Normas APA 7.ª ed.)</span>
+        </div>
+        <button id="copy-citation-btn" class="citation-copy-btn" onclick="copyCitation()" aria-label="Copiar cita en formato APA">
+          <svg id="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span id="copy-btn-text" data-i18n="citation_copy_btn">Copiar Cita APA</span>
+        </button>
+      </div>
+      <blockquote class="citation-quote" id="apa-citation-text" data-i18n-html="citation_apa">
+        Artunduaga Viana, W. C. (2026). <em>Cuba: Captura corporativa y monopolio militar — Análisis geopolítico de la crisis</em>. https://willkwolf.github.io/Cuba-Narratives/
+      </blockquote>
     </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 William Camilo Artunduaga Viana. Código abierto bajo licencia MIT.</span>
+      <span>Cuba-Narratives · Investigación Periodística</span>
+    </div>
+
   </div>
-  <div class="footer-logo">Cuba<br>Análisis</div>
 </footer>
 
 <!-- ════════════════════════════════════ MODAL GAESA ══ -->
@@ -2456,6 +2545,7 @@ const translations = {
     nav_historia: "Historia Larga",
     nav_colapso: "Colapso",
     nav_bitacora: "Bitácora",
+    nav_conclusion: "Síntesis",
     nav_fuentes: "Fuentes",
     hero_tag: "Investigación geopolítica · 2026",
     hero_title_white: "¿Socialismo",
@@ -2710,8 +2800,15 @@ const translations = {
     meta_val5: "Encuesta FMP 2024 (2,703 hogares) + Balances filtrados GAESA (elTOQUE / Vidal) + ONEI / Monreal 2026",
     meta_key6: "Última Actualización",
     meta_val6: "Septiembre 2026 — Crisis activa en desarrollo continuo",
+    footer_author_label: "Investigación y Autoría:",
     footer_note: "Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a septiembre 2026.",
-    footer_repo_link: "Para saber más: Explora el repositorio y el README en GitHub →",
+    footer_readme_title: "Metodología y Fuentes en GitHub",
+    footer_readme_desc: "Para reducir la fricción cognitiva del lector, la documentación técnica exhaustiva, la matriz de sesgos declarados de las fuentes primarias, los datasets estructurados y los criterios popperianos de falsación se preservan íntegros en el repositorio:",
+    footer_repo_link: "Consultar README y Metodología →",
+    footer_fuentes_link: "Auditoría de Fuentes (Fuentes.md) →",
+    citation_badge: "Citación Sugerida (Normas APA 7.ª ed.)",
+    citation_copy_btn: "Copiar Cita APA",
+    citation_apa: "Artunduaga Viana, W. C. (2026). <em>Cuba: Captura corporativa y monopolio militar — Análisis geopolítico de la crisis</em>. https://willkwolf.github.io/Cuba-Narratives/",
     gaesa_modal_subtitle: "Entidad del Conglomerado GAESA",
     gaesa_modal_official_title: "Lente CEPAL / Estado (Oficial)",
     gaesa_modal_critical_title: "Lente Búsqueda de Rentas (Extracción)",
@@ -2767,6 +2864,7 @@ const translations = {
     nav_historia: "Deep History",
     nav_colapso: "Collapse",
     nav_bitacora: "Evidence Log",
+    nav_conclusion: "Synthesis",
     nav_fuentes: "Sources",
     hero_tag: "Geopolitical Investigation · 2026",
     hero_title_white: "Failed",
@@ -3021,8 +3119,15 @@ const translations = {
     meta_val5: "FMP Survey 2024 (2,703 households) + Leaked GAESA Balance Sheets (elTOQUE / Vidal) + ONEI / Monreal 2026",
     meta_key6: "Last Update",
     meta_val6: "September 2026 — Ongoing active crisis in development",
+    footer_author_label: "Research & Authorship:",
     footer_note: "This analysis is of a journalistic and intellectual research nature. The theses and narratives presented are academic hypotheses subject to empirical falsification. Sources are explicitly identified with their bias. It does not represent the political position of any government or party. Data updated as of September 2026.",
-    footer_repo_link: "To learn more: Explore the repository and README on GitHub →",
+    footer_readme_title: "Methodology & Sources on GitHub",
+    footer_readme_desc: "To reduce cognitive friction for the reader, detailed technical documentation, declared bias matrices for primary sources, decoupled datasets, and Popperian falsification criteria are preserved in the repository:",
+    footer_repo_link: "Consult README and Methodology →",
+    footer_fuentes_link: "Source Audit (Fuentes.md) →",
+    citation_badge: "Suggested Citation (APA 7th ed.)",
+    citation_copy_btn: "Copy APA Citation",
+    citation_apa: "Artunduaga Viana, W. C. (2026). <em>Cuba: Corporate capture and military monopoly — Geopolitical analysis of the crisis</em>. https://willkwolf.github.io/Cuba-Narratives/",
     gaesa_modal_subtitle: "GAESA Conglomerate Entity",
     gaesa_modal_official_title: "CEPAL / State Lens (Official)",
     gaesa_modal_critical_title: "Rent-Seeking Lens (Extraction)",
@@ -3303,6 +3408,24 @@ window.addEventListener('scroll', () => {
     }
   }
 });
+
+// ── CITATION COPY HELPER ─────────────────────────────
+function copyCitation() {
+  const citationEl = document.getElementById('apa-citation-text');
+  const btnText = document.getElementById('copy-btn-text');
+  if (!citationEl || !btnText) return;
+  
+  const textToCopy = citationEl.textContent.trim();
+  navigator.clipboard.writeText(textToCopy).then(() => {
+    const originalText = translations[currentLang]?.citation_copy_btn || (currentLang === 'es' ? 'Copiar Cita APA' : 'Copy APA Citation');
+    btnText.textContent = currentLang === 'es' ? '¡Copiado!' : 'Copied!';
+    setTimeout(() => {
+      btnText.textContent = originalText;
+    }, 2000);
+  }).catch(err => {
+    console.error('Error al copiar cita: ', err);
+  });
+}
 
 // ── INIT LANG ─────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {

@@ -1347,6 +1347,173 @@ footer {
   opacity: 0.8;
 }
 
+/* ─── BITÁCORA DE EVIDENCIA (Historial Periodístico) ── */
+#bitacora {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.bitacora-intro {
+  max-width: 760px;
+  margin-bottom: 30px;
+  color: var(--text-muted);
+  font-size: clamp(14.5px, 1vw, 16px);
+  line-height: 1.6;
+}
+
+.bitacora-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.bitacora-filter-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 0.8vw, 13.5px);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+
+.bitacora-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.bitacora-filter-btn.active {
+  background: var(--text-primary);
+  color: var(--bg);
+  border-color: var(--text-primary);
+}
+
+.bitacora-timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.bitacora-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.bitacora-card:hover {
+  border-color: rgba(145, 105, 18, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.bitacora-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.bitacora-date {
+  font-family: var(--font-mono);
+  font-size: clamp(12.5px, 0.85vw, 13.5px);
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.bitacora-verdict-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: rgba(27, 30, 36, 0.05);
+  color: var(--text-primary);
+}
+
+.bitacora-verdict-badge.badge-escalada {
+  background: rgba(166, 63, 43, 0.1);
+  color: var(--color-critico);
+}
+
+.bitacora-verdict-badge.badge-revision {
+  background: rgba(46, 87, 111, 0.1);
+  color: var(--color-tecnico);
+}
+
+.bitacora-verdict-badge.badge-alerta {
+  background: rgba(145, 105, 18, 0.12);
+  color: var(--accent);
+}
+
+.bitacora-title {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.25vw, 22px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.bitacora-desc {
+  font-size: clamp(14px, 0.95vw, 15px);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.bitacora-triangulacion {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  background: rgba(27, 30, 36, 0.03);
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.bitacora-triangulacion span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bitacora-impact {
+  border-left: 3px solid var(--accent);
+  background: rgba(145, 105, 18, 0.04);
+  padding: 12px 16px;
+  border-radius: 0 4px 4px 0;
+  font-size: clamp(13px, 0.9vw, 14px);
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.bitacora-impact strong {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 11.5px;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 4px;
+}
+
 /* ─── ACCESIBILIDAD Y ANIMACIONES ───────────────────── */
 .reveal {
   opacity: 0;
@@ -1386,6 +1553,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       <li><a href="#marco-teorico" data-i18n="nav_marco">Marco Teórico</a></li>
       <li><a href="#historia" data-i18n="nav_historia">Historia Larga</a></li>
       <li><a href="#timeline" data-i18n="nav_colapso">Colapso</a></li>
+      <li><a href="#bitacora" data-i18n="nav_bitacora">Bitácora</a></li>
       <li><a href="#fuentes" data-i18n="nav_fuentes">Fuentes</a></li>
     </ul>
     
@@ -1409,12 +1577,12 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
   </h1>
 
   <p class="hero-subtitle" data-i18n="hero_subtitle">
-    Un análisis metodológico para desglosar el espectro de narrativas detrás de la crisis humanitaria en Cuba, contrastando datos independientes con la captura corporativa de GAESA.
+    Reduciendo y simplificando el ruido informativo en una crisis compleja: triangulación de balances contables de GAESA, desinversión agraria y el impacto de las sanciones internacionales.
   </p>
 
   <div class="tesis-badge">
     <span class="dot"></span>
-    <span data-i18n="hero_badge">Triangulación de Fuentes · Complejidad Institucional · Datos ONU 2026</span>
+    <span data-i18n="hero_badge">Triangulación de Fuentes · Auditoría Contable 2026 · Trazabilidad Periodística</span>
   </div>
 
   <div class="hero-scroll-hint">
@@ -1547,11 +1715,11 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
 
       <div class="dato-card reveal">
         <div class="dato-value-container">
-          <div class="dato-value cyan" data-target="70">0</div><div class="dato-value cyan">%+</div>
+          <div class="dato-value cyan" data-target="40">0</div><div class="dato-value cyan">%–70%</div>
         </div>
         <div class="dato-label" data-i18n="card_dato4_label">Economía controlada por GAESA</div>
-        <div class="dato-desc" data-i18n="card_dato4_desc">GAESA controla más del 70% de la economía cubana y el 95% de las finanzas nacionales. El Estado civil es decorativo.</div>
-        <div class="dato-source" data-i18n="card_dato4_source">Fuente: Havana Consulting Group, ASCE 2025</div>
+        <div class="dato-desc" data-i18n="card_dato4_desc">Balances reales (elTOQUE / Vidal) revelan ~40% del PIB y $14,467M en reservas líquidas, contrastando con el >70% estimado por el exilio.</div>
+        <div class="dato-source" data-i18n="card_dato4_source">Fuente: Balances filtrados GAESA vs. Havana Consulting</div>
       </div>
 
       <div class="dato-card reveal">
@@ -1639,11 +1807,11 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       </div>
 
       <div class="monopoly-row">
-        <div class="monopoly-label" data-i18n="gaesa_et">Economía total</div>
+        <div class="monopoly-label" data-i18n="gaesa_et">Economía total (PIB)</div>
         <div class="monopoly-bar-track">
-          <div class="monopoly-bar-fill" data-width="70">70%+</div>
+          <div class="monopoly-bar-fill" data-width="40">40% PIB (hasta 70% est. exilio)</div>
         </div>
-        <div class="monopoly-pct">70%+</div>
+        <div class="monopoly-pct">40%–70%</div>
       </div>
 
       <div class="monopoly-row">
@@ -1673,7 +1841,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
     </div>
 
     <p class="reveal" style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted); letter-spacing:0.5px; margin-top:16px;" data-i18n="gaesa_chart_note">
-      * Estimaciones combinadas: Havana Consulting Group (ASCE 2025) + balances GAESA filtrados (elToque, nov 2025) + FMP 2024
+      * Estimaciones trianguladas: Balances contables internos filtrados de GAESA (Pavel Vidal / elTOQUE: ~40% del PIB, $14,467M en reservas líquidas) contrastados con Havana Consulting Group (exilio >70%) y ONEI.
     </p>
   </div>
   
@@ -1701,7 +1869,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
         <div class="geo-actor-name" data-i18n="actor1_name">Estados Unidos</div>
         <div class="geo-actor-role" data-i18n="actor1_role">El Bloqueo como variable de confusión</div>
         <div class="geo-actor-desc" data-i18n="actor1_desc">
-          64 años de embargo. Trump aplicó 240+ nuevas sanciones. En diciembre de 2025, la Marina de EE. UU. interrumpió temporalmente el flujo de crudo venezolano. Señal de ruido: el bloqueo es real y sumamente perjudicial, pero resulta insuficiente para explicar la asimetría interna de recursos.
+          64 años de embargo. En septiembre de 2026, el secretario de Estado Marco Rubio anunció nuevas sanciones bajo la O.E. 14404 contra el Banco Exterior de Cuba (BEC), Fidel Ernesto Castro Calis y entidades energéticas. Señal de ruido: las sanciones asfixian el crédito internacional, pero el régimen las instrumentaliza como coartada para ocultar su desinversión interna en agricultura.
         </div>
       </div>
 
@@ -1942,6 +2110,13 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
         <div class="timeline-desc" data-i18n="ev7_desc">Con la suspensión de operaciones de procesadores internacionales de tarjetas y la contracción crediticia extrema, economistas locales definen el presente periodo como la crisis más severa en 70 años.</div>
       </div>
 
+      <div class="timeline-event">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year" data-i18n="ev8_year">Septiembre 2026 · Sanciones Departamento de Estado</div>
+        <div class="timeline-title" data-i18n="ev8_title">Máxima presión financiera sobre el BEC</div>
+        <div class="timeline-desc" data-i18n="ev8_desc">El secretario de Estado Marco Rubio aplica la Orden Ejecutiva 14404 sancionando al Banco Exterior de Cuba, a Fidel Ernesto Castro Calis y a 4 entidades de energía y minería, intensificando el cerco crediticio internacional.</div>
+      </div>
+
     </div>
     
     <!-- Active Recall Módulo 5 -->
@@ -1950,6 +2125,151 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       <div class="recall-answer" data-i18n="recall_a3">Respuesta rápida: Porque responde a una vulnerabilidad alimentaria y estructural de larga data en la isla, caracterizada por la subordinación a enclaves extractivos externos (colonia, URSS, Venezuela) y la falta secular de incentivos para la producción agrícola local autónoma.</div>
     </div>
 
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ BITÁCORA DE EVIDENCIA ═══ -->
+<section id="bitacora">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="bitacora_label">Módulo 6 · Trazabilidad Periodística</div>
+    <h2 class="section-title reveal" data-i18n="bitacora_title">Bitácora de Evidencia: Reduciendo el Ruido</h2>
+    <p class="reveal bitacora-intro" data-i18n="bitacora_desc">
+      Una investigación periodística rigurosa no impone dogmas en una crisis complicada y compleja: somete sus hipótesis al arbitraje continuo de los hechos. Esta bitácora documenta las actualizaciones de evidencia y cómo ajustan las hipótesis del repositorio para simplificar y reducir el ruido informativo.
+    </p>
+
+    <!-- Filtros interactivos -->
+    <div class="bitacora-filters reveal">
+      <button class="bitacora-filter-btn active" onclick="filterBitacora('all', this)" data-i18n="filter_all">Todos los Hitos</button>
+      <button class="bitacora-filter-btn" onclick="filterBitacora('sanciones', this)" data-i18n="filter_sanciones">Sanciones EE. UU.</button>
+      <button class="bitacora-filter-btn" onclick="filterBitacora('gaesa', this)" data-i18n="filter_gaesa">GAESA / Finanzas</button>
+      <button class="bitacora-filter-btn" onclick="filterBitacora('alimentaria', this)" data-i18n="filter_alimentaria">Seguridad Alimentaria</button>
+      <button class="bitacora-filter-btn" onclick="filterBitacora('sector_privado', this)" data-i18n="filter_privado">Sector Privado / Remesas</button>
+    </div>
+
+    <!-- Timeline de hitos periodísticos -->
+    <div class="bitacora-timeline reveal">
+
+      <!-- Hito 1: Sanciones Secretario de Estado Marco Rubio Septiembre 2026 -->
+      <div class="bitacora-card" data-category="sanciones">
+        <div class="bitacora-card-header">
+          <span class="bitacora-date" data-i18n="bit1_date">Septiembre 03, 2026</span>
+          <span class="bitacora-verdict-badge badge-escalada" data-i18n="bit1_badge">Escalada Geopolítica</span>
+        </div>
+        <h3 class="bitacora-title" data-i18n="bit1_title">Secretario de Estado de EE. UU. sanciona al Banco Exterior de Cuba y a la cúpula familiar</h3>
+        <p class="bitacora-desc" data-i18n="bit1_desc">
+          Bajo la Orden Ejecutiva 14404, el secretario de Estado Marco Rubio y la OFAC anuncian sanciones contra Fidel Ernesto Castro Calis (nieto de Raúl Castro), el Banco Exterior de Cuba (BEC) y cuatro entidades de los sectores energético y minero como parte de la estrategia de máxima presión.
+        </p>
+        <div class="bitacora-triangulacion">
+          <span><strong>Fuente Primaria:</strong> Departamento de Estado / OFAC (Oficial EE. UU.)</span>
+          <span><strong>Contraste:</strong> El País / Infobae / Comunicados MINREX</span>
+        </div>
+        <div class="bitacora-impact">
+          <strong data-i18n="bit_impact_label">Impacto en las Hipótesis del Sitio:</strong>
+          <span data-i18n="bit1_impact">Confirma la intensificación de la asfixia crediticia financiera exterior, pero el régimen la instrumentaliza como escudo retórico para desviar la atención de su desinversión interna en agricultura y redes de energía.</span>
+        </div>
+      </div>
+
+      <!-- Hito 2: Informe FMP Mayo 2026 ante la ONU -->
+      <div class="bitacora-card" data-category="alimentaria">
+        <div class="bitacora-card-header">
+          <span class="bitacora-date" data-i18n="bit2_date">Mayo 15, 2026</span>
+          <span class="bitacora-verdict-badge badge-alerta" data-i18n="bit2_badge">Alerta Humanitaria</span>
+        </div>
+        <h3 class="bitacora-title" data-i18n="bit2_title">Informe FMP ante el Relator Especial ONU: 2,703 hogares en privación nutricional severa</h3>
+        <p class="bitacora-desc" data-i18n="bit2_desc">
+          Food Monitor Program presenta ante la ONU su encuesta nacional de seguridad alimentaria: 96% de pérdida de capacidad adquisitiva de comida y 33.9% de familias con al menos un miembro que se acuesta con hambre por falta de dinero.
+        </p>
+        <div class="bitacora-triangulacion">
+          <span><strong>Fuente Primaria:</strong> Food Monitor Program (Encuesta 2,703 hogares)</span>
+          <span><strong>Contraste:</strong> Relatoría ONU sobre Derecho a la Alimentación</span>
+        </div>
+        <div class="bitacora-impact">
+          <strong data-i18n="bit_impact_label">Impacto en las Hipótesis del Sitio:</strong>
+          <span data-i18n="bit2_impact">Sustenta empíricamente que la crisis alimentaria no es un fallo técnico de abastecimiento temporal, sino una privación severa donde el modelo monetario traslada el costo del déficit a la canasta básica familiar.</span>
+        </div>
+      </div>
+
+      <!-- Hito 3: Balances filtrados de GAESA Noviembre 2025 (Pavel Vidal / elTOQUE) -->
+      <div class="bitacora-card" data-category="gaesa">
+        <div class="bitacora-card-header">
+          <span class="bitacora-date" data-i18n="bit3_date">Noviembre 20, 2025</span>
+          <span class="bitacora-verdict-badge badge-revision" data-i18n="bit3_badge">Revisión Empírica / Contraste</span>
+        </div>
+        <h3 class="bitacora-title" data-i18n="bit3_title">Filtración contable de GAESA: ~40% del PIB y $14,467M USD en reservas líquidas</h3>
+        <p class="bitacora-desc" data-i18n="bit3_desc">
+          Auditoría de Pavel Vidal sobre estados contables 2023-2024 filtrados: GAESA equivale al 40% del PIB cubano (37% del valor agregado por utilidades y 34% de exportaciones). Retiene depósitos bancarios que multiplican por 3.2 los ingresos tributarios del Estado.
+        </p>
+        <div class="bitacora-triangulacion">
+          <span><strong>Fuente Primaria:</strong> Balances internos de GAESA (elTOQUE / Univ. Columbia / Javeriana)</span>
+          <span><strong>Contraste:</strong> Havana Consulting Group (estimación previa del 70%+)</span>
+        </div>
+        <div class="bitacora-impact">
+          <strong data-i18n="bit_impact_label">Impacto en las Hipótesis del Sitio:</strong>
+          <span data-i18n="bit3_impact">Corrige a la baja la estimación previa del exilio (40% vs. 70%+), reforzando el rigor metodológico: GAESA no necesita ser el 70% de la economía real para operar como un banco central paralelo que asfixia la liquidez pública.</span>
+        </div>
+      </div>
+
+      <!-- Hito 4: Corte de Crudo Diciembre 2025 -->
+      <div class="bitacora-card" data-category="sanciones">
+        <div class="bitacora-card-header">
+          <span class="bitacora-date" data-i18n="bit4_date">Diciembre 10, 2025</span>
+          <span class="bitacora-verdict-badge badge-escalada" data-i18n="bit4_badge">Shock Externo</span>
+        </div>
+        <h3 class="bitacora-title" data-i18n="bit4_title">Interrupción de envíos de crudo venezolano y colapso del Sistema Eléctrico Nacional</h3>
+        <p class="bitacora-desc" data-i18n="bit4_desc">
+          La interdicción marítima y el endurecimiento sancionatorio interrumpen el flujo de petróleo de PDVSA. El sistema termoeléctrico nacional colapsa, provocando apagones de 20+ horas que inutilizan la cadena de frío de alimentos y el bombeo de agua.
+        </p>
+        <div class="bitacora-triangulacion">
+          <span><strong>Fuente Primaria:</strong> Reportes de tráfico marítimo / Reuters</span>
+          <span><strong>Contraste:</strong> Unión Eléctrica de Cuba (UNE)</span>
+        </div>
+        <div class="bitacora-impact">
+          <strong data-i18n="bit_impact_label">Impacto en las Hipótesis del Sitio:</strong>
+          <span data-i18n="bit4_impact">Evidencia la vulnerabilidad física de la matriz energética ante shocks externos. Muestra que el hambre no es imputable únicamente a GAESA, aunque el conglomerado asegura energía prioritaria para sus hoteles mientras la red civil colapsa.</span>
+        </div>
+      </div>
+
+      <!-- Hito 5: Remesas Informales Febrero 2025 -->
+      <div class="bitacora-card" data-category="sector_privado">
+        <div class="bitacora-card-header">
+          <span class="bitacora-date" data-i18n="bit5_date">Febrero 28, 2025</span>
+          <span class="bitacora-verdict-badge" data-i18n="bit5_badge">Dato Contrastado</span>
+        </div>
+        <h3 class="bitacora-title" data-i18n="bit5_title">Desvío masivo de remesas: 92.68% elude el monopolio bancario de GAESA</h3>
+        <p class="bitacora-desc" data-i18n="bit5_desc">
+          Informes de Cuba Siglo 21 y el registro de tasas informales de elTOQUE constatan que casi la totalidad de las remesas ingresan al país por canales informales ante el desfase del tipo de cambio oficial, desplomando las remesas formales en 43%.
+        </p>
+        <div class="bitacora-triangulacion">
+          <span><strong>Fuente Primaria:</strong> Cuba Siglo 21 (Informe Emilio Morales)</span>
+          <span><strong>Contraste:</strong> elTOQUE (Mercado cambiario informal)</span>
+        </div>
+        <div class="bitacora-impact">
+          <strong data-i18n="bit_impact_label">Impacto en las Hipótesis del Sitio:</strong>
+          <span data-i18n="bit5_impact">Confirma la dinámica de supervivencia de la economía civil frente a la captura cambiaria oficial, desmintiendo que la sociedad acepte pasivamente las tasas fijadas por el monopolio militar.</span>
+        </div>
+      </div>
+
+      <!-- Hito 6: Ocupación Hotelera 25-30% ONEI / Pedro Monreal -->
+      <div class="bitacora-card" data-category="gaesa">
+        <div class="bitacora-card-header">
+          <span class="bitacora-date" data-i18n="bit6_date">Abril 10, 2026</span>
+          <span class="bitacora-verdict-badge badge-revision" data-i18n="bit6_badge">Mala Asignación de Capital</span>
+        </div>
+        <h3 class="bitacora-title" data-i18n="bit6_title">Ocupación hotelera de Gaviota entre 25% y 30%: elefantes blancos frente al colapso agrario</h3>
+        <p class="bitacora-desc" data-i18n="bit6_desc">
+          Estadísticas oficiales de la ONEI analizadas por Pedro Monreal demuestran que la inversión en hoteles supera hasta 14 veces la destinada a agricultura, a pesar de que las habitaciones permanecen mayoritariamente vacías.
+        </p>
+        <div class="bitacora-triangulacion">
+          <span><strong>Fuente Primaria:</strong> Oficina Nacional de Estadística e Información (ONEI)</span>
+          <span><strong>Contraste:</strong> Pedro Monreal (El Estado Como Tal)</span>
+        </div>
+        <div class="bitacora-impact">
+          <strong data-i18n="bit_impact_label">Impacto en las Hipótesis del Sitio:</strong>
+          <span data-i18n="bit6_impact">Matiza la Tesis 3: GAESA no opera como un cartel capitalista eficiente que maximiza rentas, sino como una estructura autoritaria que destruye capital en activos improductivos mientras la población sufre escasez alimentaria.</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -2075,7 +2395,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
       </div>
       <div class="meta-item">
         <div class="meta-key" data-i18n="meta_key6">Última Actualización</div>
-        <div class="meta-val" data-i18n="meta_val6">Junio 2026 — Crisis activa en desarrollo</div>
+        <div class="meta-val" data-i18n="meta_val6">Septiembre 2026 — Crisis activa en desarrollo continuo</div>
       </div>
     </div>
 
@@ -2088,7 +2408,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
 <footer>
   <div class="footer-info">
     <div class="footer-note" data-i18n="footer_note">
-      Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a junio 2026.
+      Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a septiembre 2026.
     </div>
     <div class="footer-links">
       <a id="footer-repo-link" href="https://github.com/willkwolf/Cuba-Narratives#readme" target="_blank" rel="noopener" class="footer-repo-link" data-i18n="footer_repo_link">
@@ -2135,13 +2455,14 @@ const translations = {
     nav_marco: "Marco Teórico",
     nav_historia: "Historia Larga",
     nav_colapso: "Colapso",
+    nav_bitacora: "Bitácora",
     nav_fuentes: "Fuentes",
     hero_tag: "Investigación geopolítica · 2026",
     hero_title_white: "¿Socialismo",
     hero_title_red: "fallido o captura",
     hero_title_yellow: "corporativa?",
-    hero_subtitle: "Un análisis metodológico para desglosar el espectro de narrativas detrás de la crisis humanitaria en Cuba, contrastando datos independientes con la captura corporativa de GAESA.",
-    hero_badge: "Triangulación de Fuentes · Complejidad Institucional · Datos ONU 2026",
+    hero_subtitle: "Reduciendo y simplificando el ruido informativo en una crisis compleja: triangulación de balances contables de GAESA, desinversión agraria y el impacto de las sanciones internacionales.",
+    hero_badge: "Triangulación de Fuentes · Auditoría Contable 2026 · Trazabilidad Periodística",
     hero_scroll: "Desplázate para explorar",
     met_label: "Módulo 1 · Narrativas en Espectro",
     met_title: "Tres lecturas de la realidad cubana",
@@ -2176,8 +2497,8 @@ const translations = {
     card_dato3_desc: "Cuba importa el 80% de los alimentos que consume. Una nación agrícola en dependencia alimentaria total.",
     card_dato3_source: "Fuente: FMP / Martí Noticias 2026",
     card_dato4_label: "Economía controlada por GAESA",
-    card_dato4_desc: "GAESA controla más del 70% de la economía cubana y el 95% de las finanzas nacionales. El Estado civil es decorativo.",
-    card_dato4_source: "Fuente: Havana Consulting Group, ASCE 2025",
+    card_dato4_desc: "Balances reales (elTOQUE / Vidal) revelan ~40% del PIB y $14,467M en reservas líquidas, contrastando con el >70% estimado por el exilio.",
+    card_dato4_source: "Fuente: Balances filtrados GAESA vs. Havana Consulting",
     card_dato5_label: "Hogares con hambre nocturna",
     card_dato5_desc: "El 33.9% de los hogares reporta que al menos un miembro se fue a dormir con hambre por falta de recursos.",
     card_dato5_source: "Fuente: FMP 2024, Sergio Ángel Baquero",
@@ -2189,7 +2510,7 @@ const translations = {
     card_dato7_source: "Fuente: Cuba Siglo 21, febrero 2025",
     card_dato8_label: "Ingresos GAESA vs impuestos estatales",
     card_dato8_desc: "Los ingresos del conglomerado son 3.2 veces mayores que los del presupuesto del Estado vía impuestos. Estado capturado.",
-    card_dato8_source: "Fuente: elToque, noviembre 2025 (balances filtrados)",
+    card_dato8_source: "Fuente: elTOQUE, noviembre 2025 (balances filtrados)",
     gaesa_label: "Módulo 3 · Anatomía del Monopolio",
     gaesa_title: "GAESA: El Estado dentro del Estado",
     gaesa_desc: "El Grupo de Administración Empresarial S.A. es el brazo financiero de las Fuerzas Armadas Revolucionarias. Opera sin auditoría pública, sin control parlamentario, sin supervisión del Ministerio de Economía. Ni la Contraloría General puede acceder a sus cuentas.",
@@ -2205,17 +2526,17 @@ const translations = {
     gaesa_node_universal: "Almacenes Universal",
     gaesa_sectorial: "Control sectorial estimado",
     gaesa_fn: "Finanzas nacionales",
-    gaesa_et: "Economía total",
+    gaesa_et: "Economía total (PIB)",
     gaesa_ia: "Importaciones alimentos",
     gaesa_dv: "Divisas (USD/EUR)",
     gaesa_tr: "Turismo receptor",
-    gaesa_chart_note: "* Estimaciones combinadas: Havana Consulting Group (ASCE 2025) + balances GAESA filtrados (elToque, nov 2025) + FMP 2024",
+    gaesa_chart_note: "* Estimaciones trianguladas: Balances contables internos filtrados de GAESA (Pavel Vidal / elTOQUE: ~40% del PIB, $14,467M en reservas líquidas) contrastados con Havana Consulting Group (exilio >70%) y ONEI.",
     geo_label: "Módulo 4 · El Tablero de Actores",
     geo_title: "El tablero de actores: intereses opacos",
     geo_desc: "La triangulación de fuentes requiere identificar los vectores de interés que distorsionan el análisis. Ningún actor es neutral. El ruido informativo es deliberado.",
     actor1_name: "Estados Unidos",
     actor1_role: "El Bloqueo como variable de confusión",
-    actor1_desc: "64 años de embargo. Trump aplicó 240+ nuevas sanciones. En diciembre de 2025, la Marina de EE. UU. interrumpió temporalmente el flujo de crudo venezolano. Señal de ruido: el bloqueo es real y sumamente perjudicial, pero resulta insuficiente para explicar la asimetría interna de recursos.",
+    actor1_desc: "64 años de embargo. En septiembre de 2026, el secretario de Estado Marco Rubio anunció nuevas sanciones bajo la O.E. 14404 contra el Banco Exterior de Cuba (BEC), Fidel Ernesto Castro Calis y entidades energéticas. Señal de ruido: las sanciones asfixian el crédito internacional, pero el régimen las instrumentaliza como coartada para ocultar su desinversión interna en agricultura.",
     actor2_name: "Régimen cubano / GAESA",
     actor2_role: "Narrativa del bloqueo como escudo",
     actor2_desc: "Usa el embargo como coartada para toda ineficiencia interna. No se permite auditoría independiente y los datos oficiales son manipulados. Interés: el régimen busca culpar enteramente a factores externos para eximirse de la captura monopólica.",
@@ -2295,6 +2616,48 @@ const translations = {
     ev7_year: "Junio 2026 · Crisis activa",
     ev7_title: "El peor año económico en siete décadas",
     ev7_desc: "Con la suspensión de operaciones de procesadores internacionales de tarjetas y la contracción crediticia extrema, economistas locales definen el presente periodo como la crisis más severa en 70 años.",
+    ev8_year: "Septiembre 2026 · Sanciones Departamento de Estado",
+    ev8_title: "Máxima presión financiera sobre el BEC",
+    ev8_desc: "El secretario de Estado Marco Rubio aplica la Orden Ejecutiva 14404 sancionando al Banco Exterior de Cuba, a Fidel Ernesto Castro Calis y a 4 entidades de energía y minería, intensificando el cerco crediticio internacional.",
+    bitacora_label: "Módulo 6 · Trazabilidad Periodística",
+    bitacora_title: "Bitácora de Evidencia: Reduciendo el Ruido",
+    bitacora_desc: "Una investigación periodística rigurosa no impone dogmas en una crisis complicada y compleja: somete sus hipótesis al arbitraje continuo de los hechos. Esta bitácora documenta las actualizaciones de evidencia y cómo ajustan las hipótesis del repositorio para simplificar y reducir el ruido informativo.",
+    filter_all: "Todos los Hitos",
+    filter_sanciones: "Sanciones EE. UU.",
+    filter_gaesa: "GAESA / Finanzas",
+    filter_alimentaria: "Seguridad Alimentaria",
+    filter_privado: "Sector Privado / Remesas",
+    bit_impact_label: "Impacto en las Hipótesis del Sitio:",
+    bit1_date: "Septiembre 03, 2026",
+    bit1_badge: "Escalada Geopolítica",
+    bit1_title: "Secretario de Estado de EE. UU. sanciona al Banco Exterior de Cuba y a la cúpula familiar",
+    bit1_desc: "Bajo la Orden Ejecutiva 14404, el secretario de Estado Marco Rubio y la OFAC anuncian sanciones contra Fidel Ernesto Castro Calis (nieto de Raúl Castro), el Banco Exterior de Cuba (BEC) y cuatro entidades de los sectores energético y minero como parte de la estrategia de máxima presión.",
+    bit1_impact: "Confirma la intensificación de la asfixia crediticia financiera exterior, pero el régimen la instrumentaliza como escudo retórico para desviar la atención de su desinversión interna en agricultura y redes de energía.",
+    bit2_date: "Mayo 15, 2026",
+    bit2_badge: "Alerta Humanitaria",
+    bit2_title: "Informe FMP ante el Relator Especial ONU: 2,703 hogares en privación nutricional severa",
+    bit2_desc: "Food Monitor Program presenta ante la ONU su encuesta nacional de seguridad alimentaria: 96% de pérdida de capacidad adquisitiva de comida y 33.9% de familias con al menos un miembro que se acuesta con hambre por falta de dinero.",
+    bit2_impact: "Sustenta empíricamente que la crisis alimentaria no es un fallo técnico de abastecimiento temporal, sino una privación severa donde el modelo monetario traslada el costo del déficit a la canasta básica familiar.",
+    bit3_date: "Noviembre 20, 2025",
+    bit3_badge: "Revisión Empírica / Contraste",
+    bit3_title: "Filtración contable de GAESA: ~40% del PIB y $14,467M USD en reservas líquidas",
+    bit3_desc: "Auditoría de Pavel Vidal sobre estados contables 2023-2024 filtrados: GAESA equivale al 40% del PIB cubano (37% del valor agregado por utilidades y 34% de exportaciones). Retiene depósitos bancarios que multiplican por 3.2 los ingresos tributarios del Estado.",
+    bit3_impact: "Corrige a la baja la estimación previa del exilio (40% vs. 70%+), reforzando el rigor metodológico: GAESA no necesita ser el 70% de la economía real para operar como un banco central paralelo que asfixia la liquidez pública.",
+    bit4_date: "Diciembre 10, 2025",
+    bit4_badge: "Shock Externo",
+    bit4_title: "Interrupción de envíos de crudo venezolano y colapso del Sistema Eléctrico Nacional",
+    bit4_desc: "La interdicción marítima y el endurecimiento sancionatorio interrumpen el flujo de petróleo de PDVSA. El sistema termoeléctrico nacional colapsa, provocando apagones de 20+ horas que inutilizan la cadena de frío de alimentos y el bombeo de agua.",
+    bit4_impact: "Evidencia la vulnerabilidad física de la matriz energética ante shocks externos. Muestra que el hambre no es imputable únicamente a GAESA, aunque el conglomerado asegura energía prioritaria para sus hoteles mientras la red civil colapsa.",
+    bit5_date: "Febrero 28, 2025",
+    bit5_badge: "Dato Contrastado",
+    bit5_title: "Desvío masivo de remesas: 92.68% elude el monopolio bancario de GAESA",
+    bit5_desc: "Informes de Cuba Siglo 21 y el registro de tasas informales de elTOQUE constatan que casi la totalidad de las remesas ingresan al país por canales informales ante el desfase del tipo de cambio oficial, desplomando las remesas formales en 43%.",
+    bit5_impact: "Confirma la dinámica de supervivencia de la economía civil frente a la captura cambiaria oficial, desmintiendo que la sociedad acepte pasivamente las tasas fijadas por el monopolio militar.",
+    bit6_date: "Abril 10, 2026",
+    bit6_badge: "Mala Asignación de Capital",
+    bit6_title: "Ocupación hotelera de Gaviota entre 25% y 30%: elefantes blancos frente al colapso agrario",
+    bit6_desc: "Estadísticas oficiales de la ONEI analizadas por Pedro Monreal demuestran que la inversión en hoteles supera hasta 14 veces la destinada a agricultura, a pesar de que las habitaciones permanecen mayoritariamente vacías.",
+    bit6_impact: "Matiza la Tesis 3: GAESA no opera como un cartel capitalista eficiente que maximiza rentas, sino como una estructura autoritaria que destruye capital en activos improductivos mientras la población sufre escasez alimentaria.",
     fnt_label: "Triangulación de Fuentes",
     fnt_title: "Espectro y sesgos documentados",
     fnt_desc: "El rigor metodológico no desecha fuentes con intereses definidos; las sitúa dentro del espectro analítico declarando explícitamente sus incentivos para destilar información real del ruido de propaganda.",
@@ -2346,8 +2709,8 @@ const translations = {
     meta_key5: "Datos Primarios",
     meta_val5: "Encuesta FMP 2024 (2,703 hogares) + Balances GAESA filtrados 2025",
     meta_key6: "Última Actualización",
-    meta_val6: "Junio 2026 — Crisis activa en desarrollo",
-    footer_note: "Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a junio 2026.",
+    meta_val6: "Septiembre 2026 — Crisis activa en desarrollo continuo",
+    footer_note: "Este análisis es de carácter de investigación periodística e intelectual. Las tesis y narrativas presentadas son hipótesis académicas sujetas a falsación empírica. Las fuentes están explícitamente identificadas con su sesgo. No representa posición política de ningún gobierno o partido. Datos actualizados a septiembre 2026.",
     footer_repo_link: "Para saber más: Explora el repositorio y el README en GitHub →",
     gaesa_modal_subtitle: "Entidad del Conglomerado GAESA",
     gaesa_modal_official_title: "Lente CEPAL / Estado (Oficial)",
@@ -2403,13 +2766,14 @@ const translations = {
     nav_marco: "Theoretical Framework",
     nav_historia: "Deep History",
     nav_colapso: "Collapse",
+    nav_bitacora: "Evidence Log",
     nav_fuentes: "Sources",
     hero_tag: "Geopolitical Investigation · 2026",
     hero_title_white: "Failed",
     hero_title_red: "socialism or corporate",
     hero_title_yellow: "capture?",
-    hero_subtitle: "A methodological analysis to deconstruct the spectrum of narratives behind the humanitarian crisis in Cuba, contrasting independent data with GAESA's corporate capture.",
-    hero_badge: "Source Triangulation · Institutional Complexity · UN Data 2026",
+    hero_subtitle: "Reducing and simplifying informational noise in a complex crisis: triangulating GAESA's corporate balance sheets, agricultural disinvestment, and the impact of international sanctions.",
+    hero_badge: "Source Triangulation · Accounting Audit 2026 · Journalistic Traceability",
     hero_scroll: "Scroll to explore",
     met_label: "Module 1 · Narratives in Spectrum",
     met_title: "Three readings of the Cuban reality",
@@ -2444,8 +2808,8 @@ const translations = {
     card_dato3_desc: "Cuba imports 80% of the food it consumes. An agricultural nation in total food dependency.",
     card_dato3_source: "Source: FMP / Marti Noticias 2026",
     card_dato4_label: "Economy controlled by GAESA",
-    card_dato4_desc: "GAESA controls more than 70% of the Cuban economy and 95% of national finances. The civil State is decorative.",
-    card_dato4_source: "Source: Havana Consulting Group, ASCE 2025",
+    card_dato4_desc: "Audited balance sheets (elTOQUE / Vidal) reveal ~40% of GDP and $14,467M in liquid reserves, contrasting with the >70% previous exile estimate.",
+    card_dato4_source: "Source: Leaked GAESA balances vs. Havana Consulting",
     card_dato5_label: "Households with night hunger",
     card_dato5_desc: "33.9% of households report that at least one member went to sleep hungry due to a lack of resources.",
     card_dato5_source: "Source: FMP 2024, Sergio Angel Baquero",
@@ -2457,7 +2821,7 @@ const translations = {
     card_dato7_source: "Source: Cuba Siglo 21, February 2025",
     card_dato8_label: "GAESA income vs state taxes",
     card_dato8_desc: "The conglomerate's revenues are 3.2 times larger than the state's budget via tax revenues. Captured State.",
-    card_dato8_source: "Source: elToque, November 2025 (filtered balance sheets)",
+    card_dato8_source: "Source: elTOQUE, November 2025 (filtered balance sheets)",
     gaesa_label: "Module 3 · Anatomy of the Monopoly",
     gaesa_title: "GAESA: The State within the State",
     gaesa_desc: "Grupo de Administracion Empresarial S.A. is the financial arm of the Revolutionary Armed Forces. It operates without public audit, parliamentary control, or supervision from the Ministry of Economy. Not even the Comptroller General can access its accounts.",
@@ -2473,17 +2837,17 @@ const translations = {
     gaesa_node_universal: "Universal Warehouses",
     gaesa_sectorial: "Estimated sectorial control",
     gaesa_fn: "National finances",
-    gaesa_et: "Total economy",
+    gaesa_et: "Total economy (GDP)",
     gaesa_ia: "Food imports",
     gaesa_dv: "Foreign exchange (USD/EUR)",
     gaesa_tr: "Receptive tourism",
-    gaesa_chart_note: "* Combined estimates: Havana Consulting Group (ASCE 2025) + filtered GAESA balance sheets (elToque, Nov 2025) + FMP 2024",
+    gaesa_chart_note: "* Triangulated estimates: Leaked internal GAESA financial statements (Pavel Vidal / elTOQUE: ~40% of GDP, $14,467M in liquid deposits) contrasted with Havana Consulting Group (exile >70%) and ONEI.",
     geo_label: "Module 4 · The Board of Actors",
     geo_title: "The actor board: opaque interests",
     geo_desc: "Source triangulation requires identifying the vectors of interest that distort analysis. No actor is neutral. Informational noise is deliberate.",
     actor1_name: "United States",
     actor1_role: "The Embargo as a confounding variable",
-    actor1_desc: "64 years of embargo. Trump applied 240+ new sanctions. In December 2025, the US Navy temporarily disrupted the Venezuelan crude flow. Noise signal: the embargo is real and highly damaging, but remains insufficient to explain the internal asymmetry of resources.",
+    actor1_desc: "64 years of embargo. In September 2026, Secretary of State Marco Rubio announced new sanctions under E.O. 14404 targeting Banco Exterior de Cuba (BEC), Fidel Ernesto Castro Calis, and energy entities. Noise signal: sanctions choke foreign credit, but the regime uses them as an alibi to conceal its domestic neglect of agriculture.",
     actor2_name: "Cuban Regime / GAESA",
     actor2_role: "Embargo narrative as a shield",
     actor2_desc: "Uses the embargo as an alibi for all internal inefficiencies. No independent auditing is allowed, and official statistics are manipulated. Interest: the regime has a strong incentive to blame external factors to evade responsibility for monopolistic capture.",
@@ -2563,6 +2927,48 @@ const translations = {
     ev7_year: "June 2026 · Active Crisis",
     ev7_title: "Worst economic year in seven decades",
     ev7_desc: "With the suspension of international card processors and extreme credit contraction, local economists define the current period as the most severe economic crisis in 70 years.",
+    ev8_year: "September 2026 · State Department Sanctions",
+    ev8_title: "Maximum financial pressure on BEC",
+    ev8_desc: "Secretary of State Marco Rubio enforces Executive Order 14404 sanctioning Banco Exterior de Cuba, Fidel Ernesto Castro Calis, and 4 energy and mining entities, tightening international credit constraints.",
+    bitacora_label: "Module 6 · Journalistic Traceability",
+    bitacora_title: "Evidence Log: Reducing the Noise",
+    bitacora_desc: "Rigorous journalistic investigation does not impose dogmas on a complicated and complex situation: it subjects its hypotheses to continuous fact arbitration. This log documents evidence updates and how they adjust repository hypotheses to simplify and reduce informational noise.",
+    filter_all: "All Milestones",
+    filter_sanciones: "U.S. Sanctions",
+    filter_gaesa: "GAESA / Finance",
+    filter_alimentaria: "Food Security",
+    filter_privado: "Private Sector / Remittances",
+    bit_impact_label: "Impact on Site Hypotheses:",
+    bit1_date: "September 03, 2026",
+    bit1_badge: "Geopolitical Escalation",
+    bit1_title: "U.S. Secretary of State sanctions Banco Exterior de Cuba and Castro family circle",
+    bit1_desc: "Under Executive Order 14404, Secretary of State Marco Rubio and OFAC announce sanctions against Fidel Ernesto Castro Calis (nieto of Raul Castro), Banco Exterior de Cuba (BEC), and four energy and mining entities as part of the maximum pressure doctrine.",
+    bit1_impact: "Confirms the intensification of external financial credit asphyxiation, but the regime weaponizes it as a rhetorical shield to divert attention from its domestic neglect of agriculture and the electric grid.",
+    bit2_date: "May 15, 2026",
+    bit2_badge: "Humanitarian Alert",
+    bit2_title: "FMP Report to UN Special Rapporteur: 2,703 households in severe nutritional deprivation",
+    bit2_desc: "Food Monitor Program presents its nationwide food security survey to the UN: 96% loss of purchasing power for food and 33.9% of families with at least one member going to sleep hungry due to lack of money.",
+    bit2_impact: "Empirically substantiates that the food crisis is not a temporary distribution glitch, but a severe systemic deprivation where the monetary model passes the cost of deficit onto the household food basket.",
+    bit3_date: "November 20, 2025",
+    bit3_badge: "Empirical Revision / Contrast",
+    bit3_title: "Leaked GAESA Financial Statements: ~40% of GDP and $14,467M in liquid reserves",
+    bit3_desc: "Econometric audit by Pavel Vidal of leaked 2023-2024 accounts: GAESA represents ~40% of Cuban GDP (37% of gross value added and 34% of exports). It holds bank deposits multiplying state tax revenues by 3.2x.",
+    bit3_impact: "Revises downward previous exile estimates (40% vs. 70%+), reinforcing methodological rigor: GAESA does not need to be 70% of the real economy to act as a parallel central bank strangling public liquidity.",
+    bit4_date: "December 10, 2025",
+    bit4_badge: "External Shock",
+    bit4_title: "Interruption of Venezuelan crude shipments and national electrical grid collapse",
+    bit4_desc: "Naval interdiction and tightened sanctions halt PDVSA crude deliveries. The thermoelectric system collapses, causing 20+ hour blackouts that cripple food refrigeration and agricultural water pumping.",
+    bit4_impact: "Demonstrates physical grid vulnerability to external shocks. Shows hunger is not exclusively attributable to GAESA, though the conglomerate preserves priority power for its hotels while the civil grid collapses.",
+    bit5_date: "February 28, 2025",
+    bit5_badge: "Corroborated Data",
+    bit5_title: "Massive remittance diversion: 92.68% bypasses GAESA's banking monopoly",
+    bit5_desc: "Reports by Cuba Siglo 21 and elTOQUE informal rate tracking confirm that almost all remittances enter via informal channels due to distorted official exchange rates, causing formal remittances to fall 43%.",
+    bit5_impact: "Confirms the survival dynamics of the civil economy against official currency capture, disproving that civil society passively complies with rates set by the military monopoly.",
+    bit6_date: "April 10, 2026",
+    bit6_badge: "Capital Misallocation",
+    bit6_title: "Gaviota hotel occupancy between 25% and 30%: white elephants amidst agricultural collapse",
+    bit6_desc: "Official ONEI statistics analyzed by Pedro Monreal show hotel investment exceeded agricultural investment by up to 14x, even while rooms remained largely vacant.",
+    bit6_impact: "Refines Thesis 3: GAESA does not operate as an efficient profit-maximizing cartel, but as an authoritarian bureaucracy destroying capital in unproductive white elephants while the population starves.",
     fnt_label: "Source Triangulation",
     fnt_title: "Documented spectrum and biases",
     fnt_desc: "Methodological rigor does not discard sources with defined interests; it positions them within the analytical spectrum, explicitly stating their incentives to distill real information from propaganda noise.",
@@ -2614,8 +3020,8 @@ const translations = {
     meta_key5: "Primary Data",
     meta_val5: "FMP Survey 2024 (2,703 households) + Leaked GAESA Balance Sheets 2025",
     meta_key6: "Last Update",
-    meta_val6: "June 2026 — Active crisis in development",
-    footer_note: "This analysis is of a journalistic and intellectual research nature. The theses and narratives presented are academic hypotheses subject to empirical falsification. Sources are explicitly identified with their bias. It does not represent the political position of any government or party. Data updated as of June 2026.",
+    meta_val6: "September 2026 — Ongoing active crisis in development",
+    footer_note: "This analysis is of a journalistic and intellectual research nature. The theses and narratives presented are academic hypotheses subject to empirical falsification. Sources are explicitly identified with their bias. It does not represent the political position of any government or party. Data updated as of September 2026.",
     footer_repo_link: "To learn more: Explore the repository and README on GitHub →",
     gaesa_modal_subtitle: "GAESA Conglomerate Entity",
     gaesa_modal_official_title: "CEPAL / State Lens (Official)",
@@ -2820,6 +3226,23 @@ function toggleHistoria() {
     icon.style.transform = 'rotate(180deg)';
     btn.setAttribute('aria-expanded', 'true');
   }
+}
+
+// ── BITÁCORA FILTERING ────────────────────────────────
+function filterBitacora(category, btn) {
+  const cards = document.querySelectorAll('.bitacora-card');
+  const buttons = document.querySelectorAll('.bitacora-filter-btn');
+  
+  buttons.forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  
+  cards.forEach(card => {
+    if (category === 'all' || card.getAttribute('data-category') === category) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
 }
 
 // ── SMOOTH NAV ────────────────────────────────────────

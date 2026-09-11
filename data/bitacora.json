@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "metadata": {
+    "titulo": "Bitácora de Evidencia e Hitos Periodísticos",
+    "proposito": "Registro cronológico de hechos empíricos y ajustes analíticos para reducir y simplificar el ruido informativo en una crisis compleja",
+    "ultima_actualizacion": "2026-09-10"
+  },
+  "hitos": [
+    {
+      "id": "hito-2026-09-sanciones-secstate",
+      "fecha": "2026-09-03",
+      "categoria": "sanciones",
+      "categoria_label": "Sanciones EE. UU.",
+      "veredicto": "Escalada Geopolítica",
+      "titulo": "Secretario de Estado de EE. UU. sanciona al Banco Exterior de Cuba y a la cúpula familiar",
+      "descripcion": "Bajo la Orden Ejecutiva 14404, el Departamento de Estado y la OFAC anuncian sanciones contra Fidel Ernesto Castro Calis (nieto de Raúl Castro), el Banco Exterior de Cuba (BEC) y cuatro entidades de los sectores energético y minero.",
+      "fuentes": [
+        {"nombre": "Departamento de Estado / OFAC", "tipo": "Oficial EE. UU."},
+        {"nombre": "El País / Infobae", "tipo": "Prensa Internacional"}
+      ],
+      "impacto_hipotesis": "Confirma la intensificación de la 'máxima presión' financiera externa sobre canales estatales bancarios, pero el régimen la instrumentaliza para justificar el colapso energético interno que venía gestándose por desinversión secular."
+    },
+    {
+      "id": "hito-2026-05-onu-fmp",
+      "fecha": "2026-05-15",
+      "categoria": "alimentaria",
+      "categoria_label": "Seguridad Alimentaria",
+      "veredicto": "Alerta Humanitaria",
+      "titulo": "Informe FMP ante el Relator Especial ONU: 2,703 hogares en inseguridad crítica",
+      "descripcion": "Food Monitor Program presenta ante la ONU su relevamiento nacional: 96% de pérdida de poder adquisitivo para comida y 33.9% de hogares con al menos un miembro que duerme con hambre.",
+      "fuentes": [
+        {"nombre": "Food Monitor Program", "tipo": "Crítico / Enfoque DD.HH."},
+        {"nombre": "Relatoría ONU Derecho a la Alimentación", "tipo": "Internacional Neutro"}
+      ],
+      "impacto_hipotesis": "Sustenta cuantitativamente la Tesis Empírica: el hambre no es un problema de distribución transitoria sino una privación sistémica donde los sectores vulnerables subsidian el monopolio de divisas."
+    },
+    {
+      "id": "hito-2025-11-balances-gaesa-vidal",
+      "fecha": "2025-11-20",
+      "categoria": "gaesa",
+      "categoria_label": "GAESA / Finanzas",
+      "veredicto": "Revisión a la Baja / Rigor Empírico",
+      "titulo": "Filtración de balances internos de GAESA: ~40% del PIB y $14,400M en reservas líquidas",
+      "descripcion": "La auditoría econométrica de Pavel Vidal sobre los estados contables 2023-2024 revela que GAESA representa cerca del 40% del PIB cubano y genera el 37% del valor agregado bruto, con ingresos 3.2 veces mayores que el presupuesto tributario del Estado.",
+      "fuentes": [
+        {"nombre": "elTOQUE / Univ. Javeriana / Columbia", "tipo": "Técnico Independiente"},
+        {"nombre": "Balances internos filtrados de GAESA", "tipo": "Primaria filtrada"}
+      ],
+      "impacto_hipotesis": "Corrige el mito exógeno del '>70% de la economía': el poder de GAESA es de ~40% del PIB, pero actúa como un 'banco central paralelo' que retiene divisas líquidas mientras el Estado civil quiebra."
+    },
+    {
+      "id": "hito-2025-12-corte-petroleo",
+      "fecha": "2025-12-10",
+      "categoria": "sanciones",
+      "categoria_label": "Sanciones / Energía",
+      "veredicto": "Shock Externo",
+      "titulo": "Interrupción de envíos de crudo venezolano y colapso del SEN",
+      "descripcion": "Acciones de interdicción y sanciones cortan el flujo de tanqueros de PDVSA hacia la isla. Las centrales termoeléctricas sufren apagones masivos generalizados de más de 20 horas diarias.",
+      "fuentes": [
+        {"nombre": "Prensa Internacional / Reuters", "tipo": "Internacional"},
+        {"nombre": "Unión Eléctrica de Cuba (UNE)", "tipo": "Oficial Régimen"}
+      ],
+      "impacto_hipotesis": "Demuestra que la crisis tiene componentes de shock externo físico independiente de GAESA, aunque el conglomerado preserva el fluido eléctrico prioritario en sus hoteles turísticos."
+    },
+    {
+      "id": "hito-2025-02-remesas-informales",
+      "fecha": "2025-02-28",
+      "categoria": "sector_privado",
+      "categoria_label": "Sector Privado / Remesas",
+      "veredicto": "Dato Contrastado",
+      "titulo": "Colapso del canal oficial de remesas: 92.68% elude las tasas estatales",
+      "descripcion": "Estudio de Cuba Siglo 21 y elTOQUE demuestra que la diáspora desvía masivamente sus envíos hacia el mercado cambiario informal para evitar las confiscatorias tasas de cambio fijadas por el Banco Central / GAESA.",
+      "fuentes": [
+        {"nombre": "Cuba Siglo 21", "tipo": "Exilio pro-mercado"},
+        {"nombre": "elTOQUE (Tasa Representativa Informal)", "tipo": "Técnico Independiente"}
+      ],
+      "impacto_hipotesis": "Valida la Tesis de Captura: la sociedad civil crea mecanismos informales de supervivencia, pero GAESA responde restringiendo la liquidez y aumentando los controles a las transferencias bancarias."
+    },
+    {
+      "id": "hito-2024-2026-ocupacion-turismo",
+      "fecha": "2026-04-10",
+      "categoria": "gaesa",
+      "categoria_label": "GAESA / Finanzas",
+      "veredicto": "Mala Asignación de Capital",
+      "titulo": "Ocupación hotelera de Gaviota estancada entre 25% y 30% mientras la agricultura languidece",
+      "descripcion": "Análisis de Pedro Monreal basado en estadísticas oficiales de la ONEI evidencia que la inversión inmobiliario-hotelera de GAESA supera hasta por 14 veces la inversión en agricultura, generando activos vacíos e improductivos.",
+      "fuentes": [
+        {"nombre": "Oficina Nacional de Estadísticas e Información (ONEI)", "tipo": "Oficial Régimen"},
+        {"nombre": "Pedro Monreal (Blog El Estado Como Tal)", "tipo": "Académico / Técnico"}
+      ],
+      "impacto_hipotesis": "Matiza la Tesis 3: GAESA no es una corporación hiperracional y exitosa; sufre de ceguera burocrática y dilapidación de recursos en elefantes blancos sin demanda turística real."
+    }
+  ]
+}

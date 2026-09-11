@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "metadata": {
+    "caso": "Cuba: Capitalismo Capturado y Crisis de Abasto",
+    "version": "2.1.0",
+    "ultima_actualizacion": "2026-09-10",
+    "metodologia": "Triangulación de Fuentes con Sesgo Declarado",
+    "marco_teorico": "Teoría de la Búsqueda de Rentas (Tullock-Krueger) + Economía Austriaca (Hayek/Mises)"
+  },
+  "indicadores": [
+    {
+      "id": "perdida_capacidad_compra",
+      "indicador": "Pérdida de capacidad de compra de alimentos esenciales",
+      "valor_nominal": "96%",
+      "valor_numerico": 96.0,
+      "unidad": "%",
+      "fuente_primaria": "Food Monitor Program (FMP)",
+      "referencia_estudio": "Encuesta Nacional de Seguridad Alimentaria (2,703 hogares)",
+      "fecha_verificacion": "2024-2026",
+      "sesgo_fuente": "Crítico / Anti-régimen institucional",
+      "convergencia": "Alta (corroborada por observaciones de terreno de 14ymedio y Diario de Cuba)"
+    },
+    {
+      "id": "desplome_produccion_agricola",
+      "indicador": "Desplome de la producción agrícola nacional (últimos 5 años)",
+      "valor_nominal": "67%",
+      "valor_numerico": 67.0,
+      "unidad": "%",
+      "fuente_primaria": "Food Monitor Program (FMP) / Infobae",
+      "referencia_estudio": "Informe presentado ante Relator Especial ONU de Alimentación",
+      "fecha_verificacion": "2026-05",
+      "sesgo_fuente": "Crítico / Observatorio independiente",
+      "convergencia": "Media-Alta (coincide con los balances de caída de acopio en anuarios ONEI)"
+    },
+    {
+      "id": "alimentos_importados",
+      "indicador": "Porcentaje de alimentos de consumo nacional que son importados",
+      "valor_nominal": "80%",
+      "valor_numerico": 80.0,
+      "unidad": "%",
+      "fuente_primaria": "FMP / Martí Noticias / ONEI",
+      "referencia_estudio": "Balance de comercio exterior de bienes esenciales",
+      "fecha_verificacion": "2026",
+      "sesgo_fuente": "Convergencia de opuestos (declarado tanto por el régimen como por críticos)",
+      "convergencia": "Máxima (reconocido en discursos oficiales de la Asamblea Nacional)"
+    },
+    {
+      "id": "peso_economico_gaesa",
+      "indicador": "Peso económico y control sectorial del conglomerado militar GAESA",
+      "valor_nominal": "40% – 70%+",
+      "valor_numerico": 40.0,
+      "unidad": "% PIB",
+      "rango_estimacion": {
+        "auditoria_balances_reales": "37% - 40% del PIB (Pavel Vidal / elTOQUE / Univ. Columbia / Javeriana)",
+        "estimacion_exilio_tecnico": ">70% de la economía (Emilio Morales / Havana Consulting Group)"
+      },
+      "activos_declarados_filtrados": "17,894 millones USD (marzo 2024)",
+      "reservas_liquidas_bancarias": "14,467 millones USD en depósitos internos (BFI)",
+      "fuente_primaria": "Balances financieros internos filtrados de GAESA (2023-2024) / elTOQUE",
+      "fecha_verificacion": "2025-2026",
+      "sesgo_fuente": "Técnico independiente / Filtración contable directa",
+      "convergencia": "Señal crítica corregida: el 40% del PIB auditado reemplaza el mito del 70% sin mermar la tesis del 'banco central paralelo'"
+    },
+    {
+      "id": "flujos_financieros_gaesa",
+      "indicador": "Control de transacciones financieras y divisas bancarizadas",
+      "valor_nominal": "95%",
+      "valor_numerico": 95.0,
+      "unidad": "%",
+      "fuente_primaria": "Havana Consulting Group / elTOQUE (Balances BFI)",
+      "referencia_estudio": "Banco Financiero Internacional S.A. como monopolio de divisas",
+      "fecha_verificacion": "2025-2026",
+      "sesgo_fuente": "Técnico / Exilio económico",
+      "convergencia": "Alta"
+    },
+    {
+      "id": "hogares_hambre_nocturna",
+      "indicador": "Hogares donde al menos un miembro se acuesta con hambre por falta de ingresos",
+      "valor_nominal": "33.9%",
+      "valor_numerico": 33.9,
+      "unidad": "%",
+      "fuente_primaria": "Food Monitor Program (Sergio Ángel Baquero)",
+      "referencia_estudio": "Encuesta presencial 2,703 hogares",
+      "fecha_verificacion": "2024-2026",
+      "sesgo_fuente": "Crítico / Enfoque DD.HH.",
+      "convergencia": "Alta"
+    },
+    {
+      "id": "hogares_dos_comidas",
+      "indicador": "Hogares que consumen únicamente dos comidas al día",
+      "valor_nominal": "29%",
+      "valor_numerico": 29.0,
+      "unidad": "%",
+      "fuente_primaria": "Diario de Cuba / FMP",
+      "referencia_estudio": "Monitoreo de canasta básica y privación calórica",
+      "fecha_verificacion": "2026",
+      "sesgo_fuente": "Periodismo independiente crítico",
+      "convergencia": "Media-Alta"
+    },
+    {
+      "id": "caida_remesas",
+      "indicador": "Caída en volumen total de remesas recibidas (-70% vs. 2019)",
+      "valor_nominal": "43%",
+      "valor_numerico": 43.0,
+      "unidad": "% interanual",
+      "fuente_primaria": "Cuba Siglo 21 (Emilio Morales)",
+      "referencia_estudio": "Monitoreo de remesas y colapso de transferencias formales",
+      "fecha_verificacion": "2025-02",
+      "sesgo_fuente": "Exilio pro-mercado",
+      "convergencia": "Alta"
+    },
+    {
+      "id": "remesas_canales_informales",
+      "indicador": "Porcentaje de remesas que ingresan eludiendo el cambio oficial de GAESA",
+      "valor_nominal": "92.68%",
+      "valor_numerico": 92.68,
+      "unidad": "%",
+      "fuente_primaria": "Cuba Siglo 21 / elTOQUE",
+      "referencia_estudio": "Mercado informal cambiario y arbitraje de remesas",
+      "fecha_verificacion": "2025-2026",
+      "sesgo_fuente": "Técnico / Sociedad civil",
+      "convergencia": "Máxima (el tipo de cambio informal supera 300+ CUP por USD)"
+    },
+    {
+      "id": "ingresos_gaesa_vs_presupuesto_estado",
+      "indicador": "Proporción ingresos GAESA vs. presupuesto tributario del Estado cubano",
+      "valor_nominal": "3.2×",
+      "valor_numerico": 3.2,
+      "unidad": "multiplicador",
+      "fuente_primaria": "elTOQUE (Auditoría Pavel Vidal sobre balances filtrados)",
+      "referencia_estudio": "Estados financieros de GAESA 2023-2024",
+      "fecha_verificacion": "2025-11",
+      "sesgo_fuente": "Técnico independiente",
+      "convergencia": "Alta (primera evidencia basada en libros contables directos)"
+    },
+    {
+      "id": "ocupacion_hotelera_turismo",
+      "indicador": "Tasa promedio de ocupación hotelera en instalaciones de GAESA (Gaviota)",
+      "valor_nominal": "25% – 30%",
+      "valor_numerico": 27.5,
+      "unidad": "% ocupación",
+      "fuente_primaria": "Oficina Nacional de Estadística e Información (ONEI) / Pedro Monreal",
+      "referencia_estudio": "Anuario Estadístico de Turismo y seguimiento de inversiones",
+      "fecha_verificacion": "2024-2026",
+      "sesgo_fuente": "Oficial analizada por economista independiente",
+      "convergencia": "Máxima (datos de la propia ONEI confirman la mala asignación de capital)"
+    }
+  ]
+}

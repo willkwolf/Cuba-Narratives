@@ -144,6 +144,30 @@
       "fecha_verificacion": "2024-2026",
       "sesgo_fuente": "Oficial analizada por economista independiente",
       "convergencia": "Máxima (datos de la propia ONEI confirman la mala asignación de capital)"
+    },
+    {
+      "id": "salud_pagos_informales",
+      "indicador": "Población que debió pagar por servicios de salud o medicamentos formalmente gratuitos",
+      "valor_nominal": "74.3%",
+      "valor_numerico": 74.3,
+      "unidad": "%",
+      "fuente_primaria": "Casa Palanca / Cubadata",
+      "referencia_estudio": "La privatización silenciosa: prácticas de corrupción en el SNS (2,141 encuestados)",
+      "fecha_verificacion": "2025-2026",
+      "sesgo_fuente": "Crítico / Periodismo de investigación y DD.HH. independiente",
+      "convergencia": "Alta (documentación de privatización de facto y mercantilización informal)"
+    },
+    {
+      "id": "salud_desistimiento_atencion",
+      "indicador": "Población que desistió de buscar atención médica por no poder costear pagos o insumos informales",
+      "valor_nominal": "52.2%",
+      "valor_numerico": 52.2,
+      "unidad": "%",
+      "fuente_primaria": "Casa Palanca / Cubadata",
+      "referencia_estudio": "La privatización silenciosa: prácticas de corrupción en el SNS (2,141 encuestados)",
+      "fecha_verificacion": "2025-2026",
+      "sesgo_fuente": "Crítico / Periodismo de investigación y DD.HH. independiente",
+      "convergencia": "Alta (quiebre del principio de universalidad del sistema sanitario)"
     }
   ]
 }

@@ -20,6 +20,9 @@ Este documento reúne de forma estructurada los datos cuantitativos, el espectro
 | **33.9%** | Porcentaje de hogares donde al menos un miembro se ha ido a dormir con hambre por falta de recursos financieros | FMP 2024 (Sergio Ángel Baquero) | **Alta** |
 | **29%** | Porcentaje de hogares que se alimenta **solo dos veces** al día bajo la crisis actual | Diario de Cuba / FMP 2026 | **Alta** |
 | **43%** | Caída interanual en el volumen total de remesas familiares recibidas en la isla durante 2024 (-70% comparado con 2019) | Cuba Siglo 21 (Febrero 2025) | **Alta** |
+| **74.3%** | Porcentaje de la población que ha debido pagar por servicios médicos o fármacos formalmente gratuitos (**privatización silenciosa**) | [Casa Palanca](https://www.casapalanca.org/la-privatizacion-silenciosa-practicas-de-corrupcion-en-el-sistema-nacional-de-salud-cubano) / Cubadata (Encuesta a 2,141 personas) | **Alta** (metodología empírica independiente) |
+| **52.2%** | Porcentaje de ciudadanos que desistió de buscar atención médica por incapacidad de costear pagos o insumos informales | Casa Palanca / Cubadata (2025-2026) | **Alta** (ruptura de la universalidad constitucional) |
+| **78%** | Porcentaje de personas que debió recurrir a contactos personales (*palancas* / influencias) para acceder a atención médica | Casa Palanca / Cubadata (2025-2026) | **Alta** (normalización del tráfico de influencias) |
 
 ---
 
@@ -31,6 +34,7 @@ Para neutralizar la polarización de las narrativas tradicionales, las fuentes s
 * **Food Monitor Program (FMP):** Observatorio independiente de seguridad alimentaria. Datos directos sobre desnutrición de 2,703 hogares presenciales en la isla (Director: Sergio Ángel Baquero). *Sesgo: anti-régimen institucional.*
 * **Havana Consulting Group / Cuba Siglo 21:** Consultora y centro de análisis económico basados en Miami. Estimaciones sobre flujos de remesas y poder corporativo militar (Director: Emilio Morales). *Sesgo: exilio pro-mercado.*
 * **14ymedio / Diario de Cuba:** Medios independientes cubanos con reportería en el terreno sobre decomisos estatales y economía informal. *Sesgo: crítico del régimen.*
+* **Casa Palanca / Cubadata:** Colectiva feminista de comunicación e investigación periodística independiente en alianza metodológica con el laboratorio de datos cívicos Cubadata. Autoras del informe [*La privatización silenciosa: prácticas de corrupción en el Sistema Nacional de Salud cubano*](https://www.casapalanca.org/la-privatizacion-silenciosa-practicas-de-corrupcion-en-el-sistema-nacional-de-salud-cubano) (2025; finalista del Premio Roche de Periodismo en Salud 2026), basado en encuesta a 2,141 personas. Documenta empíricamente la mercantilización informal de servicios médicos, cobros extraoficiales y el colapso del principio de universalidad. *Sesgo: periodismo independiente de investigación / derechos humanos / crítico institucional.*
 
 ### B. Fuentes Técnicas Independientes y Académicas (Sesgo Bajo / Metodología Econométrica)
 * **elTOQUE:** Medio independiente especializado en economía cubana. Publica el índice diario del tipo de cambio informal de divisas y la auditoría de balances corporativos filtrados de GAESA (Colaboración con Pavel Vidal, Univ. Javeriana / Columbia). *Sesgo: técnico de mercado.*
@@ -54,6 +58,7 @@ La investigación se estructura bajo la lógica de falsación popperiana para as
 ### Hipótesis de la Búsqueda de Rentas y Captura Institucional (Monopolio Militar)
 * **Tesis:** La crisis de abasto en Cuba responde a la captura de los flujos de divisas y del excedente de la sociedad civil por parte de GAESA, conglomerado que actúa como un "banco central paralelo" y ejerce un bloqueo interno sobre la importación autónoma y el cálculo cambiario.
 * **Matiz de Mala Asignación de Capital:** Dicha captura no opera con la eficiencia de un cartel capitalista boyante, sino que sufre la ceguera burocrática de regímenes autoritarios, hundiendo miles de millones de dólares en infraestructura hotelera con una ocupación de apenas 25-30% mientras descapitaliza la producción agraria básica.
+* **Extensión al Sector Sanitario (Privatización Silenciosa):** La asimetría de capital no solo estrangula la agricultura; al retener liquidez en el BFI y construir enclaves turísticos improductivos, el Estado vacía el presupuesto de la salud pública civil. Esto engendra una mercantilización informal de facto: el 74.3% de la población debe pagar por servicios o fármacos en el mercado negro hospitalario y el 52.2% desiste de recibir atención por falta de recursos (Casa Palanca / Cubadata), demostrando que la retórica de la gratuidad universal encubre un traslado forzoso de costes hacia las familias.
 * **Condición de Falsación:** Si se desmantelara el holding corporativo de GAESA (desregulando el monopolio de comercio exterior de insumos, permitiendo la banca comercial autónoma y liberando el tipo de cambio) y, aun así, la crisis alimentaria persistiera idéntica bajo iniciativa civil, la hipótesis del monopolio militar como factor determinante quedaría **falsada**.
 
 ### Hipótesis del Bloqueo Externo (Embargo de EE. UU. y Política de Máxima Presión)
@@ -72,9 +77,10 @@ Para garantizar la honestidad periodística frente a situaciones complejas, el r
 4. **Diciembre 2025 — Bloqueo de crudo venezolano y colapso del SEN:** La interrupción de suministros energéticos externos paraliza las termoeléctricas. *Impacto:* Demuestra que el colapso material involucra factores físicos exógenos que interactúan con la desinversión interna en infraestructura básica.
 5. **Febrero 2025 — Desvío de Remesas al Mercado Informal:** Cuba Siglo 21 y elTOQUE reportan que el 92.68% de las remesas ingresan por canales informales. *Impacto:* Evidencia que la sociedad civil evade el monopolio de divisas, provocando reacciones regulatorias represivas por parte del Estado.
 6. **2024–2026 — Ocupación Hotelera del 25%–30% (Pedro Monreal / ONEI):** Las estadísticas de la propia ONEI documentan que el auge hotelero de GAESA opera en números rojos de ocupación. *Impacto:* Refuta la idea de que GAESA es un cartel empresarial exitoso y prueba la tesis austriaca de mala asignación masiva de recursos en monopolios políticos.
+7. **2025–2026 — "La Privatización Silenciosa" del Sistema Nacional de Salud (Casa Palanca / Cubadata):** Encuesta a 2,141 ciudadanos revela que el 74.3% paga por servicios supuestamente gratuitos, el 78% recurre a contactos (*palancas*) y el 52.2% desiste de tratarse por falta de recursos. *Impacto:* Refuerza la Tesis 1 y 2 al desmantelar el pilar retórico de la gratuidad médica universal y evidenciar que el vacío estatal ha forzado la mercantilización informal de la salud.
 
 ---
 
-**Documento actualizado:** Septiembre 10, 2026  
+**Documento actualizado:** Septiembre 2026  
 **Pipeline de Auditoría:** `scripts/audit_claims.py` (Automated CI / GitHub Actions)  
 **Datasets estructurados:** `data/indicadores.json` y `data/bitacora.json`

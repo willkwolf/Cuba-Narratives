@@ -89,6 +89,20 @@
         {"nombre": "Pedro Monreal (Blog El Estado Como Tal)", "tipo": "Académico / Técnico"}
       ],
       "impacto_hipotesis": "Matiza la Tesis 3: GAESA no es una corporación hiperracional y exitosa; sufre de ceguera burocrática y dilapidación de recursos en elefantes blancos sin demanda turística real."
+    },
+    {
+      "id": "hito-2025-2026-privatizacion-salud",
+      "fecha": "2025-06-15",
+      "categoria": "sociedad_civil",
+      "categoria_label": "Salud Pública / Sociedad Civil",
+      "veredicto": "Privatización Silenciosa",
+      "titulo": "Investigación Casa Palanca y Cubadata: 74.3% paga por salud formalmente gratuita",
+      "descripcion": "Encuesta nacional a 2,141 personas en toda la isla documenta el colapso del Sistema Nacional de Salud: el 74.3% debió pagar por atención o fármacos, el 78% recurrió a contactos personales ('palancas') y el 52.2% desistió de atenderse por no poder afrontar los costes informales.",
+      "fuentes": [
+        {"nombre": "Casa Palanca (Luzbely Escobar et al.)", "tipo": "Periodismo Independiente / DD.HH."},
+        {"nombre": "Cubadata", "tipo": "Laboratorio de Datos Cívicos"}
+      ],
+      "impacto_hipotesis": "Confirma la Tesis 1 y 2 en el plano social: el 'marketing socialista' de la gratuidad universal encubre una privatización de facto y una economía sumergida donde el paciente financia los insumos ante el desvío de recursos estatales hacia GAESA."
     }
   ]
 }
